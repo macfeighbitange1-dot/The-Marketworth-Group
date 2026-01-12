@@ -1,0 +1,303 @@
+/* --- The Marketworth Group Design System 2026 --- */
+
+:root {
+    --brand-blue: #2563eb;
+    --brand-dark: #0f172a;
+    --brand-accent: #38bdf8;
+    --text-main: #334155;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.95);
+    --gold: #f59e0b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text-main);
+    line-height: 1.7;
+    background-color: #f1f5f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--brand-dark);
+    letter-spacing: -1px;
+}
+
+.logo span { color: var(--brand-blue); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--brand-dark);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--brand-blue); }
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(135deg, var(--brand-dark) 0%, #1e293b 100%);
+    color: var(--white);
+    padding: 100px 0 140px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 span {
+    background: linear-gradient(to right, var(--brand-accent), var(--brand-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-visual {
+    margin: 2rem auto;
+    max-width: 850px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 2rem auto;
+    opacity: 0.9;
+}
+
+/* --- Buttons --- */
+.btn-primary, .btn-secondary {
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--brand-blue);
+    color: white;
+    border: none;
+}
+
+.btn-secondary {
+    border: 2px solid var(--white);
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* --- Overview Cards --- */
+.overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: -80px;
+    padding-bottom: 60px;
+}
+
+.card {
+    background: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border: 1px solid #f1f5f9;
+    transition: 0.3s;
+}
+
+.icon-placeholder {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.card:hover { transform: translateY(-10px); }
+
+/* --- Portfolio Grid --- */
+.portfolio { padding: 80px 0; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-header h2 { font-size: 2.5rem; color: var(--brand-dark); }
+.section-header h2 span { color: var(--brand-blue); }
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.4s ease;
+}
+
+.project-card:hover { transform: translateY(-10px); }
+
+.project-img {
+    height: 220px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ecom-bg { background: linear-gradient(45deg, #2563eb, #7dd3fc); }
+.bot-bg { background: linear-gradient(45deg, #059669, #34d399); }
+.inst-bg { background: linear-gradient(45deg, #1e293b, #64748b); }
+
+.tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--brand-dark);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.project-info { padding: 2rem; }
+.project-info h4 { margin-bottom: 0.5rem; color: var(--brand-dark); font-size: 1.3rem; }
+
+/* --- Services Checklist --- */
+.service-features {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+.service-features li {
+    padding-left: 25px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 0.95rem;
+}
+.service-features li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: var(--brand-blue);
+    font-weight: bold;
+}
+
+/* --- Reviews Section --- */
+.reviews { padding: 80px 0; background: #f8fafc; }
+.reviews-grid {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: thin;
+}
+.review-card {
+    min-width: 300px;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.stars { color: var(--gold); font-size: 1.2rem; margin-bottom: 1rem; }
+cite { display: block; margin-top: 1rem; font-weight: 700; color: var(--brand-blue); font-style: normal; }
+
+/* --- Contact & Map Section --- */
+.contact { padding: 80px 0; }
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: white;
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+.map-area iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--brand-dark);
+    color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--brand-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .nav-links { display: none; }
+    .hero-btns { display: flex; flex-direction: column; gap: 1rem; }
+    .btn-secondary { margin-left: 0; }
+    .contact-grid { grid-template-columns: 1fr; padding: 2rem; }
+}

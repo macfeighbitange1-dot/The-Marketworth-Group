@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ info.name }} | Digital Solutions Kutus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">The Marketworth <span>Group</span></div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 {{ info.name }}. Located in {{ info.location }}.</p>
+            <div class="social-links">
+                <a href="{{ info.facebook }}" target="_blank">Facebook</a>
+                <a href="{{ info.youtube }}" target="_blank">YouTube</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="tel:{{ info.phone }}">Call: {{ info.phone }}</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
