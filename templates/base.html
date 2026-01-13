@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ info.name }} | Digital Solutions Kutus</title>
+    
+    <title>{{ info.name }} | Digital Scaling & Automation Kutus</title>
+    <meta name="title" content="{{ info.name }} | Digital Solutions Kenya">
+    <meta name="description" content="Expert E-commerce, WhatsApp Bot automation, and Ads optimization for Kenyan businesses. Scaling Kutus into the digital future.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://the-marketworth-group.onrender.com/">
+    <meta property="og:title" content="{{ info.name }} | Building Systems That Scale">
+    <meta property="og:description" content="Specialized in WhatsApp Bots, School Portals, and E-commerce.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/hero-brand.png') }}">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -14,8 +24,8 @@
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Get Started</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                <li><a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem; border-radius: 50px;">Get Started</a></li>
             </ul>
         </nav>
     </header>
@@ -24,9 +34,14 @@
         {% block content %}{% endblock %}
     </main>
 
+    <a href="https://wa.me/{{ info.whatsapp }}" class="whatsapp-float" target="_blank" title="Chat with an Expert">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
     <footer>
         <div class="container">
-            <p>&copy; 2026 {{ info.name }}. Located in {{ info.location }}.</p>
+            <p>&copy; {{ info.year }} {{ info.name }}. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">📍 {{ info.location }}</p>
             <div class="social-links">
                 <a href="{{ info.facebook }}" target="_blank">Facebook</a>
                 <a href="{{ info.youtube }}" target="_blank">YouTube</a>
