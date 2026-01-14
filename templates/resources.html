@@ -1,41 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="hero reveal active" style="padding: 160px 0 60px 0; text-align: center;">
+<section style="padding: 80px 0; text-align: center;">
     <div class="container">
-        <span style="color: var(--brand-blue); font-weight: 800; letter-spacing: 2px; font-size: 0.8rem;">THE KNOWLEDGE HUB</span>
-        <h1 style="margin-top: 10px; font-size: 3rem;">Technical <span>Blueprints.</span></h1>
-        <p style="color: #64748b; font-size: 1.1rem; margin-top: 10px;">In-depth guides on engineering revenue and digital infrastructure.</p>
+        <h1>Resource <span>Hub</span></h1>
+        <p>Technical protocols for digital systems.</p>
     </div>
 </section>
 
-<section class="container" style="padding-bottom: 100px;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+<section class="container" style="padding-bottom: 80px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
         {% for guide in guides %}
-        <div class="card resource-card" style="background: white; border: 1px solid #e2e8f0; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem; border-radius: 20px;">
+        <div style="border: 1px solid #e2e8f0; padding: 30px; border-radius: 15px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-                <span style="background: #eff6ff; color: #2563eb; padding: 5px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase;">{{ guide.tag }}</span>
-                <h3 style="margin: 1.5rem 0 1rem 0; font-size: 1.4rem; line-height: 1.3; color: #0f172a;">{{ guide.title }}</h3>
-                <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin-bottom: 2rem;">{{ guide.excerpt }}</p>
+                <span style="color: var(--brand-blue); font-weight: 800; font-size: 0.8rem;">{{ guide.tag }}</span>
+                <h3 style="margin: 15px 0;">{{ guide.title }}</h3>
+                <p style="font-size: 0.9rem;">{{ guide.excerpt }}</p>
             </div>
-            
-            {# FIXED LINK: Points directly to the routes we standardized in app.py #}
-            <a href="/resources/{{ guide.id }}" 
-               style="text-decoration: none; color: #2563eb; font-weight: 700; font-size: 0.9rem; border: 1px solid #2563eb; padding: 12px 20px; border-radius: 50px; text-align: center; transition: 0.3s; display: block;">
-               Read Protocol →
-            </a>
+            <a href="/resources/{{ guide.id }}" style="margin-top: 20px; color: var(--brand-blue); font-weight: 700; text-decoration: none;">Read Guide →</a>
         </div>
         {% endfor %}
-    </div>
-</section>
-
-<section class="container reveal" style="padding-bottom: 100px;">
-    <div style="background: #0f172a; color: white; padding: 5rem 2rem; border-radius: 30px; text-align: center;">
-        <h2 style="color: white; font-size: 2.2rem;">Get the Weekly <span>System Update.</span></h2>
-        <p style="margin-bottom: 2.5rem; opacity: 0.8; font-size: 1.1rem;">We send one high-level technical strategy every Tuesday. No spam.</p>
-        <form style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-            <input type="email" placeholder="Business Email" style="padding: 1.1rem; border-radius: 12px; border: none; width: 320px; font-size: 1rem;" required>
-            <button class="btn-primary" type="submit" style="padding: 1.1rem 2rem; border-radius: 12px;">Join 500+ Architects</button>
-        </form>
     </div>
 </section>
 {% endblock %}
