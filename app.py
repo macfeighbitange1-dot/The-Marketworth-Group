@@ -15,7 +15,6 @@ app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
 
 mail = Mail(app)
 
-# FIXED: Standardized Branding
 COMPANY_DATA = {
     "name": "The Marketworth Group",
     "tagline": "Systems Architecture & Revenue Engineering",
@@ -39,18 +38,17 @@ def services():
 def privacy():
     return render_template('privacy.html', info=COMPANY_DATA)
 
-# --- RESOURCE HUB ROUTES ---
-# Use strict trailing slashes to prevent 404s
+# --- RESOURCE HUB ROUTES (Standardized - No Trailing Slashes) ---
 
-@app.route('/resources/mpesa-stk-protocol/')
+@app.route('/resources/mpesa-stk-protocol')
 def mpesa_guide():
     return render_template('mpesa_guide.html', info=COMPANY_DATA)
 
-@app.route('/resources/whatsapp-funnels/')
+@app.route('/resources/whatsapp-funnels')
 def whatsapp_guide():
     return render_template('whatsapp_guide.html', info=COMPANY_DATA)
 
-@app.route('/resources/erp-architecture/')
+@app.route('/resources/erp-architecture')
 def erp_guide():
     return render_template('erp_guide.html', info=COMPANY_DATA)
 
