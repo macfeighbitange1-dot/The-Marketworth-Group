@@ -15,7 +15,7 @@ app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
 
 mail = Mail(app)
 
-# REFACTORED: Agency Positioning Data
+# FIXED: Standardized Branding
 COMPANY_DATA = {
     "name": "The Marketworth Group",
     "tagline": "Systems Architecture & Revenue Engineering",
@@ -40,16 +40,17 @@ def privacy():
     return render_template('privacy.html', info=COMPANY_DATA)
 
 # --- RESOURCE HUB ROUTES ---
+# Use strict trailing slashes to prevent 404s
 
-@app.route('/resources/mpesa-stk-protocol')
+@app.route('/resources/mpesa-stk-protocol/')
 def mpesa_guide():
     return render_template('mpesa_guide.html', info=COMPANY_DATA)
 
-@app.route('/resources/whatsapp-funnels')
+@app.route('/resources/whatsapp-funnels/')
 def whatsapp_guide():
     return render_template('whatsapp_guide.html', info=COMPANY_DATA)
 
-@app.route('/resources/erp-architecture')
+@app.route('/resources/erp-architecture/')
 def erp_guide():
     return render_template('erp_guide.html', info=COMPANY_DATA)
 
@@ -77,15 +78,12 @@ def resources():
     ]
     return render_template('resources.html', info=COMPANY_DATA, guides=guides)
 
-# --- LEAD INTAKE SYSTEM ---
 @app.route('/submit-quote', methods=['POST'])
 def submit_quote():
     name = request.form.get('name')
     email = request.form.get('email')
     service = request.form.get('service')
     message = request.form.get('message')
-    
-    print(f"\n⚡ [SYSTEM INTAKE]: Initiating Lead Analysis for {name}")
     
     try:
         msg = Message(
@@ -95,7 +93,7 @@ def submit_quote():
         )
         mail.send(msg)
     except Exception as e:
-        print(f"❌ LOG ERROR: Notification Failure: {e}")
+        print(f"❌ LOG ERROR: {e}")
     
     flash(f"Transmission successful. Welcome to the group, {name}.")
     return redirect(url_for('home'))
