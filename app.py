@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+import os
 
 app = Flask(__name__)
 app.secret_key = "marketworth_secret_2026" # Required for flashing messages
@@ -24,20 +25,16 @@ def services():
 
 @app.route('/privacy')
 def privacy():
-    # Now correctly links to your new privacy.html file
     return render_template('privacy.html', info=COMPANY_DATA)
 
 # Contact/Quote Form Handling
 @app.route('/submit-quote', methods=['POST'])
 def submit_quote():
-    # Capture form data
     name = request.form.get('name')
     email = request.form.get('email')
     service = request.form.get('service')
     message = request.form.get('message')
     
-    # 2026 Best Practice: Simple Terminal Logging
-    # This will show up in your Render logs when someone fills the form
     print(f"\n🚀 [NEW LEAD]: {name}")
     print(f"📧 Email: {email}")
     print(f"🛠 Service: {service}")
@@ -46,5 +43,9 @@ def submit_quote():
     flash(f"Thank you {name}, we have received your request!")
     return redirect(url_for('home'))
 
+# --- FIXED DEPLOYMENT LOGIC ---
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Get port from environment or default to 5000 for local dev
+    port = int(os.environ.get("PORT", 5000))
+    # host='0.0.0.0' tells the app to listen on all available network interfaces
+    app.run(host='0.0.0.0', port=port, debug=True)
