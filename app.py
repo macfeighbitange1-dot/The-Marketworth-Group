@@ -49,6 +49,10 @@ def mpesa_guide():
 def whatsapp_guide():
     return render_template('whatsapp_guide.html', info=COMPANY_DATA)
 
+@app.route('/resources/erp-architecture')
+def erp_guide():
+    return render_template('erp_guide.html', info=COMPANY_DATA)
+
 @app.route('/resources')
 def resources():
     guides = [
