@@ -39,13 +39,21 @@ def services():
 def privacy():
     return render_template('privacy.html', info=COMPANY_DATA)
 
-# NEW: Technical Resource Hub Route
+# --- RESOURCE HUB ROUTES ---
+
+@app.route('/resources/mpesa-stk-protocol')
+def mpesa_guide():
+    return render_template('mpesa_guide.html', info=COMPANY_DATA)
+
+@app.route('/resources/whatsapp-funnels')
+def whatsapp_guide():
+    return render_template('whatsapp_guide.html', info=COMPANY_DATA)
+
 @app.route('/resources')
 def resources():
-    # Technical articles targeting high-intent Kenyan business searches
     guides = [
         {
-            "id": "mpesa-stk-2026",
+            "id": "mpesa-stk-protocol",
             "title": "M-Pesa STK Push: The 2026 Integration Protocol", 
             "excerpt": "Architecting automated payment confirmation for Flask applications using Daraja 2.0.",
             "tag": "FinTech"
@@ -65,7 +73,7 @@ def resources():
     ]
     return render_template('resources.html', info=COMPANY_DATA, guides=guides)
 
-# LEAD INTAKE SYSTEM (The Engine)
+# --- LEAD INTAKE SYSTEM ---
 @app.route('/submit-quote', methods=['POST'])
 def submit_quote():
     name = request.form.get('name')
@@ -73,11 +81,8 @@ def submit_quote():
     service = request.form.get('service')
     message = request.form.get('message')
     
-    # 1. Terminal Log: Protocol Insight
     print(f"\n⚡ [SYSTEM INTAKE]: Initiating Lead Analysis for {name}")
-    print(f"🛠 Target Ecosystem: {service}\n")
     
-    # 2. Automated Notification Protocol
     try:
         msg = Message(
             subject=f"⚠️ INBOUND LEAD: {name} | {service}",

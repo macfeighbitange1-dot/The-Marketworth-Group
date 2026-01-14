@@ -16,6 +16,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* --- STICKY NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85); /* Glass effect */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        /* Adjusting main content so it doesn't hide behind fixed nav */
+        main {
+            margin-top: 80px; 
+        }
+
+        /* Nav link active states */
+        .nav-links a {
+            position: relative;
+            text-decoration: none;
+            color: var(--brand-dark);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a.active {
+            color: var(--brand-blue);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--brand-blue);
+        }
+
         /* Flash Message Animation */
         @keyframes slideDown {
             from { transform: translate(-50%, -100%); opacity: 0; }
@@ -23,7 +64,7 @@
         }
         .flash-container {
             position: fixed;
-            top: 25px;
+            top: 90px; /* Adjusted for sticky nav */
             left: 50%;
             transform: translateX(-50%);
             z-index: 9999;
@@ -84,12 +125,13 @@
     {% endwith %}
 
     <header>
-        <nav class="container">
-            <div class="logo">Marketworth <span>Group</span></div>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/resources">Resources</a></li> <li><a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem; border-radius: 50px;">Get Started</a></li>
+        <nav class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0;">
+            <div class="logo" style="cursor: pointer;" onclick="window.location='/'">Marketworth <span>Group</span></div>
+            <ul class="nav-links" style="display: flex; align-items: center; gap: 30px; list-style: none; margin: 0;">
+                <li><a href="/" class="{{ 'active' if request.path == '/' }}">Home</a></li>
+                <li><a href="/services" class="{{ 'active' if request.path == '/services' }}">Services</a></li>
+                <li><a href="/resources" class="{{ 'active' if request.path.startswith('/resources') }}">Resources</a></li> 
+                <li><a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; border-radius: 50px; text-decoration: none;">Get Started</a></li>
             </ul>
         </nav>
     </header>
