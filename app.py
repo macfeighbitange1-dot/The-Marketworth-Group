@@ -1,8 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_mail import Mail, Message # Added for email functionality
 import os
 
 app = Flask(__name__)
-app.secret_key = "marketworth_secret_2026" # Required for flashing messages
+app.secret_key = "marketworth_secret_2026"
+
+# --- EMAIL CONFIGURATION ---
+# Using environment variables for security on Render
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME') 
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD') 
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
+
+mail = Mail(app)
 
 # Centralized data to make updates easy
 COMPANY_DATA = {
@@ -35,17 +47,24 @@ def submit_quote():
     service = request.form.get('service')
     message = request.form.get('message')
     
-    print(f"\n🚀 [NEW LEAD]: {name}")
-    print(f"📧 Email: {email}")
-    print(f"🛠 Service: {service}")
-    print(f"💬 Message: {message}\n")
+    # 1. Print to Render Logs (for backup)
+    print(f"\n🚀 [NEW LEAD]: {name} | Service: {service}")
+    
+    # 2. Trigger Email Notification
+    try:
+        msg = Message(
+            subject=f"New Strategy Inquiry: {name}",
+            recipients=[app.config['MAIL_USERNAME']], # Sends the lead to YOU
+            body=f"New lead from Marketworth Website:\n\nName: {name}\nEmail: {email}\nService: {service}\nMessage: {message}"
+        )
+        mail.send(msg)
+    except Exception as e:
+        print(f"❌ Mail Error: {e}")
     
     flash(f"Thank you {name}, we have received your request!")
     return redirect(url_for('home'))
 
 # --- FIXED DEPLOYMENT LOGIC ---
 if __name__ == '__main__':
-    # Get port from environment or default to 5000 for local dev
     port = int(os.environ.get("PORT", 5000))
-    # host='0.0.0.0' tells the app to listen on all available network interfaces
     app.run(host='0.0.0.0', port=port, debug=True)
