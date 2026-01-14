@@ -1,103 +1,106 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="hero reveal active" style="padding: 160px 0 120px 0; text-align: center;"> 
-    <div class="container" style="max-width: 900px;">
-        <span style="color: var(--brand-blue); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Architecture & Engineering</span>
-        <h1 style="margin-top: 20px; font-size: 3.5rem; line-height: 1.1;">The Future of <span>Digital Commerce.</span></h1>
-        <p style="font-size: 1.25rem; margin-top: 20px; color: #475569;">We architect high-performance digital systems for the next generation of Kenyan enterprises.</p>
-        <div class="hero-btns" style="margin-top: 40px;">
-            <a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="padding: 1.2rem 2.5rem; font-size: 1rem; border-radius: 50px;">Start Your Transformation</a>
+<section class="hero reveal">
+    <div class="container">
+        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase;">Architecture & Engineering</span>
+        <h1>The Future of <span>Digital Commerce.</span></h1>
+        <p>We architect high-performance digital systems for the next generation of Kenyan enterprises.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="#book" class="btn-primary">Start Your Transformation</a>
+            <a href="/services" class="btn-secondary">View Ecosystems</a>
         </div>
     </div>
 </section>
 
-<section class="container reveal" style="margin-top: -60px; padding-bottom: 100px; position: relative; z-index: 10;">
-    <div class="service-preview-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-        
-        <div class="card service-card" style="background: white; border: 1px solid #e2e8f0; padding: 2.5rem; border-radius: 20px; transition: 0.3s;">
-            <div style="font-size: 2rem; margin-bottom: 1.5rem;">💼</div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Enterprise Solutions</h3>
-            <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">Custom software and web ecosystems designed for Kenya's leading institutions.</p>
-            <a href="/services" style="color: var(--brand-blue); font-weight: 700; text-decoration: none; font-size: 0.9rem;">Explore Solution →</a>
-        </div>
+<section class="container" style="position: relative; z-index: 10;">
+    <div class="service-preview-grid">
+        <a href="/services" class="service-anchor reveal">
+            <div class="service-card enterprise-bg">
+                <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">💼</div>
+                <h3>Enterprise Solutions</h3>
+                <p>Custom software and web ecosystems designed for Kenya's leading institutions.</p>
+                <span style="color: var(--brand-blue); font-weight: 700; margin-top: 1.5rem; display: block;">Explore Solution →</span>
+            </div>
+        </a>
 
-        <div class="card service-card" style="background: white; border: 1px solid #e2e8f0; padding: 2.5rem; border-radius: 20px; transition: 0.3s;">
-            <div style="font-size: 2rem; margin-bottom: 1.5rem;">🤖</div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Sales Automation</h3>
-            <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">Intelligent WhatsApp agents that handle inquiries and close sales while you sleep.</p>
-            <a href="/services" style="color: var(--brand-blue); font-weight: 700; text-decoration: none; font-size: 0.9rem;">View Automation →</a>
-        </div>
+        <a href="/services" class="service-anchor reveal">
+            <div class="service-card automation-bg">
+                <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">🤖</div>
+                <h3>Sales Automation</h3>
+                <p>Intelligent WhatsApp agents that handle inquiries and close sales while you sleep.</p>
+                <span style="color: var(--brand-accent); font-weight: 700; margin-top: 1.5rem; display: block;">View Automation →</span>
+            </div>
+        </a>
 
-        <div class="card service-card" style="background: white; border: 1px solid #e2e8f0; padding: 2.5rem; border-radius: 20px; transition: 0.3s;">
-            <div style="font-size: 2rem; margin-bottom: 1.5rem;">📈</div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Precision Ads</h3>
-            <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">Data-driven Meta and Google campaigns engineered to guarantee high ROI.</p>
-            <a href="/services" style="color: var(--brand-blue); font-weight: 700; text-decoration: none; font-size: 0.9rem;">Check Strategies →</a>
-        </div>
-        
+        <a href="/services" class="service-anchor reveal">
+            <div class="service-card ads-bg">
+                <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">📈</div>
+                <h3>Precision Ads</h3>
+                <p>Data-driven Meta and Google campaigns engineered to guarantee high ROI.</p>
+                <span style="color: #10b981; font-weight: 700; margin-top: 1.5rem; display: block;">Check Strategies →</span>
+            </div>
+        </a>
     </div>
 </section>
 
-<section class="stats-grid reveal" style="padding: 80px 0; background: #f8fafc; border-top: 1px solid #e2e8f0;">
-    <div class="container" style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; gap: 40px;">
+<section class="container reveal">
+    <div class="stats-grid">
         <div class="stat-item">
-            <h2 style="font-size: 3rem; color: var(--brand-dark);">50+</h2>
-            <p style="font-weight: 700; color: #64748b; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Partners Scaled</p>
+            <h2>50+</h2>
+            <p>Partners Scaled</p>
         </div>
         <div class="stat-item">
-            <h2 style="font-size: 3rem; color: var(--brand-dark);">10M+</h2>
-            <p style="font-weight: 700; color: #64748b; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Revenue Generated</p>
+            <h2>10M+</h2>
+            <p>Revenue Generated</p>
         </div>
         <div class="stat-item">
-            <h2 style="font-size: 3rem; color: var(--brand-dark);">24/7</h2>
-            <p style="font-weight: 700; color: #64748b; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Bot Reliability</p>
+            <h2>24/7</h2>
+            <p>Bot Reliability</p>
         </div>
     </div>
 </section>
 
-<section class="container reveal" style="padding: 120px 0;">
-    <div style="text-align: center; margin-bottom: 5rem;">
-        <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem;">Engineered <span>Success.</span></h2>
-        <p style="color: #64748b; font-size: 1.1rem;">A look at the digital infrastructure we've deployed for leading enterprises.</p>
-    </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
-        
-        <div class="card" style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0; background: white; border-radius: 20px;">
-            <div style="height: 220px; background: linear-gradient(135deg, #2563eb, #7c3aed); display: grid; place-items: center; color: white; font-size: 4rem;">🏫</div>
-            <div style="padding: 2.5rem;">
-                <span style="font-size: 0.7rem; font-weight: 800; color: var(--brand-blue); text-transform: uppercase; letter-spacing: 1px;">Institutional ERP</span>
-                <h3 style="margin: 0.8rem 0; font-size: 1.5rem;">Smart School Portal</h3>
-                <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 2rem; line-height: 1.6;">Automated fee tracking and results management for private education centers.</p>
+
+<section class="container reveal">
+    <div style="text-align: center; margin-bottom: 60px;">
+        <span style="color: var(--brand-blue); font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">Engineered Success</span>
+        <h2 style="font-size: 2.5rem; margin-top: 10px;">Infrastructure in <span>Action.</span></h2>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem;">
+        <div class="card" style="padding: 0; overflow: hidden; border-radius: 20px;">
+            <div style="padding: 3rem; background: var(--white);">
+                <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 800;">FINTECH / ERP</span>
+                <h3 style="margin: 1rem 0;">Smart School Portal</h3>
+                <p style="color: var(--text-main); opacity: 0.8; margin-bottom: 1.5rem;">Automated fee tracking and results management for private education centers.</p>
                 <div style="display: flex; gap: 10px;">
-                    <span style="background: #f1f5f9; padding: 6px 15px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; color: #475569;">Python/Flask</span>
-                    <span style="background: #f1f5f9; padding: 6px 15px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; color: #475569;">M-Pesa API</span>
+                    <span style="font-size: 0.75rem; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 4px;">Python/Flask</span>
+                    <span style="font-size: 0.75rem; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 4px;">M-Pesa API</span>
                 </div>
             </div>
         </div>
 
-        <div class="card" style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0; background: white; border-radius: 20px;">
-            <div style="height: 220px; background: linear-gradient(135deg, #10b981, #3b82f6); display: grid; place-items: center; color: white; font-size: 4rem;">🤖</div>
-            <div style="padding: 2.5rem;">
-                <span style="font-size: 0.7rem; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">AI Automation</span>
-                <h3 style="margin: 0.8rem 0; font-size: 1.5rem;">24/7 Sales Agent</h3>
-                <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 2rem; line-height: 1.6;">WhatsApp Bot that qualifies leads and routes deliveries for regional retailers.</p>
+        <div class="card" style="padding: 0; overflow: hidden; border-radius: 20px;">
+            <div style="padding: 3rem; background: var(--white);">
+                <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 800;">AI / AUTOMATION</span>
+                <h3 style="margin: 1rem 0;">24/7 Sales Agent</h3>
+                <p style="color: var(--text-main); opacity: 0.8; margin-bottom: 1.5rem;">WhatsApp Bot that qualifies leads and routes deliveries for regional retailers.</p>
                 <div style="display: flex; gap: 10px;">
-                    <span style="background: #f1f5f9; padding: 6px 15px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; color: #475569;">Meta API</span>
-                    <span style="background: #f1f5f9; padding: 6px 15px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; color: #475569;">NLP Logic</span>
+                    <span style="font-size: 0.75rem; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 4px;">Meta API</span>
+                    <span style="font-size: 0.75rem; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 4px;">NLP Logic</span>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
-<section class="container reveal" style="padding-bottom: 120px; text-align: center;">
-    <div style="background: var(--brand-dark); padding: 5rem 3rem; border-radius: 40px; color: white;">
-        <h2 style="color: white; font-size: 2.8rem; margin-bottom: 1.5rem; line-height: 1.2;">Ready to dominate<br>your market?</h2>
-        <p style="margin-bottom: 3rem; opacity: 0.8; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Schedule a private strategy session with our systems architects today.</p>
-        <a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="background: white; color: var(--brand-dark); padding: 1.2rem 3rem; border-radius: 50px; font-weight: 800; text-decoration: none;">Book Consultation</a>
+<section id="book" class="container reveal" style="padding: 100px 0;">
+    <div style="background: var(--brand-dark); border-radius: 40px; padding: 5rem 2rem; text-align: center; color: white;">
+        <h2 style="color: white; font-size: 3rem; margin-bottom: 1.5rem;">Ready to dominate<br>your market?</h2>
+        <p style="max-width: 600px; margin: 0 auto 2.5rem; opacity: 0.7;">Schedule a private strategy session with our systems architects today.</p>
+        <a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="background: var(--white); color: var(--brand-dark);">Book Consultation</a>
     </div>
 </section>
 

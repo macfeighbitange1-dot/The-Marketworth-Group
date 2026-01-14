@@ -3,32 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Marketworth Group</title>
+    <title>{{ info.name }} | Systems Architecture</title>
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
-        :root { --brand-blue: #2563eb; --brand-dark: #0f172a; }
-        body { margin: 0; font-family: 'Inter', sans-serif; color: #334155; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: white; border-bottom: 1px solid #e2e8f0; padding: 20px 0; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: var(--brand-dark); }
-        .logo span { color: var(--brand-blue); }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: #64748b; font-weight: 600; }
-        .btn-primary { background: var(--brand-blue); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; }
-        footer { background: var(--brand-dark); color: white; padding: 40px 0; text-align: center; margin-top: 50px; }
+        /* Critical redundancy check: Ensures content is visible if JS fails */
+        .reveal.active { opacity: 1 !important; transform: translateY(0) !important; }
     </style>
 </head>
 <body>
+
+    <div id="scroll-progress"></div>
+
     <header>
         <nav class="container">
-            <a href="/" class="logo">The Marketworth <span>Group</span></a>
+            <a href="/" class="logo">
+                {{ info.name.split(' ')[0] }} <span>{{ info.name.split(' ')[1:] | join(' ') }}</span>
+            </a>
+            
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/services">Services</a></li>
                 <li><a href="/resources">Resources</a></li>
-                <li><a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary">Contact</a></li>
+                <li><a href="#book" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.85rem;">Get Started</a></li>
             </ul>
+
+            <div class="mobile-toggle" style="display: none; color: white; font-size: 1.5rem; cursor: pointer;">
+                ☰
+            </div>
         </nav>
     </header>
 
@@ -38,8 +43,48 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 The Marketworth Group. Systems Architecture.</p>
+            <h2 style="color: white; margin-bottom: 1rem;">{{ info.name }}</h2>
+            <p style="margin-bottom: 2rem;">{{ info.tagline }}</p>
+            
+            <div class="social-links">
+                <a href="{{ info.facebook }}" target="_blank">Facebook</a>
+                <a href="{{ info.youtube }}" target="_blank">YouTube</a>
+                <a href="https://wa.me/{{ info.whatsapp }}" target="_blank">WhatsApp</a>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.6;">
+                &copy; {{ info.year }} {{ info.name }}. Engineered in {{ info.location }}.
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Progress Bar Logic
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+            
+            handleReveal();
+        };
+
+        // Reveal Animation Logic
+        function handleReveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                let elementVisible = 100; // Trigger point
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        // Initialize animations on load
+        document.addEventListener("DOMContentLoaded", handleReveal);
+    </script>
 </body>
 </html>
