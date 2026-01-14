@@ -24,6 +24,7 @@ def services():
 
 @app.route('/privacy')
 def privacy():
+    # Now correctly links to your new privacy.html file
     return render_template('privacy.html', info=COMPANY_DATA)
 
 # Contact/Quote Form Handling
@@ -36,12 +37,13 @@ def submit_quote():
     message = request.form.get('message')
     
     # 2026 Best Practice: Simple Terminal Logging
+    # This will show up in your Render logs when someone fills the form
     print(f"\n🚀 [NEW LEAD]: {name}")
     print(f"📧 Email: {email}")
     print(f"🛠 Service: {service}")
     print(f"💬 Message: {message}\n")
     
-    # You can later add code here to send an email or save to a database
+    flash(f"Thank you {name}, we have received your request!")
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
