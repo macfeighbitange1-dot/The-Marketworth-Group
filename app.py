@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_mail import Mail, Message # Added for email functionality
+from flask_mail import Mail, Message
 import os
 
 app = Flask(__name__)
 app.secret_key = "marketworth_secret_2026"
 
 # --- EMAIL CONFIGURATION ---
-# Using environment variables for security on Render
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
@@ -16,10 +15,11 @@ app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
 
 mail = Mail(app)
 
-# Centralized data to make updates easy
+# REFACTORED: Agency Positioning Data
 COMPANY_DATA = {
     "name": "The Marketworth Group",
-    "location": "Kutus, Kenya",
+    "tagline": "Systems Architecture & Revenue Engineering",
+    "location": "Kenya",
     "phone": "+254 796 423 133",
     "whatsapp": "254796423133",
     "facebook": "https://facebook.com/TheMarketWorthGroup",
@@ -39,7 +39,7 @@ def services():
 def privacy():
     return render_template('privacy.html', info=COMPANY_DATA)
 
-# Contact/Quote Form Handling
+# LEAD INTAKE SYSTEM (The Engine)
 @app.route('/submit-quote', methods=['POST'])
 def submit_quote():
     name = request.form.get('name')
@@ -47,24 +47,24 @@ def submit_quote():
     service = request.form.get('service')
     message = request.form.get('message')
     
-    # 1. Print to Render Logs (for backup)
-    print(f"\n🚀 [NEW LEAD]: {name} | Service: {service}")
+    # 1. Terminal Log: Protocol Insight
+    print(f"\n⚡ [SYSTEM INTAKE]: Initiating Lead Analysis for {name}")
+    print(f"🛠 Target Ecosystem: {service}\n")
     
-    # 2. Trigger Email Notification
+    # 2. Automated Notification Protocol
     try:
         msg = Message(
-            subject=f"New Strategy Inquiry: {name}",
-            recipients=[app.config['MAIL_USERNAME']], # Sends the lead to YOU
-            body=f"New lead from Marketworth Website:\n\nName: {name}\nEmail: {email}\nService: {service}\nMessage: {message}"
+            subject=f"⚠️ INBOUND LEAD: {name} | {service}",
+            recipients=[app.config['MAIL_USERNAME']],
+            body=f"MARKETWORTH LEAD CAPTURE:\n\nEntity: {name}\nContact: {email}\nInfrastructure: {service}\nRequirements: {message}"
         )
         mail.send(msg)
     except Exception as e:
-        print(f"❌ Mail Error: {e}")
+        print(f"❌ LOG ERROR: Notification Failure: {e}")
     
-    flash(f"Thank you {name}, we have received your request!")
+    flash(f"Transmission successful. Welcome to the group, {name}.")
     return redirect(url_for('home'))
 
-# --- FIXED DEPLOYMENT LOGIC ---
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
