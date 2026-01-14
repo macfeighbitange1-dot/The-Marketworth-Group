@@ -16,9 +16,56 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Flash Message Animation */
+        @keyframes slideDown {
+            from { transform: translate(-50%, -100%); opacity: 0; }
+            to { transform: translate(-50%, 0); opacity: 1; }
+        }
+        .flash-container {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            width: 90%;
+            max-width: 450px;
+        }
+        .flash-bubble {
+            background: var(--brand-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: 700;
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+            animation: slideDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+    </style>
 </head>
 <body>
     <div id="scroll-progress"></div>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-container">
+          {% for message in messages %}
+            <div class="flash-bubble" id="flash-msg">
+                🚀 {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+        <script>
+            // Auto-hide notification after 5 seconds
+            setTimeout(() => {
+                const msg = document.getElementById('flash-msg');
+                if(msg) msg.style.display = 'none';
+            }, 5000);
+        </script>
+      {% endif %}
+    {% endwith %}
 
     <header>
         <nav class="container">
@@ -57,7 +104,7 @@
             const scrolled = (winScroll / height) * 100;
             document.getElementById("scroll-progress").style.width = scrolled + "%";
             
-            reveal(); // Check for reveals on scroll
+            reveal(); 
         });
 
         // Scroll Reveal Logic
@@ -66,7 +113,7 @@
             for (let i = 0; i < reveals.length; i++) {
                 const windowHeight = window.innerHeight;
                 const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 100; // Trigger point
+                const elementVisible = 100; 
                 
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
@@ -74,7 +121,6 @@
             }
         }
 
-        // Run reveal once on load in case elements are already in view
         document.addEventListener('DOMContentLoaded', reveal);
     </script>
 </body>

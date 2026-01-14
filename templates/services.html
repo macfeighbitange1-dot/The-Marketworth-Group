@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
 <section class="hero reveal active" style="padding: 100px 0 140px 0;">
     <div class="container">
         <h1>Our Core <span>Expertise</span></h1>
@@ -13,7 +14,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
-            margin-top: -160px; /* Enhanced overlap for premium look */
+            margin-top: -160px;
         }
         .detail-card {
             background: var(--white);
@@ -60,6 +61,23 @@
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
         }
+        /* Form Specific Styles */
+        .booking-form input, .booking-form select, .booking-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            font-family: inherit;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus {
+            outline: none;
+            border-color: var(--brand-blue);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
     </style>
 
     <div class="service-detail-grid">
@@ -67,7 +85,6 @@
             <div class="icon-placeholder">🌐</div>
             <h3>Custom Web Development</h3>
             <p>From institutional portals to robust E-commerce platforms, we build with speed and security in mind.</p>
-            
             <ul class="service-features">
                 <li>M-Pesa STK Push Integration</li>
                 <li>Institutional Management Systems</li>
@@ -80,7 +97,6 @@
             <div class="icon-placeholder">🤖</div>
             <h3>WhatsApp Bot Integration</h3>
             <p>We create bots that act as your 24/7 sales agent, connected directly to your Facebook marketing funnel.</p>
-            
             <ul class="service-features">
                 <li>Facebook Ads to WhatsApp API</li>
                 <li>Automated Lead Generation</li>
@@ -121,10 +137,39 @@
     </div>
 </section>
 
+<section id="book" class="container reveal" style="padding-bottom: 100px;">
+    <div style="background: var(--white); border-radius: 30px; padding: 4rem; box-shadow: 0 40px 100px rgba(0,0,0,0.05); border: 1px solid #f1f5f9;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: center;">
+            <div>
+                <h2 style="font-size: 2.8rem; line-height: 1.1; margin-bottom: 1.5rem;">Book Your <span style="color: var(--brand-blue);">Strategy Session.</span></h2>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem;">Tell us about your business goals. Our lead architect will review your project and reach out within 4 hours.</p>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <div style="width: 50px; height: 50px; background: var(--brand-blue); border-radius: 50%; display: grid; place-items: center; color: white; font-weight: bold;">MW</div>
+                    <p style="font-weight: 700;">Verified Technical Agency<br><span style="font-weight: 400; opacity: 0.6; font-size: 0.8rem;">Kutus, Kirinyaga</span></p>
+                </div>
+            </div>
+
+            <form action="/submit-quote" method="POST" class="booking-form">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Business Email" required>
+                <select name="service" required>
+                    <option value="" disabled selected>Target Ecosystem</option>
+                    <option value="Web Ecosystem">Custom Web Ecosystem</option>
+                    <option value="WhatsApp Automation">WhatsApp Automation</option>
+                    <option value="Ads/Marketing">Digital Ad Scaling</option>
+                </select>
+                <textarea name="message" placeholder="Briefly describe your current challenge..." rows="4" required></textarea>
+                <button type="submit" class="btn-primary" style="width: 100%; border-radius: 12px; padding: 1.2rem;">Initialize Transformation</button>
+            </form>
+        </div>
+    </div>
+</section>
+
 <section class="reveal" style="background: var(--brand-dark); padding: 60px 0; color: white; text-align: center;">
     <div class="container">
         <h2 style="color: white; margin-bottom: 1.5rem;">Ready to deploy your system?</h2>
         <a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary">Message on WhatsApp</a>
     </div>
 </section>
+
 {% endblock %}
