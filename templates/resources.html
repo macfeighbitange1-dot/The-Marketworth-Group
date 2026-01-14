@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero reveal active" style="padding: 100px 0;">
+    <div class="container">
+        <span style="color: var(--brand-blue); font-weight: 800; letter-spacing: 2px;">THE KNOWLEDGE HUB</span>
+        <h1 style="margin-top: 10px;">Technical <span>Blueprints.</span></h1>
+        <p>In-depth guides on engineering revenue and digital infrastructure.</p>
+    </div>
+</section>
+
+<section class="container" style="padding-bottom: 100px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        {% for guide in guides %}
+        <div class="card" style="background: white; border: 1px solid #e2e8f0; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <span style="background: var(--bg-light); color: var(--brand-blue); padding: 5px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 800;">{{ guide.tag }}</span>
+                <h3 style="margin: 1.5rem 0 1rem 0; font-size: 1.4rem; line-height: 1.3;">{{ guide.title }}</h3>
+                <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 2rem;">{{ guide.excerpt }}</p>
+            </div>
+            <a href="#" style="text-decoration: none; color: var(--brand-blue); font-weight: 700; font-size: 0.9rem;">Read Protocol →</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="container reveal" style="padding-bottom: 100px;">
+    <div style="background: var(--brand-dark); color: white; padding: 4rem; border-radius: 30px; text-align: center;">
+        <h2 style="color: white;">Get the Weekly <span>System Update.</span></h2>
+        <p style="margin-bottom: 2rem; opacity: 0.8;">We send one high-level technical strategy every Tuesday. No spam.</p>
+        <form style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <input type="email" placeholder="Business Email" style="padding: 1rem; border-radius: 10px; border: none; width: 300px;">
+            <button class="btn-primary" type="button">Join 500+ Architects</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

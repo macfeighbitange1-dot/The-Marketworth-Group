@@ -39,6 +39,32 @@ def services():
 def privacy():
     return render_template('privacy.html', info=COMPANY_DATA)
 
+# NEW: Technical Resource Hub Route
+@app.route('/resources')
+def resources():
+    # Technical articles targeting high-intent Kenyan business searches
+    guides = [
+        {
+            "id": "mpesa-stk-2026",
+            "title": "M-Pesa STK Push: The 2026 Integration Protocol", 
+            "excerpt": "Architecting automated payment confirmation for Flask applications using Daraja 2.0.",
+            "tag": "FinTech"
+        },
+        {
+            "id": "whatsapp-funnels",
+            "title": "WhatsApp Sales Funnels for High-Volume Retail", 
+            "excerpt": "Bridging Meta Ad traffic with automated logic to scale sales without increasing overhead.",
+            "tag": "Automation"
+        },
+        {
+            "id": "erp-architecture",
+            "title": "Institutional ERP: Building Scalable Portals", 
+            "excerpt": "A blueprint for secure student data management and automated fee reconciliation.",
+            "tag": "Systems"
+        }
+    ]
+    return render_template('resources.html', info=COMPANY_DATA, guides=guides)
+
 # LEAD INTAKE SYSTEM (The Engine)
 @app.route('/submit-quote', methods=['POST'])
 def submit_quote():
