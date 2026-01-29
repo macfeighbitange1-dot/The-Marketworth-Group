@@ -9,8 +9,8 @@ app.secret_key = "marketworth_secret_2026"
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME') 
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD') 
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
 
 mail = Mail(app)
@@ -38,20 +38,6 @@ def services():
 def privacy():
     return render_template('privacy.html', info=COMPANY_DATA)
 
-# --- RESOURCE HUB ROUTES (Standardized - No Trailing Slashes) ---
-
-@app.route('/resources/mpesa-stk-protocol')
-def mpesa_guide():
-    return render_template('mpesa_guide.html', info=COMPANY_DATA)
-
-@app.route('/resources/whatsapp-funnels')
-def whatsapp_guide():
-    return render_template('whatsapp_guide.html', info=COMPANY_DATA)
-
-@app.route('/resources/erp-architecture')
-def erp_guide():
-    return render_template('erp_guide.html', info=COMPANY_DATA)
-
 @app.route('/resources')
 def resources():
     guides = [
@@ -75,6 +61,18 @@ def resources():
         }
     ]
     return render_template('resources.html', info=COMPANY_DATA, guides=guides)
+
+@app.route('/resources/mpesa-stk-protocol')
+def mpesa_guide():
+    return render_template('mpesa_guide.html', info=COMPANY_DATA)
+
+@app.route('/resources/whatsapp-funnels')
+def whatsapp_guide():
+    return render_template('whatsapp_guide.html', info=COMPANY_DATA)
+
+@app.route('/resources/erp-architecture')
+def erp_guide():
+    return render_template('erp_guide.html', info=COMPANY_DATA)
 
 @app.route('/submit-quote', methods=['POST'])
 def submit_quote():
