@@ -1,13 +1,13 @@
-/* --- The Marketworth Group Design System 2026 --- */
+/* --- The Marketworth AI-Pivoted Design System 2026 --- */
 :root {
-    --brand-blue: #2563eb;
-    --brand-dark: #0f172a;
-    --brand-accent: #38bdf8;
-    --text-main: #ffffff; /* Updated to White for readability */
-    --text-muted: #d1d5db; /* Added for softer text */
+    --brand-indigo: #4f46e5;    /* Electric Indigo */
+    --brand-dark: #070a13;      /* Near Black / Deep Space */
+    --brand-accent: #d9f99d;    /* Cyber Lime */
+    --brand-surface: #111827;  /* Card / Section Background */
+    --text-main: #f8fafc;       /* Off-white for readability */
+    --text-muted: #94a3b8;      /* Slate for softer text */
     --white: #ffffff;
-    --glass: rgba(15, 23, 42, 0.95);
-    --bg-light: #f8fafc;
+    --glass: rgba(7, 10, 19, 0.85);
 }
 
 /* --- Scroll Progress Bar --- */
@@ -17,7 +17,7 @@
     left: 0;
     width: 0%;
     height: 4px;
-    background: linear-gradient(to right, var(--brand-accent), var(--brand-blue));
+    background: linear-gradient(to right, var(--brand-indigo), var(--brand-accent));
     z-index: 2001;
     transition: width 0.1s ease-out;
 }
@@ -28,7 +28,7 @@ body {
     font-family: 'Inter', -apple-system, sans-serif;
     color: var(--text-main);
     line-height: 1.7;
-    background-color: var(--brand-blue); /* Updated to Brand Blue */
+    background-color: var(--brand-dark); /* Primary Dark Mode */
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -39,7 +39,7 @@ body {
     margin: 0 auto;
 }
 
-/* --- Fixed Reveal Errors --- */
+/* --- Animations --- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -51,15 +51,16 @@ body {
     transform: translateY(0);
 }
 
-/* --- Fixed Navigation Collisions --- */
+/* --- Navigation --- */
 header {
-    background: var(--brand-dark);
+    background: var(--glass);
+    backdrop-filter: blur(10px);
     padding: 1.25rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 nav { display: flex; justify-content: space-between; align-items: center; }
@@ -77,16 +78,16 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .nav-links { list-style: none; display: flex; gap: 2.5rem; align-items: center; }
 .nav-links a {
     text-decoration: none;
-    color: rgba(255,255,255,0.8);
+    color: var(--text-muted);
     font-weight: 600;
     font-size: 0.9rem;
     transition: 0.3s;
 }
-.nav-links a:hover { color: var(--white); }
+.nav-links a:hover { color: var(--brand-accent); }
 
-/* --- Hero Section Fix --- */
+/* --- Hero Section --- */
 .hero {
-    background: var(--brand-dark);
+    background: radial-gradient(circle at top right, #1e1b4b, var(--brand-dark));
     color: var(--white);
     padding: 180px 0 140px 0;
     text-align: center;
@@ -102,7 +103,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 
 .hero h1 span { color: var(--brand-accent); }
 
-/* --- Service Cards --- */
+/* --- AI Service Cards --- */
 .service-preview-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -111,36 +112,53 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 }
 
 .service-card {
-    background: var(--white);
-    padding: 3rem 2rem;
-    border-radius: 20px;
-    border: 1px solid #e2e8f0;
+    background: var(--brand-surface);
+    padding: 3.5rem 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: 0.4s;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    color: var(--brand-dark); /* Keep text dark inside white cards */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    color: var(--text-main);
 }
+
+.service-card h3 {
+    color: var(--brand-accent);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.service-anchor { text-decoration: none; }
 
 .service-anchor:hover .service-card {
     transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    border-color: var(--brand-indigo);
+    box-shadow: 0 20px 50px rgba(79, 70, 229, 0.2);
 }
 
-/* --- Utility Buttons --- */
+/* --- Persuasive Buttons --- */
 .btn-primary {
-    background: var(--brand-accent); /* Accent color for better contrast on blue */
+    background: var(--brand-accent);
     color: var(--brand-dark);
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
+    padding: 1.1rem 2.8rem;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     display: inline-block;
-    transition: 0.3s;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); }
 
-/* --- Mobile Fixes --- */
+.btn-primary:hover { 
+    transform: scale(1.05); 
+    box-shadow: 0 0 25px rgba(217, 249, 157, 0.4); 
+}
+
+/* --- Mobile Adaptations --- */
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .hero { padding: 140px 0 80px 0; }
     .service-preview-grid { margin-top: 20px; }
+    .service-card { padding: 2.5rem 1.5rem; }
 }
