@@ -1,35 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
-<section style="padding: 80px 0; text-align: center;">
+<section class="reveal" style="padding: 120px 0 60px 0; text-align: center;">
     <div class="container">
-        <h1 style="font-size: 3rem;">Our <span>Services</span></h1>
-        <p style="font-size: 1.2rem; max-width: 700px; margin: 20px auto;">We build technical infrastructure for Kenyan enterprises.</p>
+        <h1 style="font-size: 3.5rem; color: white;">Our <span style="color: var(--brand-accent);">Services</span></h1>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 20px auto; color: rgba(255,255,255,0.9);">We build technical infrastructure for Kenyan enterprises.</p>
     </div>
 </section>
 
 <section class="container" style="padding-bottom: 80px;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-        <div style="border: 1px solid #e2e8f0; padding: 40px; border-radius: 15px;">
-            <h3>Web Development</h3>
-            <p>Institutional portals and E-commerce with M-Pesa integration.</p>
+        <div class="reveal" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px);">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🌐</div>
+            <h3 style="color: var(--brand-accent); margin-bottom: 1rem;">Web Development</h3>
+            <p style="color: white; opacity: 0.8;">Institutional portals and E-commerce with M-Pesa integration designed for scale.</p>
         </div>
-        <div style="border: 1px solid #e2e8f0; padding: 40px; border-radius: 15px;">
-            <h3>WhatsApp Automation</h3>
-            <p>Official Meta API bots for 24/7 lead handling and sales.</p>
+        
+        <div class="reveal" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px);">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">💬</div>
+            <h3 style="color: var(--brand-accent); margin-bottom: 1rem;">WhatsApp Automation</h3>
+            <p style="color: white; opacity: 0.8;">Official Meta API bots for 24/7 lead handling and automated sales closures.</p>
         </div>
-        <div style="border: 1px solid #e2e8f0; padding: 40px; border-radius: 15px;">
-            <h3>Digital Marketing</h3>
-            <p>Precision Google and Meta ad scaling for high ROI.</p>
+        
+        <div class="reveal" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px);">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+            <h3 style="color: var(--brand-accent); margin-bottom: 1rem;">Digital Marketing</h3>
+            <p style="color: white; opacity: 0.8;">Precision Google and Meta ad scaling engineered for maximum return on investment.</p>
         </div>
     </div>
 
-    <div style="margin-top: 80px; background: #f8fafc; padding: 60px; border-radius: 20px; text-align: center;">
-        <h2>Ready to Start?</h2>
-        <form action="/submit-quote" method="POST" style="max-width: 500px; margin: 30px auto; display: grid; gap: 15px;">
-            <input type="text" name="name" placeholder="Your Name" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;" required>
-            <input type="email" name="email" placeholder="Email" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;" required>
-            <textarea name="message" placeholder="How can we help?" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px;" rows="4"></textarea>
-            <button type="submit" class="btn-primary" style="border: none; cursor: pointer; padding: 15px;">Send Request</button>
+    <div class="reveal" style="margin-top: 80px; background: var(--brand-dark); padding: 60px; border-radius: 40px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+        <h2 style="color: white; font-size: 2.5rem;">Ready to Start?</h2>
+        <p style="color: rgba(255,255,255,0.6); margin-top: 10px;">Initialize your project request below.</p>
+        
+        <form action="/submit-quote" method="POST" style="max-width: 500px; margin: 40px auto; display: grid; gap: 20px;">
+            <input type="text" name="name" placeholder="Your Name" 
+                   style="padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: rgba(255,255,255,0.05); color: white; font-size: 1rem;" required>
+            
+            <input type="email" name="email" placeholder="Business Email" 
+                   style="padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: rgba(255,255,255,0.05); color: white; font-size: 1rem;" required>
+            
+            <textarea name="message" placeholder="Describe your project requirements..." 
+                      style="padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: rgba(255,255,255,0.05); color: white; font-size: 1rem;" rows="4"></textarea>
+            
+            <button type="submit" class="btn-primary" 
+                    style="border: none; cursor: pointer; padding: 20px; background: var(--brand-accent); color: var(--brand-dark); font-weight: 800; font-size: 1.1rem; border-radius: 12px;">
+                Send Request
+            </button>
         </form>
     </div>
 </section>
