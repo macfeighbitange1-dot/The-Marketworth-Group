@@ -16,9 +16,9 @@ app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
 mail = Mail(app)
 
 COMPANY_DATA = {
-    "name": "The Marketworth Group",
-    "tagline": "Systems Architecture & Revenue Engineering",
-    "location": "Kenya",
+    "name": "Marketworth AI",
+    "tagline": "Enterprise SLM & Autonomous Agent Architecture",
+    "location": "Nairobi, Kenya",
     "phone": "+254 796 423 133",
     "whatsapp": "254796423133",
     "facebook": "https://facebook.com/TheMarketWorthGroup",
@@ -33,6 +33,10 @@ def home():
 @app.route('/services')
 def services():
     return render_template('services.html', info=COMPANY_DATA)
+
+@app.route('/academy')
+def academy():
+    return render_template('academy.html', info=COMPANY_DATA)
 
 @app.route('/privacy')
 def privacy():
@@ -83,15 +87,15 @@ def submit_quote():
     
     try:
         msg = Message(
-            subject=f"⚠️ INBOUND LEAD: {name} | {service}",
+            subject=f"⚠️ AI INBOUND LEAD: {name}",
             recipients=[app.config['MAIL_USERNAME']],
-            body=f"MARKETWORTH LEAD CAPTURE:\n\nEntity: {name}\nContact: {email}\nInfrastructure: {service}\nRequirements: {message}"
+            body=f"MARKETWORTH AI LEAD CAPTURE:\n\nEntity: {name}\nContact: {email}\nInfrastructure: {service}\nRequirements: {message}"
         )
         mail.send(msg)
     except Exception as e:
         print(f"❌ LOG ERROR: {e}")
     
-    flash(f"Transmission successful. Welcome to the group, {name}.")
+    flash(f"Transmission successful. Welcome to the intelligence era, {name}.")
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
