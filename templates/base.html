@@ -12,6 +12,18 @@
     <style>
         /* Critical redundancy check: Ensures content is visible if JS fails */
         .reveal.active { opacity: 1 !important; transform: translateY(0) !important; }
+        
+        /* Specific Footer Link Styling for Blue Background */
+        footer .social-links a {
+            color: var(--brand-accent);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        footer .social-links a:hover {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -41,10 +53,10 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer>
+    <footer style="padding: 5rem 0 2rem 0; background: var(--brand-dark);">
         <div class="container">
             <h2 style="color: white; margin-bottom: 1rem;">{{ info.name }}</h2>
-            <p style="margin-bottom: 2rem;">{{ info.tagline }}</p>
+            <p style="margin-bottom: 2rem; color: var(--text-muted);">{{ info.tagline }}</p>
             
             <div class="social-links">
                 <a href="{{ info.facebook }}" target="_blank">Facebook</a>
@@ -52,19 +64,24 @@
                 <a href="https://wa.me/{{ info.whatsapp }}" target="_blank">WhatsApp</a>
             </div>
 
-            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.6;">
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.8; color: white;">
                 &copy; {{ info.year }} {{ info.name }}. Engineered in {{ info.location }}.
             </div>
         </div>
     </footer>
 
     <script>
-        // Progress Bar Logic
+        // Progress Bar & Scroll Logic
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = (winScroll / height) * 100;
-            document.getElementById("scroll-progress").style.width = scrolled + "%";
+            
+            // Update Progress Bar
+            const progressElement = document.getElementById("scroll-progress");
+            if (progressElement) {
+                progressElement.style.width = scrolled + "%";
+            }
             
             handleReveal();
         };
@@ -84,7 +101,9 @@
         }
 
         // Initialize animations on load
-        document.addEventListener("DOMContentLoaded", handleReveal);
+        document.addEventListener("DOMContentLoaded", () => {
+            handleReveal();
+        });
     </script>
 </body>
 </html>
