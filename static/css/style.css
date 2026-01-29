@@ -3,9 +3,10 @@
     --brand-blue: #2563eb;
     --brand-dark: #0f172a;
     --brand-accent: #38bdf8;
-    --text-main: #334155;
+    --text-main: #ffffff; /* Updated to White for readability */
+    --text-muted: #d1d5db; /* Added for softer text */
     --white: #ffffff;
-    --glass: rgba(15, 23, 42, 0.95); /* Adjusted for Dark Hero Consistency */
+    --glass: rgba(15, 23, 42, 0.95);
     --bg-light: #f8fafc;
 }
 
@@ -27,7 +28,7 @@ body {
     font-family: 'Inter', -apple-system, sans-serif;
     color: var(--text-main);
     line-height: 1.7;
-    background-color: var(--bg-light);
+    background-color: var(--brand-blue); /* Updated to Brand Blue */
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -52,9 +53,9 @@ body {
 
 /* --- Fixed Navigation Collisions --- */
 header {
-    background: var(--brand-dark); /* Matches Hero for seamless flow */
+    background: var(--brand-dark);
     padding: 1.25rem 0;
-    position: fixed; /* Changed to fixed to stay above hero */
+    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -87,7 +88,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .hero {
     background: var(--brand-dark);
     color: var(--white);
-    padding: 180px 0 140px 0; /* Extra top padding to clear the fixed header */
+    padding: 180px 0 140px 0;
     text-align: center;
 }
 
@@ -106,7 +107,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: -80px; /* Overlap effect */
+    margin-top: -80px;
 }
 
 .service-card {
@@ -116,6 +117,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     border: 1px solid #e2e8f0;
     transition: 0.4s;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    color: var(--brand-dark); /* Keep text dark inside white cards */
 }
 
 .service-anchor:hover .service-card {
@@ -125,8 +127,8 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 
 /* --- Utility Buttons --- */
 .btn-primary {
-    background: var(--brand-blue);
-    color: white;
+    background: var(--brand-accent); /* Accent color for better contrast on blue */
+    color: var(--brand-dark);
     padding: 1rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
@@ -134,11 +136,11 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     display: inline-block;
     transition: 0.3s;
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); }
 
 /* --- Mobile Fixes --- */
 @media (max-width: 768px) {
-    .nav-links { display: none; } /* Consider adding a burger menu later */
+    .nav-links { display: none; }
     .hero { padding: 140px 0 80px 0; }
     .service-preview-grid { margin-top: 20px; }
 }
