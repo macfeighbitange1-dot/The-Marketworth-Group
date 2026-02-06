@@ -8,10 +8,11 @@ from mistralai import Mistral
 app = Flask(__name__)
 # Securely fetch keys from Environment Variables
 app.secret_key = os.environ.get("SECRET_KEY", "sovereign_intelligence_2026")
-MISTRAL_API_KEY = os.environ.get("QiJh8V2kZ3IQL1eYCAnKqJSOJxSHbTyC")
 
-# Initialize Mistral Client
-mistral_client = Mistral(api_key=MISTRAL_API_KEY) if MISTRAL_API_KEY else None
+# Mistral Configuration
+MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "QiJh8V2kZ3IQL1eYCAnKqJSOJxSHbTyC")
+mistral_client = Mistral(api_key=QiJh8V2kZ3IQL1eYCAnKqJSOJxSHbTyC
+) if MISTRAL_API_KEY else None
 
 # Global Company Data
 COMPANY_DATA = {
@@ -36,23 +37,17 @@ def log_lead(url, score):
         print(f"LOG_ERROR: {e}")
 
 def analyze_site_intelligence(target_url):
-    """
-    Crawls the site for JSON-LD and uses Mistral to generate 
-    a high-level technical recommendation.
-    """
+    """Crawls the site for JSON-LD and uses Mistral for reasoning."""
     try:
-        # 1. Real-time Crawl
         header = {'User-Agent': 'MarketworthAI-Bot/1.0'}
         response = requests.get(target_url, timeout=5, headers=header)
         html = response.text.lower()
         
-        # 2. Schema Check
         has_schema = 'application/ld+json' in html
         score = 82 if has_schema else 45
         
-        # 3. AI Reasoning via Mistral
         if mistral_client:
-            prompt = f"Website: {target_url}. JSON-LD Schema Found: {has_schema}. Provide a 1-sentence expert AEO (AI Engine Optimization) recommendation."
+            prompt = f"Website: {target_url}. JSON-LD Schema Found: {has_schema}. Provide a 1-sentence expert AEO recommendation."
             chat_response = mistral_client.chat.complete(
                 model="mistral-tiny",
                 messages=[{"role": "user", "content": prompt}]
@@ -65,23 +60,40 @@ def analyze_site_intelligence(target_url):
     except Exception:
         return 50, "Connectivity restricted. Analysis based on domain metadata suggests priority optimization."
 
-# --- ROUTES ---
+# --- PRIMARY ROUTES ---
 
 @app.route('/')
 def home():
     return render_template('index.html', info=COMPANY_DATA)
 
+@app.route('/tools/ai-audit')
+def contact():
+    """Restored to fix BuildError for 'contact' endpoint."""
+    return render_template('contact.html', info=COMPANY_DATA)
+
+@app.route('/services')
+def services(): 
+    return render_template('services.html', info=COMPANY_DATA)
+
+@app.route('/blog')
+def blog(): 
+    return render_template('blog.html', info=COMPANY_DATA)
+
+@app.route('/resources')
+def resources():
+    """Restored to fix potential BuildError for 'resources' endpoint."""
+    return render_template('resources.html', info=COMPANY_DATA)
+
+# --- OPERATIONAL ANALYSIS LOGIC ---
+
 @app.route('/submit-lead', methods=['POST'])
 def submit_lead():
     url = request.form.get('email')
     if url:
-        # Clean URL for the crawler
         if not url.startswith('http'):
             url = 'https://' + url
-            
-        # Run Level 3 Analysis
-        score, advice = analyze_site_intelligence(url)
         
+        score, advice = analyze_site_intelligence(url)
         log_lead(url, score)
         return redirect(url_for('results', site=url, score=score, advice=advice))
     
@@ -105,14 +117,9 @@ def results():
     }
     return render_template('results.html', info=COMPANY_DATA, data=analysis_results)
 
-@app.route('/services')
-def services(): return render_template('services.html', info=COMPANY_DATA)
-
-@app.route('/blog')
-def blog(): return render_template('blog.html', info=COMPANY_DATA)
-
 @app.errorhandler(404)
-def page_not_found(e): return redirect(url_for('home'))
+def page_not_found(e): 
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
