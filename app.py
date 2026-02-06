@@ -1,19 +1,28 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session, abort
+import sys
 import os
+
+# --- 0.1% PATH INJECTION FIX ---
+# This must remain at the very top to resolve Render's ModuleNotFoundError
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from flask import Flask, render_template, request, redirect, url_for, flash, session, abort
 from datetime import datetime
 import json
 
-# Import your custom logic layers
-from logic.lead_engine import IntelligenceEngine, Lead
-from logic.proposal_gen import generate_pdf_proposal
-from logic.sender import send_architecture_brief, get_mistral_insights
+# Import custom logic (These will now be found correctly by the interpreter)
+try:
+    from logic.lead_engine import IntelligenceEngine, Lead
+    from logic.proposal_gen import generate_pdf_proposal
+    from logic.sender import send_architecture_brief, get_mistral_insights
+except ImportError as e:
+    print(f"CRITICAL: Architectural modules missing: {e}")
 
 app = Flask(__name__)
 app.secret_key = "marketworth_secret_2026_sovereign"
 
 # --- MASTER CONFIGURATION ---
 MASTER_KEY = "MARKETWORTH_ALPHA_2026"  # Your private access key
-DATA_FILE = "logic/leads_db.json"      # Simple flat-file DB for leads
+DATA_FILE = os.path.join(os.path.dirname(__file__), "logic/leads_db.json")
 
 COMPANY_DATA = {
     "name": "Marketworth AI",
@@ -29,8 +38,14 @@ COMPANY_DATA = {
 # --- DATABASE HELPER ---
 def save_lead_to_db(lead_dict):
     try:
+        # Ensure directory exists
+        db_dir = os.path.dirname(DATA_FILE)
+        if not os.path.exists(db_dir):
+            os.makedirs(db_dir)
+            
         if not os.path.exists(DATA_FILE):
             with open(DATA_FILE, 'w') as f: json.dump([], f)
+            
         with open(DATA_FILE, 'r+') as f:
             data = json.load(f)
             data.append(lead_dict)
@@ -53,32 +68,35 @@ def blog():
 def contact():
     return render_template('contact.html', info=COMPANY_DATA)
 
-# --- THE 0.1% LEAD ANALYSIS ENGINE ROUTE ---
-
 @app.route('/initialize-audit', methods=['POST'])
 def handle_audit():
     # 1. Capture Form Data
     name = request.form.get('name')
-    email = request.form.get('email', 'no-email@provided.com') # Add email to your form
+    email = request.form.get('email', 'no-email@provided.com')
     company = request.form.get('company')
     bottleneck = request.form.get('bottleneck')
     opex_waste = request.form.get('budget')
 
-    # 2. Score Lead via Intelligence Engine
+    # 2. Score Lead
     engine = IntelligenceEngine()
     lead_obj = Lead(name=name, company=company, bottleneck=bottleneck, opex_waste=opex_waste)
     analysis = engine.analyze_intent(lead_obj)
 
-    # 3. Generate Mistral AI Topology Brief
-    print(f"Inference started for {company}...")
+    # 3. Mistral Inference
+    print(f"Sovereign inference started for {company}...")
     ai_insights = get_mistral_insights(bottleneck, company)
 
-    # 4. Generate PDF Proposal
+    # 4. PDF Generation
     pdf_filename = f"Marketworth_{company.replace(' ', '_')}_{datetime.now().strftime('%M%S')}.pdf"
-    pdf_path = os.path.join('static/proposals', pdf_filename)
+    # Ensure static path works on Render
+    proposals_dir = os.path.join(app.root_path, 'static/proposals')
+    if not os.path.exists(proposals_dir):
+        os.makedirs(proposals_dir)
+        
+    pdf_path = os.path.join(proposals_dir, pdf_filename)
     generate_pdf_proposal({"company": company, "bottleneck": bottleneck, "opex_waste": opex_waste}, ai_insights)
 
-    # 5. Save to Private DB
+    # 5. DB Logging
     lead_entry = {
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "name": name,
@@ -89,13 +107,10 @@ def handle_audit():
     }
     save_lead_to_db(lead_entry)
 
-    # 6. Execute Transmission (Optional: async via Celery in future)
-    # send_architecture_brief(email, pdf_path, company)
-
     flash("Architecture Protocol Initialized. Check your encrypted brief shortly.")
     return redirect(url_for('home'))
 
-# --- PRIVATE COMMAND CENTER (ADMIN) ---
+# --- PRIVATE COMMAND CENTER ---
 
 @app.route('/admin-portal/<key>')
 def admin_dashboard(key):
@@ -110,7 +125,7 @@ def admin_dashboard(key):
     else:
         leads = []
         
-    return render_template('admin.html', info=COMPANY_DATA, leads=leads[::-1]) # Reverse for newest first
+    return render_template('admin.html', info=COMPANY_DATA, leads=leads[::-1])
 
 @app.route('/logout-admin')
 def logout_admin():
@@ -118,6 +133,6 @@ def logout_admin():
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    # Ensure directory for proposals exists
-    os.makedirs('static/proposals', exist_ok=True)
+    # Environment Check
+    os.makedirs(os.path.join(app.root_path, 'static/proposals'), exist_ok=True)
     app.run(host='0.0.0.0', port=5000, debug=True)
