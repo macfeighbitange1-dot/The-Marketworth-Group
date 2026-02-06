@@ -24,15 +24,17 @@
                 </div>
             </div>
 
-            <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h4 style="color: var(--brand-orange); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 10px;">Mistral AI Recommendation:</h4>
-                <p style="color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 30px; font-style: italic; font-family: 'JetBrains Mono', monospace;">
+            <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: left;">
+                <h4 style="color: var(--brand-orange); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 15px; text-align: center;">Mistral AI Recommendation:</h4>
+                <div style="color: rgba(255,255,255,0.9); line-height: 1.7; margin-bottom: 35px; font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.3); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem;">
                     "{{ data.ai_advice }}"
-                </p>
-                <a href="https://wa.me/{{ info.whatsapp }}?text=I%20just%20ran%20an%20audit%20for%20{{ data.url }}.%20The%20AI%20recommended:%20{{ data.ai_advice }}" 
-                   class="btn-primary" style="background: var(--brand-orange); color: white; padding: 18px 40px; border-radius: 12px; font-weight: 800; text-decoration: none;">
-                    Deploy Sovereign Fix
-                </a>
+                </div>
+                <div style="text-align: center;">
+                    <a href="https://wa.me/{{ info.whatsapp }}?text=I%20just%20ran%20an%20audit%20for%20{{ data.url }}.%20The%20AI%20recommended:%20{{ data.ai_advice|urlencode }}" 
+                       class="btn-primary" style="background: var(--brand-orange); color: white; padding: 18px 40px; border-radius: 12px; font-weight: 800; text-decoration: none; display: inline-block;">
+                        Deploy Sovereign Fix
+                    </a>
+                </div>
             </div>
         </div>
     </div>
