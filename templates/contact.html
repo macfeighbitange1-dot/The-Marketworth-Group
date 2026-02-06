@@ -3,88 +3,104 @@
 
 <section style="padding: 160px 0 60px; background: radial-gradient(circle at bottom left, #0a0f1d, var(--brand-dark)); text-align: center;">
     <div class="container">
-        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 3px; text-transform: uppercase; font-size: 0.85rem;">System Access</span>
+        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 3px; text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 10px;">Access Protocol // 2026</span>
         <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); color: white; margin-top: 15px; letter-spacing: -2px;">Initialize <span style="color: var(--brand-orange);">Intelligence Audit</span></h1>
         <p style="color: var(--text-muted); max-width: 700px; margin: 25px auto; font-size: 1.2rem; line-height: 1.6;">
-            We do not accept all projects. Run the diagnostic below to see if your infrastructure is ready for <strong>Autonomous Orchestration.</strong>
+            We do not accept all projects. Our architecture is reserved for firms ready for <strong>Autonomous Orchestration.</strong> Submit your telemetry below.
         </p>
     </div>
 </section>
 
 <section class="container" style="padding-bottom: 120px;">
-    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 80px; align-items: start;">
         
         <div class="reveal">
-            <h3 style="color: white; font-size: 2rem; margin-bottom: 2rem;">Selection Criteria</h3>
-            <ul style="list-style: none; padding: 0; display: grid; gap: 30px;">
+            <h3 style="color: white; font-size: 2rem; margin-bottom: 2rem; letter-spacing: -1px;">Mandatory Criteria</h3>
+            <ul style="list-style: none; padding: 0; display: grid; gap: 35px;">
                 <li style="display: flex; gap: 20px;">
-                    <span style="color: var(--brand-orange); font-size: 1.5rem;">01</span>
+                    <span style="color: var(--brand-orange); font-size: 1.5rem; font-weight: 900; font-family: 'JetBrains Mono';">01</span>
                     <div>
-                        <h4 style="color: white; margin-bottom: 5px;">Data Maturity</h4>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">You must have existing digital lead flows or operational data sets ready for agentic training.</p>
+                        <h4 style="color: white; margin-bottom: 5px; font-size: 1.1rem;">Data Maturity</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">You must possess operational datasets (CRM, ERP, or M-Pesa logs) ready for Agentic training.</p>
                     </div>
                 </li>
                 <li style="display: flex; gap: 20px;">
-                    <span style="color: var(--brand-orange); font-size: 1.5rem;">02</span>
+                    <span style="color: var(--brand-orange); font-size: 1.5rem; font-weight: 900; font-family: 'JetBrains Mono';">02</span>
                     <div>
-                        <h4 style="color: white; margin-bottom: 5px;">Scale Readiness</h4>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Your business model must be capable of handling a 5x increase in throughput via automation.</p>
+                        <h4 style="color: white; margin-bottom: 5px; font-size: 1.1rem;">Scale Potential</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">Your business must be positioned to handle a 5x-10x throughput increase via automation logic.</p>
                     </div>
                 </li>
                 <li style="display: flex; gap: 20px;">
-                    <span style="color: var(--brand-orange); font-size: 1.5rem;">03</span>
+                    <span style="color: var(--brand-orange); font-size: 1.5rem; font-weight: 900; font-family: 'JetBrains Mono';">03</span>
                     <div>
-                        <h4 style="color: white; margin-bottom: 5px;">Sovereign Intent</h4>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">You prioritize owning your intelligence infrastructure rather than renting third-party SaaS tools.</p>
+                        <h4 style="color: white; margin-bottom: 5px; font-size: 1.1rem;">Sovereign Intent</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5;">Priority is given to firms seeking to own their LLM clusters rather than renting third-party APIs.</p>
                     </div>
                 </li>
             </ul>
 
-            <div style="margin-top: 50px; padding: 40px; background: var(--brand-surface); border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);">
-                <h4 style="color: var(--brand-accent); margin-bottom: 10px;">Direct Encryption</h4>
-                <p style="color: var(--text-muted); font-size: 0.9rem; font-family: 'JetBrains Mono';">secure-comms@marketworth.co.ke</p>
+            <div style="margin-top: 50px; padding: 35px; background: var(--brand-surface); border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid var(--brand-accent);">
+                <h4 style="color: var(--brand-accent); margin-bottom: 10px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Direct Encryption</h4>
+                <p style="color: white; font-size: 1rem; font-family: 'JetBrains Mono'; margin: 0;">intel@marketworth.ai</p>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">Nairobi, Kenya // GMT+3</p>
             </div>
         </div>
 
-        <div class="reveal" style="background: white; padding: 60px; border-radius: 40px; color: var(--brand-dark); box-shadow: 0 40px 100px rgba(0,0,0,0.3);">
-            <form action="/initialize-audit" method="POST" style="display: grid; gap: 25px;">
-                <div>
-                    <label style="display: block; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px;">Full Name / Identity</label>
-                    <input type="text" name="name" placeholder="John Doe" required style="width: 100%; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; background: #f8fafc;">
-                </div>
+        <div class="reveal" style="background: white; padding: 50px; border-radius: 40px; color: var(--brand-dark); box-shadow: 0 40px 100px rgba(0,0,0,0.4);">
+            <form action="{{ url_for('handle_audit') }}" method="POST" style="display: grid; gap: 25px;">
                 
                 <div>
-                    <label style="display: block; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px;">Company & Market Sector</label>
-                    <input type="text" name="company" placeholder="e.g. Logistics / Fintech" required style="width: 100%; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; background: #f8fafc;">
+                    <label style="display: block; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; color: #64748b;">Identity / Contact Person</label>
+                    <input type="text" name="name" placeholder="Enter Full Name" required style="width: 100%; padding: 18px; border-radius: 12px; border: 2px solid #f1f5f9; background: #f8fafc; font-weight: 600; outline: none;">
                 </div>
 
                 <div>
-                    <label style="display: block; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px;">Current Bottleneck</label>
-                    <select name="bottleneck" style="width: 100%; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; background: #f8fafc; font-weight: 600;">
-                        <option>Lead Conversion / Sales Churn</option>
-                        <option>Operational Overload / Admin OpEx</option>
-                        <option>Data Inefficiency / Analysis Paralyis</option>
-                        <option>AEO / AI Search Visibility</option>
+                    <label style="display: block; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; color: #64748b;">Work Email (Architecture Delivery)</label>
+                    <input type="email" name="email" placeholder="name@company.co.ke" required style="width: 100%; padding: 18px; border-radius: 12px; border: 2px solid #f1f5f9; background: #f8fafc; font-weight: 600; outline: none;">
+                </div>
+                
+                <div>
+                    <label style="display: block; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; color: #64748b;">Company & Market Sector</label>
+                    <input type="text" name="company" placeholder="e.g. Acme Logistics" required style="width: 100%; padding: 18px; border-radius: 12px; border: 2px solid #f1f5f9; background: #f8fafc; font-weight: 600; outline: none;">
+                </div>
+
+                <div>
+                    <label style="display: block; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; color: #64748b;">Primary Operational Bottleneck</label>
+                    <select name="bottleneck" style="width: 100%; padding: 18px; border-radius: 12px; border: 2px solid #f1f5f9; background: #f8fafc; font-weight: 700; cursor: pointer; outline: none;">
+                        <option value="Sales/Lead Conversion">Lead Conversion / Sales Churn</option>
+                        <option value="Operational Overload">Operational Overload / Admin OpEx</option>
+                        <option value="Data Inefficiency">Data Silos / Analysis Paralysis</option>
+                        <option value="AEO Visibility">AEO / AI Search Citations</option>
                     </select>
                 </div>
 
                 <div>
-                    <label style="display: block; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px;">Estimated Monthly OpEx Waste</label>
-                    <input type="text" name="budget" placeholder="KES 100,000+" style="width: 100%; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; background: #f8fafc;">
+                    <label style="display: block; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 8px; color: #64748b;">Estimated Monthly OpEx Waste (KES)</label>
+                    <input type="text" name="budget" placeholder="e.g. 250,000" style="width: 100%; padding: 18px; border-radius: 12px; border: 2px solid #f1f5f9; background: #f8fafc; font-weight: 600; outline: none;">
                 </div>
 
-                <div style="margin-top: 10px;">
-                    <button type="submit" style="width: 100%; padding: 22px; background: var(--brand-dark); color: white; border: none; border-radius: 12px; font-weight: 900; font-size: 1.1rem; cursor: pointer; transition: 0.4s;">
-                        Submit for Architecture Review
+                <div style="margin-top: 15px;">
+                    <button type="submit" style="width: 100%; padding: 22px; background: var(--brand-dark); color: white; border: none; border-radius: 15px; font-weight: 900; font-size: 1.1rem; cursor: pointer; transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+                        Request Technical Brief →
                     </button>
-                    <p style="text-align: center; font-size: 0.75rem; color: #94a3b8; margin-top: 15px; font-weight: 600;">
-                        Response time: 24-48 Hours for Qualified Leads.
-                    </p>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px;">
+                        <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite;"></div>
+                        <span style="font-size: 0.7rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Mistral Inference Engine Online</span>
+                    </div>
                 </div>
             </form>
         </div>
 
     </div>
 </section>
+
+<style>
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+</style>
 
 {% endblock %}
