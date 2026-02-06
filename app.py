@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import os
 import time
+import csv
 
 app = Flask(__name__)
 # Secret key for session management and flashing messages
@@ -12,6 +13,30 @@ COMPANY_DATA = {
     'whatsapp': '254700000000', 
     'email': 'intelligence@marketworth.ai'
 }
+
+# --- LEAD LOGGING UTILITY ---
+def log_lead(url):
+    """
+    Appends lead data to a permanent CSV file for later retrieval.
+    This creates a persistent 'Lead Log' in your project directory.
+    """
+    csv_file = 'leads.csv'
+    file_exists = os.path.isfile(csv_file)
+    
+    try:
+        with open(csv_file, mode='a', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            # Write column headers if the file is being created for the first time
+            if not file_exists:
+                writer.writerow(['Timestamp', 'Website URL', 'Status'])
+            
+            timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
+            writer.writerow([timestamp, url, 'Audit Generated'])
+            print(f"CORE_LOG: Lead archived to local storage -> {url}")
+    except Exception as e:
+        print(f"CORE_LOG_ERROR: Failed to write to CSV -> {str(e)}")
+
+# --- PRIMARY ROUTES ---
 
 @app.route('/')
 def home():
@@ -43,14 +68,16 @@ def resources():
 @app.route('/submit-lead', methods=['POST'])
 def submit_lead():
     """
-    Captures the website URL from the traffic bar and 
-    redirects to the live analysis results page.
+    Captures the website URL, logs it to the CSV database,
+    and redirects to the live analysis results page.
     """
     target_url = request.form.get('email') # Matches 'name="email"' in your HTML
     
     if target_url:
-        print(f"CORE_SCAN: Initializing AEO Audit for {target_url}")
-        # Passing URL as query parameter to results
+        # 0.1% Update: Automatically log the lead to leads.csv
+        log_lead(target_url)
+        
+        # Passing URL as query parameter to results for the dynamic view
         return redirect(url_for('results', site=target_url))
     
     flash("Please enter a valid website URL to begin analysis.", "error")
@@ -79,11 +106,12 @@ def results():
 
 @app.route('/admin/logout')
 def logout_admin():
+    """Placeholder for admin session termination."""
     return redirect(url_for('home'))
 
 @app.errorhandler(404)
 def page_not_found(e):
-    """Graceful redirect for broken links."""
+    """Graceful redirect for broken links to maintain traffic flow."""
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
