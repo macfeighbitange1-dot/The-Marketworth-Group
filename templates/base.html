@@ -3,27 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ info.name }} | Systems Architecture</title>
+    <title>{{ info.name }} | Systems Architecture 2026</title>
     
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        /* Critical redundancy check: Ensures content is visible if JS fails */
-        .reveal.active { opacity: 1 !important; transform: translateY(0) !important; }
+        /* Ensuring reveal animations are smooth and stable */
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
         
-        /* Specific Footer Link Styling for Blue Background */
-        footer .social-links a {
-            color: var(--brand-accent);
-            text-decoration: none;
-            margin-right: 1.5rem;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        footer .social-links a:hover {
-            color: white;
-        }
+        /* Smooth scrolling for anchor links */
+        html { scroll-behavior: smooth; }
+
+        /* Ensuring main content has space for the fixed headers */
+        main { min-height: 80vh; }
     </style>
 </head>
 <body>
@@ -31,21 +25,37 @@
     <div id="scroll-progress"></div>
 
     <header>
-        <nav class="container">
+        <nav class="nav-container">
             <a href="/" class="logo">
-                {{ info.name.split(' ')[0] }} <span>{{ info.name.split(' ')[1:] | join(' ') }}</span>
+                {{ info.name.split(' ')[0] }}<span>{{ info.name.split(' ')[1:] | join(' ') }}</span>
             </a>
             
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/resources">Resources</a></li>
-                <li><a href="#book" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.85rem;">Get Started</a></li>
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item">
+                    <a href="#">Solutions ▾</a>
+                    <div class="mega-menu">
+                        <a href="/services" class="mega-link">
+                            <span>Sovereign SLMs</span>
+                            <small>Private, secure AI models.</small>
+                        </a>
+                        <a href="/services" class="mega-link">
+                            <span>Agentic Swarms</span>
+                            <small>Autonomous digital labor.</small>
+                        </a>
+                        <a href="/tools/ai-audit" class="mega-link">
+                            <span>AI Readiness Audit</span>
+                            <small>Diagnostic lead tool.</small>
+                        </a>
+                        <a href="/results" class="mega-link">
+                            <span>Case Blueprints</span>
+                            <small>View our ROI results.</small>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="/blog">Blog</a></li>
+                <li class="nav-item"><a href="https://wa.me/{{ info.whatsapp }}" class="cta-consulting">Consulting</a></li>
             </ul>
-
-            <div class="mobile-toggle" style="display: none; color: white; font-size: 1.5rem; cursor: pointer;">
-                ☰
-            </div>
         </nav>
     </header>
 
@@ -53,57 +63,74 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer style="padding: 5rem 0 2rem 0; background: var(--brand-dark);">
-        <div class="container">
-            <h2 style="color: white; margin-bottom: 1rem;">{{ info.name }}</h2>
-            <p style="margin-bottom: 2rem; color: var(--text-muted);">{{ info.tagline }}</p>
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2>{{ info.name }}</h2>
+                <p>{{ info.tagline }}</p>
+                <div class="location-box">
+                    <strong>Nairobi HQ:</strong> Westlands, Kenya<br>
+                    {{ info.phone }}
+                </div>
+            </div>
             
-            <div class="social-links">
-                <a href="{{ info.facebook }}" target="_blank">Facebook</a>
-                <a href="{{ info.youtube }}" target="_blank">YouTube</a>
-                <a href="https://wa.me/{{ info.whatsapp }}" target="_blank">WhatsApp</a>
+            <div class="footer-col">
+                <h4>Architecture</h4>
+                <ul>
+                    <li><a href="/services">Private LLMs</a></li>
+                    <li><a href="/services">Agentic Swarms</a></li>
+                    <li><a href="/results">Client ROI</a></li>
+                </ul>
             </div>
 
-            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.8; color: white;">
-                &copy; {{ info.year }} {{ info.name }}. Engineered in {{ info.location }}.
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/blog">AEO Insights</a></li>
+                    <li><a href="/tools/ai-audit">Readiness Audit</a></li>
+                    <li><a href="/academy">AI Academy</a></li>
+                </ul>
             </div>
+
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul class="social-links">
+                    <li><a href="{{ info.facebook }}" target="_blank">Facebook</a></li>
+                    <li><a href="{{ info.youtube }}" target="_blank">YouTube</a></li>
+                    <li><a href="https://wa.me/{{ info.whatsapp }}" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; text-align: center; color: var(--text-muted);">
+            &copy; {{ info.year }} {{ info.name }}. Engineered in {{ info.location }}. Data Sovereignty Guaranteed.
         </div>
     </footer>
 
+    <a href="https://wa.me/{{ info.whatsapp }}" class="whatsapp-float">
+        Chat with an Architect
+    </a>
+
     <script>
-        // Progress Bar & Scroll Logic
-        window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        // Scroll & Animation Engine
+        window.addEventListener('scroll', () => {
+            let winScroll = document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = (winScroll / height) * 100;
-            
-            // Update Progress Bar
-            const progressElement = document.getElementById("scroll-progress");
-            if (progressElement) {
-                progressElement.style.width = scrolled + "%";
-            }
-            
-            handleReveal();
-        };
-
-        // Reveal Animation Logic
-        function handleReveal() {
-            const reveals = document.querySelectorAll(".reveal");
-            for (let i = 0; i < reveals.length; i++) {
-                let windowHeight = window.innerHeight;
-                let elementTop = reveals[i].getBoundingClientRect().top;
-                let elementVisible = 100; // Trigger point
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-
-        // Initialize animations on load
-        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
             handleReveal();
         });
+
+        function handleReveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                let windowHeight = window.innerHeight;
+                let elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) el.classList.add("active");
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", handleReveal);
     </script>
 </body>
 </html>
