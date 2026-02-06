@@ -4,7 +4,7 @@ import time
 import csv
 import requests
 from mistralai import Mistral
-from flask_flatpages import FlatPages # Added for Blog Intelligence
+from flask_flatpages import FlatPages
 
 app = Flask(__name__)
 # Securely fetch keys from Environment Variables
@@ -13,7 +13,7 @@ app.secret_key = os.environ.get("SECRET_KEY", "sovereign_intelligence_2026")
 # --- FLAT-FILE BLOG CONFIGURATION ---
 app.config['FLATPAGES_AUTO_RELOAD'] = True
 app.config['FLATPAGES_EXTENSION'] = '.md'
-app.config['FLATPAGES_ROOT'] = 'pages' # Folder where your .md files live
+app.config['FLATPAGES_ROOT'] = 'pages' 
 pages = FlatPages(app)
 
 # Mistral Configuration
@@ -29,16 +29,16 @@ COMPANY_DATA = {
 
 # --- INTELLIGENCE UTILITIES ---
 
-def log_lead(url, score):
-    """Logs lead and the real AI score to CSV."""
+def log_lead(identifier, status_or_score):
+    """Logs lead data to CSV."""
     csv_file = 'leads.csv'
     file_exists = os.path.isfile(csv_file)
     try:
         with open(csv_file, mode='a', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             if not file_exists:
-                writer.writerow(['Timestamp', 'URL', 'AEO Score'])
-            writer.writerow([time.strftime("%Y-%m-%d %H:%M:%S"), url, f"{score}%"])
+                writer.writerow(['Timestamp', 'Identifier', 'Data/Score'])
+            writer.writerow([time.strftime("%Y-%m-%d %H:%M:%S"), identifier, status_or_score])
     except Exception as e:
         print(f"LOG_ERROR: {e}")
 
@@ -82,12 +82,10 @@ def services():
 
 @app.route('/blog')
 def blog(): 
-    # Fetches all markdown files and sends them to blog.html
     return render_template('blog.html', info=COMPANY_DATA, posts=pages)
 
 @app.route('/blog/<path:path>/')
 def post(path):
-    # Renders the individual blog post detail
     post = pages.get_or_404(path)
     return render_template('post_detail.html', info=COMPANY_DATA, post=post)
 
@@ -95,7 +93,7 @@ def post(path):
 def resources():
     return render_template('resources.html', info=COMPANY_DATA)
 
-# --- OPERATIONAL ANALYSIS LOGIC ---
+# --- OPERATIONAL ANALYSIS & LEAD CAPTURE ---
 
 @app.route('/submit-lead', methods=['POST'])
 def submit_lead():
@@ -105,11 +103,22 @@ def submit_lead():
             url = 'https://' + url
         
         score, advice = analyze_site_intelligence(url)
-        log_lead(url, score)
+        log_lead(url, f"Score: {score}%")
         return redirect(url_for('results', site=url, score=score, advice=advice))
     
     flash("Please enter a valid website URL.", "error")
     return redirect(url_for('home'))
+
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    """Handles Lead Magnet downloads from the blog."""
+    email = request.form.get('lead_email')
+    if email:
+        log_lead(email, "MAGNET_DOWNLOAD_REQ")
+        # Ensure you place your PDF in the /static/ folder
+        return redirect(url_for('static', filename='AI_Readiness_2026.pdf'))
+    
+    return redirect(url_for('blog'))
 
 @app.route('/tools/results')
 def results():
