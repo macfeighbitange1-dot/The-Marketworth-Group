@@ -83,8 +83,20 @@ def services():
 
 @app.route('/blog')
 def blog(): 
-    # Sorting posts by date (newest first)
-    posts = sorted(pages, key=lambda p: p.meta.get('date', ''), reverse=True)
+    """Displays all valid blog posts, skipping files with YAML syntax errors."""
+    valid_posts = []
+    for page in pages:
+        try:
+            # Explicitly access meta to trigger the YAML parser and catch errors
+            _ = page.meta.get('title')
+            valid_posts.append(page)
+        except Exception as e:
+            # This logs the specific broken file to your Render/Terminal logs
+            print(f"ARCHITECT_LOG: Skipping corrupted file '{page.path}' | Error: {e}")
+            continue
+
+    # Sorting valid posts by date (newest first)
+    posts = sorted(valid_posts, key=lambda p: str(p.meta.get('date', '0000-00-00')), reverse=True)
     return render_template('blog.html', info=COMPANY_DATA, posts=posts)
 
 @app.route('/blog/<path:path>/')
