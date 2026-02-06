@@ -1,19 +1,4 @@
-# --- Core Web Stack ---
-Flask==3.1.2
-gunicorn==23.0.0
-Werkzeug==3.1.5
-Jinja2==3.1.6
-blinker==1.9.0
-click==8.3.1
-colorama==0.4.6
-itsdangerous==2.2.0
-MarkupSafe==3.0.3
-packaging==25.0
-
-# --- Intelligence & Communication ---
-Flask-Mail==0.10.0
-requests==2.32.3
-fpdf2==2.8.2
-
-# --- Security & Optimization ---
-python-dotenv==1.0.1
+flask
+gunicorn
+requests
+mistralai
