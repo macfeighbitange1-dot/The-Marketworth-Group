@@ -1,71 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section style="padding: 140px 0 60px; background: var(--brand-dark); text-align: center;">
+<section class="reveal" style="padding: 140px 0 80px 0; background: radial-gradient(circle at top, #0f172a 0%, #070a13 100%); text-align: center;">
     <div class="container">
-        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 10px;">Marketworth Intelligence // Knowledge Base</span>
-        <h1 style="font-size: 3.5rem; color: white; margin-top: 15px; letter-spacing: -2px;">The <span style="color: var(--brand-orange);">Marketworth</span> Journal</h1>
-        <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto; font-size: 1.1rem;">Engineering the future of Kenyan enterprise through Sovereign AI and Agentic Workflows.</p>
+        <span style="color: var(--brand-orange); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Intelligence Feed</span>
+        <h1 style="font-size: 3.5rem; color: white; margin-top: 10px;">The <span style="color: var(--brand-orange);">AEO</span> Knowledge Vault</h1>
+        <p style="font-size: 1.1rem; max-width: 600px; margin: 20px auto; color: var(--text-muted);">
+            Reverse-engineering the logic of Answer Engines. Proprietary strategies for the era of AI-first search.
+        </p>
     </div>
 </section>
 
-<section class="container" style="margin-top: -40px;">
-    <div class="reveal" style="background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
-        <div style="padding: 60px;">
-            <span style="color: var(--brand-orange); font-weight: 800; font-size: 0.75rem; letter-spacing: 1px;">TRENDING // 2026 STRATEGY</span>
-            <h2 style="font-size: 2.5rem; color: white; margin: 1rem 0; line-height: 1.1;">Why SEO is Dead and AEO is the New Frontier</h2>
-            <p style="color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6;">As users shift from Google search to ChatGPT and Perplexity, Kenyan businesses must master "Semantic Trust Engineering" to remain discoverable.</p>
-            <a href="{{ url_for('home') }}#audit" class="btn-primary" style="background: var(--brand-accent); color: var(--brand-dark); text-decoration: none; padding: 15px 30px; border-radius: 12px; font-weight: 800; display: inline-block;">Get the AEO Roadmap</a>
-        </div>
-        <div style="background: linear-gradient(45deg, var(--brand-indigo), var(--brand-dark)); display: flex; align-items: center; justify-content: center; font-size: 5rem; min-height: 300px;">
-            🛰️
-        </div>
-    </div>
-</section>
-
-<section class="container" style="padding: 80px 0;">
+<section class="container" style="padding-bottom: 100px;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
         
-        <article class="reveal" style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;" onmouseover="this.style.borderColor='var(--brand-orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-            <div style="height: 200px; background: #0c1221; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🇰🇪</div>
-            <span style="color: var(--brand-accent); font-size: 0.7rem; font-weight: 800;">LOCAL TECH // M-PESA</span>
-            <h3 style="margin: 10px 0; color: white; font-size: 1.4rem;">Implementing M-Pesa STK Push in Agentic Workflows</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Coordinating autonomous agents to handle payment verification and fulfillment via Safaricom Daraja API.</p>
-            <a href="#" style="color: var(--brand-orange); text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Technical Brief →</a>
-        </article>
-
-        <article class="reveal" style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;" onmouseover="this.style.borderColor='var(--brand-orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-            <div style="height: 200px; background: #0c1221; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🔒</div>
-            <span style="color: var(--brand-accent); font-size: 0.7rem; font-weight: 800;">DATA SOVEREIGNTY</span>
-            <h3 style="margin: 10px 0; color: white; font-size: 1.4rem;">The Case for Sovereign SLMs in Kenyan Law Firms</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Why sending client data to OpenAI is a regulatory liability, and how local Mistral clusters solve it.</p>
-            <a href="#" style="color: var(--brand-orange); text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Case Study →</a>
-        </article>
-
-        <article class="reveal" style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;" onmouseover="this.style.borderColor='var(--brand-orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
-            <div style="height: 200px; background: #0c1221; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🐝</div>
-            <span style="color: var(--brand-accent); font-size: 0.7rem; font-weight: 800;">AGENTIC SWARMS</span>
-            <h3 style="margin: 10px 0; color: white; font-size: 1.4rem;">Scaling Your Workforce with Autonomous Swarms</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Moving beyond chatbots to specialized agents that execute operations without human intervention.</p>
-            <a href="#" style="color: var(--brand-orange); text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Deployment Guide →</a>
-        </article>
+        {% if posts %}
+            {% for post in posts %}
+            <article class="blueprint-card reveal">
+                <span class="blueprint-tag">{{ post.meta.tag if post.meta.tag else "RESEARCH // 0x00" }}</span>
+                <h2 style="font-size: 1.6rem; color: white; margin: 15px 0;">{{ post.meta.title }}</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                    {{ post.meta.description if post.meta.description else "Access the encrypted intelligence briefing for this sector." }}
+                </p>
+                
+                <div style="margin-top: 25px; display: flex; align-items: center; gap: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
+                    <div style="width: 35px; height: 35px; background: var(--brand-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.7rem; color: white;">
+                        {{ info.name[0] }}
+                    </div>
+                    <div>
+                        <span style="display: block; font-size: 0.8rem; font-weight: 700; color: white;">{{ info.name }}</span>
+                        <span style="display: block; font-size: 0.7rem; color: var(--text-muted);">{{ post.meta.date }}</span>
+                    </div>
+                </div>
+                
+                <a href="{{ url_for('post', path=post.path) }}" class="blueprint-btn">Access Research</a>
+            </article>
+            {% endfor %}
+        {% else %}
+            <div style="grid-column: 1 / -1; text-align: center; padding: 100px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 30px;">
+                <p style="color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">[ STATUS: VAULT_EMPTY - AWAITING_DATA_INPUT ]</p>
+            </div>
+        {% endif %}
 
     </div>
 </section>
 
-<section class="container reveal" style="padding-bottom: 100px;">
-    <div style="background: var(--brand-orange); padding: 60px; border-radius: 40px; text-align: center; color: white; position: relative; overflow: hidden;">
-        <div style="position: absolute; left: -10px; top: -10px; font-size: 8rem; opacity: 0.1;">📡</div>
-        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">Stay Ahead of the Algorithm</h2>
-        <p style="margin-bottom: 30px; opacity: 0.9; font-weight: 500;">Join 1,000+ Kenyan founders receiving our weekly "Intelligence Brief."</p>
-        
-        <form action="{{ url_for('submit_lead') }}" method="POST" style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px; position: relative; z-index: 2;">
-            <input type="email" name="email" placeholder="Your Work Email" style="flex: 1; padding: 18px; border-radius: 12px; border: none; outline: none;" required>
-            <button type="submit" style="padding: 18px 30px; background: var(--brand-dark); color: white; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; transition: 0.3s;">
-                Subscribe
-            </button>
+<section style="background: var(--brand-surface); padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container" style="max-width: 800px; text-align: center;">
+        <h2 style="font-size: 2rem; color: white;">Join the Intelligence Brief</h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Get weekly teardowns of AI deployment strategies directly to your inbox.</p>
+        <form style="display: flex; gap: 10px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+            <input type="email" placeholder="agent@company.com" required style="flex: 1; background: transparent; border: none; padding: 15px; color: white; outline: none; font-family: 'JetBrains Mono';">
+            <button type="submit" style="background: white; color: black; border: none; padding: 0 30px; border-radius: 10px; font-weight: 800; cursor: pointer;">Initialize</button>
         </form>
-        <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">No Spam. Only Intelligence.</p>
     </div>
 </section>
 
