@@ -4,16 +4,20 @@ import time
 import csv
 import requests
 from mistralai import Mistral
+from flask_flatpages import FlatPages # Added for Blog Intelligence
 
 app = Flask(__name__)
 # Securely fetch keys from Environment Variables
 app.secret_key = os.environ.get("SECRET_KEY", "sovereign_intelligence_2026")
 
-# Mistral Configuration
-# The key is fetched from Render Environment Variables first; fallback is the hardcoded string.
-MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "QiJh8V2kZ3IQL1eYCAnKqJSOJxSHbTyC")
+# --- FLAT-FILE BLOG CONFIGURATION ---
+app.config['FLATPAGES_AUTO_RELOAD'] = True
+app.config['FLATPAGES_EXTENSION'] = '.md'
+app.config['FLATPAGES_ROOT'] = 'pages' # Folder where your .md files live
+pages = FlatPages(app)
 
-# FIXED: Replaced raw text with the variable MISTRAL_API_KEY
+# Mistral Configuration
+MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "QiJh8V2kZ3IQL1eYCAnKqJSOJxSHbTyC")
 mistral_client = Mistral(api_key=MISTRAL_API_KEY) if MISTRAL_API_KEY else None
 
 # Global Company Data
@@ -70,7 +74,6 @@ def home():
 
 @app.route('/tools/ai-audit')
 def contact():
-    """Restored to fix BuildError for 'contact' endpoint."""
     return render_template('contact.html', info=COMPANY_DATA)
 
 @app.route('/services')
@@ -79,11 +82,17 @@ def services():
 
 @app.route('/blog')
 def blog(): 
-    return render_template('blog.html', info=COMPANY_DATA)
+    # Fetches all markdown files and sends them to blog.html
+    return render_template('blog.html', info=COMPANY_DATA, posts=pages)
+
+@app.route('/blog/<path:path>/')
+def post(path):
+    # Renders the individual blog post detail
+    post = pages.get_or_404(path)
+    return render_template('post_detail.html', info=COMPANY_DATA, post=post)
 
 @app.route('/resources')
 def resources():
-    """Restored to fix potential BuildError for 'resources' endpoint."""
     return render_template('resources.html', info=COMPANY_DATA)
 
 # --- OPERATIONAL ANALYSIS LOGIC ---
