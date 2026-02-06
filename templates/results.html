@@ -1,11 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="reveal" style="padding: 140px 0 60px 0; text-align: center; background: #070a13;">
+<section class="reveal" style="padding: 140px 0 60px 0; background: radial-gradient(circle at top, #0f172a 0%, #070a13 100%); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div class="container" style="text-align: center;">
+        <span style="color: var(--brand-orange); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Intelligence Report Generated</span>
+        <h1 style="font-size: 3.5rem; color: white; margin-top: 10px;">AEO Analysis: <span style="color: var(--brand-orange);">{{ data.url }}</span></h1>
+        
+        <div style="max-width: 900px; margin: 40px auto; background: rgba(10, 15, 29, 0.9); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 30px; backdrop-filter: blur(20px);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                <div style="text-align: center;">
+                    <div style="width: 100px; height: 100px; border-radius: 50%; border: 5px solid var(--brand-orange); display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                        <span style="font-size: 1.8rem; font-weight: 900; color: white;">{{ data.aeo_score }}%</span>
+                    </div>
+                    <p style="color: #94a3b8; font-size: 0.8rem;">AEO Readiness</p>
+                </div>
+                <div style="text-align: center; border-left: 1px solid rgba(255,255,255,0.1);">
+                    <h2 style="color: white; font-size: 2rem;">{{ data.perplexity_visibility }}</h2>
+                    <p style="color: #94a3b8; font-size: 0.8rem;">Perplexity Visibility</p>
+                </div>
+                <div style="text-align: center; border-left: 1px solid rgba(255,255,255,0.1);">
+                    <h2 style="color: #ff4500; font-size: 1.8rem;">{{ data.optimization_priority }}</h2>
+                    <p style="color: #94a3b8; font-size: 0.8rem;">Priority Level</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 30px;">
+                    Analysis complete. Your domain is currently indexed but lacks the <strong>Semantic Schema Layer</strong> required for AI-first citations. 
+                    Targeted optimization could increase LLM recommendations by up to 400%.
+                </p>
+                <a href="https://wa.me/{{ info.whatsapp }}?text=I%20just%20ran%20an%20audit%20for%20{{ data.url }}.%20How%20do%20we%20fix%20the%20AEO%20score?" 
+                   class="btn-primary" style="background: var(--brand-orange); color: white; padding: 18px 40px; border-radius: 12px; font-weight: 800; text-decoration: none;">
+                    Deploy Sovereign Fix
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reveal" style="padding: 100px 0 60px 0; text-align: center; background: #070a13;">
     <div class="container">
         <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Proof of Intelligence</span>
-        <h1 style="font-size: 3.5rem; color: white; margin-top: 10px;">Marketworth <span style="color: var(--brand-accent);">Blueprints</span></h1>
-        <p style="font-size: 1.2rem; max-width: 700px; margin: 20px auto; color: rgba(255,255,255,0.7);">
+        <h1 style="font-size: 3rem; color: white; margin-top: 10px;">Marketworth <span style="color: var(--brand-accent);">Blueprints</span></h1>
+        <p style="font-size: 1.1rem; max-width: 700px; margin: 20px auto; color: rgba(255,255,255,0.7);">
             We don't just deliver software. We deliver <strong>Hard ROI</strong> through autonomous systems.
         </p>
     </div>
@@ -30,14 +67,12 @@
 
 <section class="container" style="padding-bottom: 100px;">
     <div style="display: grid; gap: 60px;">
-        
         <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; align-items: center; background: #0c1221; padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05);">
             <div>
                 <span style="background: var(--brand-accent); color: var(--brand-dark); padding: 5px 12px; border-radius: 6px; font-weight: 800; font-size: 0.7rem;">FINTECH / LOGISTICS</span>
                 <h2 style="color: white; font-size: 2.2rem; margin: 1.5rem 0;">The M-Pesa Agentic Sales Swarm</h2>
                 <p style="color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 2rem;">
-                    A major Kenyan retailer was losing 15% of leads due to manual M-Pesa verification and inventory delays. 
-                    We deployed a <strong>Multi-Agent Swarm</strong> that automates the entire funnel from WhatsApp lead to STK Push to delivery dispatch.
+                    A major Kenyan retailer was losing 15% of leads due to manual M-Pesa verification. We deployed a <strong>Multi-Agent Swarm</strong> that automates the entire funnel.
                 </p>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div>
@@ -57,21 +92,20 @@
                     > Triggering Inventory_Agent...<br>
                     > Product ID: MW-99X in stock.<br>
                     > Dispatching Courier_Bot API...<br>
-                    > WhatsApp Confirmation Sent to +254796...
+                    > Confirmation Sent to +254...
                 </div>
             </div>
         </div>
 
         <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; align-items: center; background: white; padding: 60px; border-radius: 40px;">
             <div style="text-align: center;">
-                
+                <div style="font-size: 4rem;">📈</div>
             </div>
             <div>
                 <span style="background: #f1f5f9; color: var(--brand-indigo); padding: 5px 12px; border-radius: 6px; font-weight: 800; font-size: 0.7rem;">MARKETING / AEO</span>
                 <h2 style="color: var(--brand-dark); font-size: 2.2rem; margin: 1.5rem 0;">10x AI Citation Growth</h2>
                 <p style="color: #64748b; line-height: 1.7; margin-bottom: 2rem;">
-                    For a regional Real Estate firm, we shifted focus from Google Ranking to <strong>LLM Recommendation</strong>. 
-                    Using Semantic Schema and structured data engineering, we made them the #1 recommended agency by Perplexity and ChatGPT.
+                    Using Semantic Schema engineering, we made a Real Estate firm the #1 recommended agency by Perplexity and ChatGPT.
                 </p>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div>
@@ -85,12 +119,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="reveal" style="margin-top: 100px; text-align: center;">
-        <h2 style="color: white; font-size: 2.5rem;">See Your Own Potential ROI.</h2>
-        <p style="color: rgba(255,255,255,0.6); margin: 1rem 0 2rem;">Run our diagnostic tool to see how these Blueprints apply to you.</p>
-        <a href="/tools/ai-audit" class="btn-primary" style="background: var(--brand-orange); color: white; padding: 20px 40px;">Launch AI Audit Tool</a>
     </div>
 </section>
 
