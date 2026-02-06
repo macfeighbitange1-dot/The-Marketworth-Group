@@ -10,9 +10,11 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "sovereign_intelligence_2026")
 
 # Mistral Configuration
+# The key is fetched from Render Environment Variables first; fallback is the hardcoded string.
 MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "QiJh8V2kZ3IQL1eYCAnKqJSOJxSHbTyC")
-mistral_client = Mistral(api_key=QiJh8V2kZ3IQL1eYCAnKqJSOJxSHbTyC
-) if MISTRAL_API_KEY else None
+
+# FIXED: Replaced raw text with the variable MISTRAL_API_KEY
+mistral_client = Mistral(api_key=MISTRAL_API_KEY) if MISTRAL_API_KEY else None
 
 # Global Company Data
 COMPANY_DATA = {
