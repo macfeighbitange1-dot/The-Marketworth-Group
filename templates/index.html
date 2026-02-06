@@ -1,104 +1,87 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="traffic-bar">
+    <div class="bar-container">
+        <span class="bar-text">Do you want more traffic from AI Search?</span>
+        <form action="/submit-lead" method="POST" class="bar-form">
+            <input type="text" name="email" class="bar-input" placeholder="Enter Your Website URL..." required>
+            <button type="submit" class="bar-btn">Analyze Now</button>
+        </form>
+    </div>
+</div>
+
 <section class="hero reveal">
     <div class="container">
-        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase;">The AI Supremacy Era</span>
+        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase;">The AI Supremacy Era 2026</span>
         <h1>Own the <span>Intelligence.</span><br>Rule the Market.</h1>
-        <p style="color: rgba(255,255,255,0.9); max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem;">While your competitors hire more staff, we build you an autonomous digital workforce. We architect <strong>Sovereign SLMs</strong> and <strong>Agentic Swarms</strong> that don't just work—they dominate.</p>
+        <p style="color: rgba(255,255,255,0.9); max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem;">
+            Stop hiring staff for tasks AI can do in milliseconds. We architect <strong>Sovereign SLMs</strong> and <strong>Agentic Swarms</strong> that transform your business into an autonomous profit machine.
+        </p>
         <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-            <a href="#book" class="btn-primary">Deploy Your AI Agent</a>
-            <a href="/services" class="btn-primary" style="background: transparent; border: 2px solid var(--brand-accent); color: var(--brand-accent);">Explore the Blue Ocean</a>
+            <a href="/tools/ai-audit" class="btn-primary" style="background: var(--brand-orange); color: white;">Free AI Readiness Audit</a>
+            <a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="background: transparent; border: 2px solid var(--brand-accent); color: var(--brand-accent);">Deploy Your Agent</a>
         </div>
     </div>
 </section>
 
-<section class="container" style="position: relative; z-index: 10;">
+<section class="container" style="position: relative; z-index: 10; margin-top: -60px;">
     <div class="service-preview-grid">
         <a href="/services" class="service-anchor reveal">
-            <div class="service-card enterprise-bg">
-                <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">🧠</div>
-                <h3 style="color: var(--brand-dark);">Sovereign SLMs</h3>
-                <p style="color: var(--brand-dark); opacity: 0.8;">Private, local-first Small Language Models trained on your specific business DNA. Total privacy. Zero latency.</p>
-                <span style="color: var(--brand-blue); font-weight: 700; margin-top: 1.5rem; display: block;">Secure Your Data →</span>
+            <div class="service-card" style="background: white; color: var(--brand-dark);">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧠</div>
+                <h3 style="color: var(--brand-indigo);">Sovereign SLMs</h3>
+                <p style="opacity: 0.8;">Private, local-first Small Language Models trained on your specific business DNA. Total data sovereignty.</p>
+                <span style="color: var(--brand-orange); font-weight: 700; margin-top: 1.5rem; display: block;">Secure Your Data →</span>
             </div>
         </a>
 
         <a href="/services" class="service-anchor reveal">
-            <div class="service-card automation-bg">
-                <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">🐝</div>
-                <h3 style="color: var(--brand-dark);">Agentic Swarms</h3>
-                <p style="color: var(--brand-dark); opacity: 0.8;">Autonomous AI workforces that coordinate, negotiate, and execute complex business logic without human touch.</p>
-                <span style="color: var(--brand-blue); font-weight: 700; margin-top: 1.5rem; display: block;">Automate Your Growth →</span>
+            <div class="service-card" style="background: white; color: var(--brand-dark);">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🐝</div>
+                <h3 style="color: var(--brand-indigo);">Agentic Swarms</h3>
+                <p style="opacity: 0.8;">Autonomous AI workforces that coordinate, negotiate, and execute complex business logic 24/7.</p>
+                <span style="color: var(--brand-orange); font-weight: 700; margin-top: 1.5rem; display: block;">Automate Growth →</span>
             </div>
         </a>
 
         <a href="/services" class="service-anchor reveal">
-            <div class="service-card ads-bg">
-                <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">🚀</div>
-                <h3 style="color: var(--brand-dark);">AEO & GEO Mastery</h3>
-                <p style="color: var(--brand-dark); opacity: 0.8;">Don't just rank on Google. Get recommended by ChatGPT, Perplexity, and Meta AI. The new era of search.</p>
-                <span style="color: #10b981; font-weight: 700; margin-top: 1.5rem; display: block;">Get Recommended →</span>
+            <div class="service-card" style="background: white; color: var(--brand-dark);">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚀</div>
+                <h3 style="color: var(--brand-indigo);">AEO & GEO Mastery</h3>
+                <p style="opacity: 0.8;">Dominate AI Search. Get recommended by Perplexity, ChatGPT, and Meta AI. The new SEO.</p>
+                <span style="color: var(--brand-orange); font-weight: 700; margin-top: 1.5rem; display: block;">Get Recommended →</span>
             </div>
         </a>
     </div>
 </section>
 
-<section class="container reveal" style="padding: 80px 0;">
-    <div class="stats-grid" style="display: flex; justify-content: space-around; text-align: center; color: white;">
-        <div class="stat-item">
-            <h2 style="font-size: 3rem; color: var(--brand-accent);">90%</h2>
-            <p style="font-weight: 600;">Operational Efficiency</p>
-        </div>
-        <div class="stat-item">
-            <h2 style="font-size: 3rem; color: var(--brand-accent);">0ms</h2>
-            <p style="font-weight: 600;">Data Leakage Risk</p>
-        </div>
-        <div class="stat-item">
-            <h2 style="font-size: 3rem; color: var(--brand-accent);">∞</h2>
-            <p style="font-weight: 600;">Scalability Potential</p>
-        </div>
-    </div>
-</section>
-
-<section class="container reveal" style="padding-bottom: 100px;">
+<section class="container reveal" style="padding: 100px 0;">
     <div style="text-align: center; margin-bottom: 60px;">
-        <span style="color: var(--brand-accent); font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">Case Blueprints</span>
-        <h2 style="font-size: 2.5rem; margin-top: 10px; color: white;">Intelligence in <span style="color: var(--brand-accent);">Action.</span></h2>
+        <span style="color: var(--brand-accent); font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">Intelligence in Action</span>
+        <h2 style="font-size: 2.5rem; margin-top: 10px; color: white;">Marketworth <span style="color: var(--brand-accent);">Case Blueprints</span></h2>
     </div>
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem;">
-        <div class="card" style="padding: 0; overflow: hidden; border-radius: 20px; background: white; color: var(--brand-dark);">
-            <div style="padding: 3rem;">
-                <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 800; color: var(--brand-blue);">PRIVATE INTELLIGENCE</span>
-                <h3 style="margin: 1rem 0;">Legal Mind SLM</h3>
-                <p style="opacity: 0.8; margin-bottom: 1.5rem;">Custom local model fine-tuned on Kenyan Law for instant, private case analysis.</p>
-                <div style="display: flex; gap: 10px;">
-                    <span style="font-size: 0.75rem; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 4px;">Llama-3 Fine-tuned</span>
-                    <span style="font-size: 0.75rem; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 4px;">Local Hosting</span>
-                </div>
+        <div class="service-card" style="padding: 3rem; background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.05);">
+            <span style="color: var(--brand-accent); font-size: 0.7rem; font-weight: 800;">LEGAL TECH</span>
+            <h3 style="margin: 1rem 0; color: white;">Legal Mind SLM</h3>
+            <p style="opacity: 0.7; margin-bottom: 1.5rem;">Local model fine-tuned on Kenyan Law for private, sub-second case analysis.</p>
+            <div style="display: flex; gap: 10px;">
+                <span style="font-size: 0.7rem; color: var(--text-muted); border: 1px solid #334155; padding: 4px 8px; border-radius: 4px;">Llama-3-8B</span>
+                <span style="font-size: 0.7rem; color: var(--text-muted); border: 1px solid #334155; padding: 4px 8px; border-radius: 4px;">On-Premise</span>
             </div>
         </div>
 
-        <div class="card" style="padding: 0; overflow: hidden; border-radius: 20px; background: white; color: var(--brand-dark);">
-            <div style="padding: 3rem;">
-                <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 5px; font-size: 0.7rem; font-weight: 800; color: var(--brand-blue);">AUTONOMOUS AGENTS</span>
-                <h3 style="margin: 1rem 0;">Agentic Sales Swarm</h3>
-                <p style="opacity: 0.8; margin-bottom: 1.5rem;">Multi-agent system handling M-Pesa verification, inventory, and delivery routing.</p>
-                <div style="display: flex; gap: 10px;">
-                    <span style="font-size: 0.75rem; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 4px;">Agentic Python</span>
-                    <span style="font-size: 0.75rem; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 4px;">STK Push Integration</span>
-                </div>
+        <div class="service-card" style="padding: 3rem; background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.05);">
+            <span style="color: var(--brand-accent); font-size: 0.7rem; font-weight: 800;">FINTECH</span>
+            <h3 style="margin: 1rem 0; color: white;">M-Pesa Sales Swarm</h3>
+            <p style="opacity: 0.7; margin-bottom: 1.5rem;">Multi-agent system handling STK Push verification and inventory routing.</p>
+            <div style="display: flex; gap: 10px;">
+                <span style="font-size: 0.7rem; color: var(--text-muted); border: 1px solid #334155; padding: 4px 8px; border-radius: 4px;">Autonomous Logic</span>
+                <span style="font-size: 0.7rem; color: var(--text-muted); border: 1px solid #334155; padding: 4px 8px; border-radius: 4px;">API First</span>
             </div>
         </div>
-    </div>
-</section>
-
-<section id="book" class="container reveal" style="padding-bottom: 100px;">
-    <div style="background: var(--brand-dark); border-radius: 40px; padding: 5rem 2rem; text-align: center; color: white; border: 1px solid rgba(255,255,255,0.1);">
-        <h2 style="color: white; font-size: 3rem; margin-bottom: 1.5rem;">Don't get left in<br>the pre-AI era.</h2>
-        <p style="max-width: 600px; margin: 0 auto 2.5rem; opacity: 0.7;">Secure your enterprise's future with a private AI strategy session.</p>
-        <a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="background: var(--brand-accent); color: var(--brand-dark);">Deploy Intelligence Now</a>
     </div>
 </section>
 
