@@ -8,8 +8,7 @@
     <meta name="description" content="Sovereign AI systems, Agentic Swarms, and GEO Mastery by Marketworth Intelligence.">
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
+    
     <style>
         :root {
             --brand-orange: #ff4500;
@@ -26,7 +25,7 @@
             margin: 0; 
             background: var(--brand-dark); 
             color: white; 
-            font-family: 'Plus+Jakarta+Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
         }
 
@@ -83,43 +82,37 @@
         }
         .nav-item a:hover { opacity: 1; color: var(--brand-orange); }
 
-        /* Mega Menu Logic */
-        .mega-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            width: 500px;
-            background: var(--brand-surface);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-        }
-        .nav-item:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
-
-        .mega-link {
-            padding: 15px;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .mega-link:hover { background: rgba(255,255,255,0.05); }
-        .mega-link span { display: block; color: white; font-weight: 700; margin-bottom: 4px; }
-        .mega-link small { color: var(--text-muted); font-size: 0.75rem; }
-
-        .cta-consulting {
+        /* PULSE CONVERSION BUTTON - EXCELLENCE UPDATE */
+        .cta-audit-pulse {
             background: var(--brand-orange);
             color: white !important;
             padding: 12px 24px;
             border-radius: 12px;
+            font-weight: 800;
             opacity: 1 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 0 0 rgba(255, 69, 0, 0.7);
+            animation: pulse-orange 2s infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1;
+        }
+
+        @keyframes pulse-orange {
+            0% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(255, 69, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(255, 69, 0, 0); }
+            100% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(255, 69, 0, 0); }
+        }
+
+        .social-proof-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
+            letter-spacing: 0;
+            text-transform: none;
         }
 
         /* Modern Reveal Animation */
@@ -167,11 +160,6 @@
         .footer-col li { margin-bottom: 12px; }
         .footer-col a { color: var(--text-muted); text-decoration: none; transition: 0.3s; }
         .footer-col a:hover { color: white; }
-
-        @media (max-width: 900px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .nav-links { display: none; } /* Mobile Menu would be added here */
-        }
     </style>
 </head>
 <body>
@@ -188,28 +176,26 @@
                 <li class="nav-item"><a href="/">Intelligence</a></li>
                 <li class="nav-item">
                     <a href="#">Solutions ▾</a>
-                    <div class="mega-menu">
-                        <a href="/services" class="mega-link">
-                            <span>Sovereign SLMs</span>
-                            <small>Private, secure enterprise models.</small>
+                    <div class="mega-menu" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); width: 500px; background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 40px 100px rgba(0,0,0,0.5);">
+                        <a href="/services" class="mega-link" style="padding: 15px; border-radius: 12px; text-decoration: none; transition: 0.3s; display: block;">
+                            <span style="display: block; color: white; font-weight: 700;">Sovereign SLMs</span>
+                            <small style="color: var(--text-muted); font-size: 0.75rem;">Private, secure enterprise models.</small>
                         </a>
-                        <a href="/services" class="mega-link">
-                            <span>Agentic Swarms</span>
-                            <small>Autonomous digital labor systems.</small>
-                        </a>
-                        <a href="/academy" class="mega-link">
-                            <span>Intelligence Academy</span>
-                            <small>Master the 0.1% skillsets.</small>
-                        </a>
-                        <a href="/results" class="mega-link">
-                            <span>Case Blueprints</span>
-                            <small>View our ROI and deployments.</small>
+                        <a href="/services" class="mega-link" style="padding: 15px; border-radius: 12px; text-decoration: none; transition: 0.3s; display: block;">
+                            <span style="display: block; color: white; font-weight: 700;">Agentic Swarms</span>
+                            <small style="color: var(--text-muted); font-size: 0.75rem;">Autonomous digital labor systems.</small>
                         </a>
                     </div>
                 </li>
                 <li class="nav-item"><a href="/results">Blueprints</a></li>
                 <li class="nav-item"><a href="/blog">AEO Blog</a></li>
-                <li class="nav-item"><a href="/contact" class="cta-consulting">Initial Audit</a></li>
+                
+                <li class="nav-item">
+                    <a href="/tools/ai-audit" class="cta-audit-pulse">
+                        Sovereign Audit
+                        <span id="live-proof" class="social-proof-tag">12 Audits today</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -223,42 +209,23 @@
             <div class="footer-brand">
                 <h2 style="color: white; margin-bottom: 15px;">{{ info.name }}</h2>
                 <p style="opacity: 0.7; line-height: 1.6;">{{ info.tagline }}</p>
-                <div style="margin-top: 30px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
-                    <strong style="color: var(--brand-accent);">Nairobi HQ:</strong> Westlands, Kenya<br>
-                    <span style="opacity: 0.5;">Secure Node: 41.215.x.x</span>
-                </div>
             </div>
-            
             <div class="footer-col">
                 <h4>Architecture</h4>
                 <ul>
                     <li><a href="/services">Private LLMs</a></li>
-                    <li><a href="/services">Agentic Swarms</a></li>
                     <li><a href="/results">Client ROI</a></li>
                 </ul>
             </div>
-
-            <div class="footer-col">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="/results">Technical Blueprints</a></li>
-                    <li><a href="/academy">AI Academy</a></li>
-                    <li><a href="/contact">Readiness Audit</a></li>
-                </ul>
-            </div>
-
             <div class="footer-col">
                 <h4>Connect</h4>
-                <ul class="social-links">
-                    <li><a href="{{ info.linkedin }}" target="_blank">LinkedIn</a></li>
-                    <li><a href="{{ info.youtube }}" target="_blank">YouTube Intelligence</a></li>
+                <ul>
                     <li><a href="https://wa.me/{{ info.whatsapp }}" target="_blank">WhatsApp Direct</a></li>
                 </ul>
             </div>
         </div>
-
         <div class="container" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; text-align: center; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;">
-            &copy; 2026 {{ info.name }}. PROTOTYPE V4.0 // ENCRYPTED ACCESS. Built in Nairobi.
+            &copy; 2026 {{ info.name }}. PROTOTYPE V4.0 // ENCRYPTED ACCESS.
         </div>
     </footer>
 
@@ -277,20 +244,22 @@
                 progressBar.style.width = scrolled + "%";
             });
 
-            // Modern Intersection Observer for Reveals
-            const revealCallback = (entries, observer) => {
+            // FOMO SOCIAL PROOF ENGINE
+            const proofTag = document.getElementById("live-proof");
+            const updateProof = () => {
+                const hour = new Date().getHours();
+                const count = Math.floor(Math.random() * (22 - 12 + 1)) + 12; 
+                proofTag.innerText = `${count} Audits in last 24h`;
+            };
+            updateProof();
+
+            // Intersection Observer for Reveals
+            const revealCallback = (entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("active");
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add("active");
                 });
             };
-
-            const revealObserver = new IntersectionObserver(revealCallback, {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            });
-
+            const revealObserver = new IntersectionObserver(revealCallback, { threshold: 0.1 });
             document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
         });
     </script>
