@@ -2,3 +2,5 @@ flask
 gunicorn
 requests
 mistralai
+Flask-FlatPages
+Markdown
