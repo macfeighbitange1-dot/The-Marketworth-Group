@@ -1,96 +1,114 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="hero reveal" style="padding: 140px 0 80px 0; background: linear-gradient(135deg, var(--brand-dark) 0%, #1e1b4b 100%);">
+<section class="hero reveal" style="padding: 160px 0 100px 0; background: radial-gradient(circle at bottom right, #1e1b4b, var(--brand-dark));">
     <div class="container">
-        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 3px; font-size: 0.85rem; text-transform: uppercase;">Marketworth Intelligence Academy</span>
-        <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-top: 1rem;">The Knowledge Gap is Your <span style="color: var(--brand-accent);">Competitive Edge.</span></h1>
-        <p style="max-width: 800px; margin: 1.5rem auto 2.5rem; font-size: 1.25rem; color: rgba(255,255,255,0.85); line-height: 1.6;">
-            The skills that dominated 2024 are becoming obsolete. We don't teach "coding"—we teach <strong>Intelligence Architecture.</strong> Learn to build the systems that will replace traditional software.
+        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 4px; font-size: 0.85rem; text-transform: uppercase;">Intelligence Defense & Acquisition</span>
+        <h1 style="font-size: clamp(2.8rem, 7vw, 4.5rem); line-height: 1.1; margin-top: 1rem;">The Knowledge Gap is Your <br><span style="color: var(--brand-orange);">Competitive Edge.</span></h1>
+        <p style="max-width: 850px; margin: 2rem auto 3rem; font-size: 1.3rem; color: rgba(255,255,255,0.85); line-height: 1.6; opacity: 0.9;">
+            The tools that dominated 2025 are already legacy. We don't teach "coding"—we teach <strong>Sovereign Architecture.</strong> Master the protocols to build systems that don't just work, but dominate the market while you sleep.
         </p>
-        <a href="#courses" class="btn-primary" style="background: var(--brand-accent); color: var(--brand-dark); padding: 1.2rem 3rem; font-size: 1.1rem;">Explore Mastery Protocols</a>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="#courses" class="btn-primary" style="background: var(--brand-orange); color: white; padding: 1.2rem 3.5rem;">Access Mastery Protocols</a>
+            <a href="/tools/ai-audit" class="btn-primary" style="background: transparent; border: 2px solid var(--brand-accent); color: var(--brand-accent);">Test Your Readiness</a>
+        </div>
     </div>
 </section>
 
-<section class="container reveal" style="padding: 80px 0;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
+<section class="container reveal" style="padding: 100px 0;">
+    <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center;">
         <div>
-            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1.5rem;">Why this is <span style="color: var(--brand-accent);">Non-Negotiable.</span></h2>
-            <p style="margin-bottom: 1.5rem; opacity: 0.9;">In 18 months, businesses will be divided into two groups: those who <strong>own</strong> AI infrastructure and those who <strong>pay</strong> those owners for every transaction.</p>
-            <p style="margin-bottom: 1.5rem; opacity: 0.9;">By mastering SLMs, Agents, and GEO, you aren't just getting a certificate; you're acquiring the keys to the new digital economy. The ROI isn't a salary increase—it's <strong>Market Supremacy.</strong></p>
+            <h2 style="color: white; font-size: 2.8rem; margin-bottom: 2rem; line-height: 1.2;">In the AI Era, you are either the <span style="color: var(--brand-accent);">Architect</span> or the <span style="color: var(--text-muted);">Asset.</span></h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.8;">The global economy has pivoted. In 18 months, professional value will be measured by your <strong>Inference Ownership</strong>—the ability to deploy private intelligence that acts on your behalf.</p>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8;">Marketworth Academy provides the technical blueprints used by the top 0.1% to secure data, automate complex sales cycles, and manipulate AI search recommendations (GEO).</p>
+            
+            
         </div>
         
-        <div style="background: rgba(79, 70, 229, 0.1); border: 1px solid rgba(255,255,255,0.1); padding: 3rem; border-radius: 30px;">
-            <h4 style="color: var(--brand-accent); margin-bottom: 1rem;">The Professional ROI</h4>
-            <ul style="list-style: none; padding: 0; display: grid; gap: 15px;">
-                <li style="display: flex; gap: 10px;">⚡ <span>Automate 80% of your workflow using private agents.</span></li>
-                <li style="display: flex; gap: 10px;">🌍 <span>Position yourself as a Top 1% Global AI Architect.</span></li>
-                <li style="display: flex; gap: 10px;">💰 <span>Charge premium consulting fees for "Invisible Marketing" (GEO).</span></li>
+        <div style="background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.1); padding: 3.5rem; border-radius: 40px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+            <h4 style="color: var(--brand-accent); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">The Master's ROI</h4>
+            <ul style="list-style: none; padding: 0; display: grid; gap: 25px;">
+                <li style="display: flex; gap: 15px; align-items: start;">
+                    <span style="background: var(--brand-orange); padding: 5px; border-radius: 5px; line-height: 1;">⚡</span>
+                    <span><strong>Autonomous Agency:</strong> Build swarms that replace $5,000/mo in administrative OpEx.</span>
+                </li>
+                <li style="display: flex; gap: 15px; align-items: start;">
+                    <span style="background: var(--brand-orange); padding: 5px; border-radius: 5px; line-height: 1;">🌍</span>
+                    <span><strong>Global Portability:</strong> Acquire skills recognized in Nairobi, Dubai, and Silicon Valley.</span>
+                </li>
+                <li style="display: flex; gap: 15px; align-items: start;">
+                    <span style="background: var(--brand-orange); padding: 5px; border-radius: 5px; line-height: 1;">💰</span>
+                    <span><strong>GEO Monopoly:</strong> Charge 5x SEO rates for "AI Citation Engineering."</span>
+                </li>
             </ul>
         </div>
     </div>
 </section>
 
-<section id="courses" class="container" style="padding-bottom: 100px;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem;">
+<section id="courses" class="container" style="padding-bottom: 120px;">
+    <div style="text-align: center; margin-bottom: 60px;">
+        <h2 style="font-size: 3rem; color: white;">Evolution <span style="color: var(--brand-accent);">Protocols</span></h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 3rem;">
         
-        <div class="card reveal" style="background: white; color: var(--brand-dark); border-radius: 30px; overflow: hidden; display: flex; flex-direction: column;">
-            <div style="padding: 3rem;">
-                <span style="background: #f1f5f9; padding: 5px 15px; border-radius: 5px; font-weight: 800; font-size: 0.75rem; color: var(--brand-main);">LEVEL: ADVANCED</span>
-                <h3 style="margin: 1.5rem 0 1rem; font-size: 1.8rem;">Agentic AI & Swarm Architecture</h3>
-                <p style="opacity: 0.8; margin-bottom: 2rem;">Move beyond "prompts." Build autonomous swarms that coordinate, reason, and execute business logic without human oversight.</p>
+        <div class="reveal" style="background: white; color: var(--brand-dark); border-radius: 35px; overflow: hidden; display: flex; flex-direction: column; transition: 0.4s ease;">
+            <div style="padding: 3.5rem;">
+                <span style="background: #f1f5f9; padding: 6px 16px; border-radius: 6px; font-weight: 900; font-size: 0.7rem; color: var(--brand-indigo);">LEVEL: ADVANCED ARCHITECT</span>
+                <h3 style="margin: 1.5rem 0 1rem; font-size: 1.8rem; letter-spacing: -0.5px;">Agentic AI & Swarm Logic</h3>
+                <p style="opacity: 0.7; margin-bottom: 2rem; line-height: 1.6;">Build multi-agent systems that negotiate, reason, and execute STK Pushes and logistics independently.</p>
                 
-                <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 15px;">
-                    <strong style="color: var(--brand-main);">Value:</strong> Replaces 5+ full-time administrative roles.
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 20px; border-left: 4px solid var(--brand-orange);">
+                    <strong style="color: var(--brand-dark);">Focus:</strong> Autogen, CrewAI, and State-Machines.
                 </div>
 
-                <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 2rem;">
-                    <span style="font-size: 2.5rem; font-weight: 900;">KES 24,999</span>
-                    <span style="text-decoration: line-through; opacity: 0.5;">KES 45,000</span>
+                <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 2rem;">
+                    <span style="font-size: 2.5rem; font-weight: 900; color: var(--brand-orange);">KES 24,999</span>
+                    <span style="text-decoration: line-through; opacity: 0.4; font-size: 1.2rem;">45K</span>
                 </div>
 
-                <a href="#" class="btn-primary" style="display: block; text-align: center; margin-bottom: 1rem;">Unlock Mastery</a>
-                <a href="#" style="display: block; text-align: center; font-weight: 700; color: var(--brand-main); text-decoration: none; font-size: 0.9rem;">Watch Introduction (Free) →</a>
+                <a href="#" class="btn-primary" style="display: block; text-align: center; background: var(--brand-dark); color: white; border-radius: 12px;">Deploy Knowledge</a>
+                <a href="#" style="display: block; text-align: center; font-weight: 800; color: var(--brand-indigo); text-decoration: none; font-size: 0.9rem; margin-top: 1.5rem;">Protocol Introduction (Free) →</a>
             </div>
         </div>
 
-        <div class="card reveal" style="background: white; color: var(--brand-dark); border-radius: 30px; overflow: hidden; display: flex; flex-direction: column;">
-            <div style="padding: 3rem;">
-                <span style="background: #f1f5f9; padding: 5px 15px; border-radius: 5px; font-weight: 800; font-size: 0.75rem; color: var(--brand-main);">LEVEL: STRATEGIC</span>
-                <h3 style="margin: 1.5rem 0 1rem; font-size: 1.8rem;">The Invisible Edge: GEO & AEO Mastery</h3>
-                <p style="opacity: 0.8; margin-bottom: 2rem;">SEO is failing. Learn to optimize for the models that answer for us. Be the brand ChatGPT recommends first.</p>
+        <div class="reveal" style="background: white; color: var(--brand-dark); border-radius: 35px; overflow: hidden; display: flex; flex-direction: column;">
+            <div style="padding: 3.5rem;">
+                <span style="background: #f1f5f9; padding: 6px 16px; border-radius: 6px; font-weight: 900; font-size: 0.7rem; color: var(--brand-indigo);">LEVEL: GEO STRATEGIST</span>
+                <h3 style="margin: 1.5rem 0 1rem; font-size: 1.8rem; letter-spacing: -0.5px;">The Invisible Edge: GEO</h3>
+                <p style="opacity: 0.7; margin-bottom: 2rem; line-height: 1.6;">SEO is legacy. Learn to engineer citations within LLMs so ChatGPT and Perplexity recommend your brand first.</p>
                 
-                <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 15px;">
-                    <strong style="color: var(--brand-main);">Value:</strong> Dominance in the AI-search era.
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 20px; border-left: 4px solid var(--brand-orange);">
+                    <strong style="color: var(--brand-dark);">Focus:</strong> Semantic Engineering & AEO.
                 </div>
 
-                <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 2rem;">
-                    <span style="font-size: 2.5rem; font-weight: 900;">KES 14,999</span>
-                    <span style="text-decoration: line-through; opacity: 0.5;">KES 25,000</span>
+                <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 2rem;">
+                    <span style="font-size: 2.5rem; font-weight: 900; color: var(--brand-orange);">KES 14,999</span>
+                    <span style="text-decoration: line-through; opacity: 0.4; font-size: 1.2rem;">25K</span>
                 </div>
 
-                <a href="#" class="btn-primary" style="display: block; text-align: center; margin-bottom: 1rem;">Unlock Mastery</a>
-                <a href="#" style="display: block; text-align: center; font-weight: 700; color: var(--brand-main); text-decoration: none; font-size: 0.9rem;">Watch Introduction (Free) →</a>
+                <a href="#" class="btn-primary" style="display: block; text-align: center; background: var(--brand-dark); color: white; border-radius: 12px;">Capture the Edge</a>
+                <a href="#" style="display: block; text-align: center; font-weight: 800; color: var(--brand-indigo); text-decoration: none; font-size: 0.9rem; margin-top: 1.5rem;">Protocol Introduction (Free) →</a>
             </div>
         </div>
 
-        <div class="card reveal" style="background: white; color: var(--brand-dark); border-radius: 30px; overflow: hidden; display: flex; flex-direction: column;">
-            <div style="padding: 3rem;">
-                <span style="background: #f1f5f9; padding: 5px 15px; border-radius: 5px; font-weight: 800; font-size: 0.75rem; color: var(--brand-main);">LEVEL: ELITE</span>
-                <h3 style="margin: 1.5rem 0 1rem; font-size: 1.8rem;">SLM Engineering & Local Deployment</h3>
-                <p style="opacity: 0.8; margin-bottom: 2rem;">Master the art of fine-tuning Small Language Models for private, high-security enterprise environments.</p>
+        <div class="reveal" style="background: white; color: var(--brand-dark); border-radius: 35px; overflow: hidden; display: flex; flex-direction: column;">
+            <div style="padding: 3.5rem;">
+                <span style="background: #f1f5f9; padding: 6px 16px; border-radius: 6px; font-weight: 900; font-size: 0.7rem; color: var(--brand-indigo);">LEVEL: SOVEREIGN ELITE</span>
+                <h3 style="margin: 1.5rem 0 1rem; font-size: 1.8rem; letter-spacing: -0.5px;">SLM & Local Fine-Tuning</h3>
+                <p style="opacity: 0.7; margin-bottom: 2rem; line-height: 1.6;">Don't rely on OpenAI. Master fine-tuning Llama-3 and Mistral for offline, secure enterprise intelligence.</p>
                 
-                <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 15px;">
-                    <strong style="color: var(--brand-main);">Value:</strong> Data sovereignty for high-net-worth clients.
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 20px; border-left: 4px solid var(--brand-orange);">
+                    <strong style="color: var(--brand-dark);">Focus:</strong> LoRA, QLoRA & Local Hosting.
                 </div>
 
-                <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 2rem;">
-                    <span style="font-size: 2.5rem; font-weight: 900;">KES 34,999</span>
-                    <span style="text-decoration: line-through; opacity: 0.5;">KES 60,000</span>
+                <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 2rem;">
+                    <span style="font-size: 2.5rem; font-weight: 900; color: var(--brand-orange);">KES 34,999</span>
+                    <span style="text-decoration: line-through; opacity: 0.4; font-size: 1.2rem;">60K</span>
                 </div>
 
-                <a href="#" class="btn-primary" style="display: block; text-align: center; margin-bottom: 1rem;">Unlock Mastery</a>
-                <a href="#" style="display: block; text-align: center; font-weight: 700; color: var(--brand-main); text-decoration: none; font-size: 0.9rem;">Watch Introduction (Free) →</a>
+                <a href="#" class="btn-primary" style="display: block; text-align: center; background: var(--brand-dark); color: white; border-radius: 12px;">Own the Intelligence</a>
+                <a href="#" style="display: block; text-align: center; font-weight: 800; color: var(--brand-indigo); text-decoration: none; font-size: 0.9rem; margin-top: 1.5rem;">Protocol Introduction (Free) →</a>
             </div>
         </div>
 
@@ -98,16 +116,16 @@
 </section>
 
 <section class="container reveal" style="padding-bottom: 120px;">
-    <div style="background: var(--brand-main); padding: 5rem 2rem; border-radius: 40px; text-align: center; color: white;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Get the AI Readiness Blueprint</h2>
-        <p style="max-width: 600px; margin: 0 auto 2.5rem; opacity: 0.9;">Not ready to commit? Join our private list to receive one deep-dive intelligence protocol every Tuesday. Start your evolution for free.</p>
+    <div style="background: #0c1221; padding: 6rem 3rem; border-radius: 50px; text-align: center; color: white; border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: var(--brand-indigo); filter: blur(100px); opacity: 0.2;"></div>
+        <h2 style="font-size: 3rem; margin-bottom: 1rem;">Join the Private Briefing.</h2>
+        <p style="max-width: 650px; margin: 0 auto 3rem; font-size: 1.15rem; opacity: 0.8;">Receive one "Sovereign Protocol" every Tuesday. No fluff, just high-level architecture for those building the future of Kenya.</p>
         
-        <form style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-            <input type="email" placeholder="Your Business Email" required
-                   style="padding: 1.2rem; border: none; border-radius: 12px; width: 350px; font-size: 1rem;">
-            <button class="btn-primary" style="background: var(--brand-accent); color: var(--brand-dark); border: none;">Send Blueprint</button>
+        <form action="/submit-lead" method="POST" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+            <input type="email" name="email" placeholder="Your Professional Email" required
+                   class="bar-input" style="width: 400px; background: rgba(255,255,255,0.05); color: white; border-color: rgba(255,255,255,0.1);">
+            <button type="submit" class="bar-btn" style="padding: 18px 40px; font-size: 1rem;">Secure Blueprint</button>
         </form>
-        <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.7;">Zero spam. Just architecture.</p>
     </div>
 </section>
 
