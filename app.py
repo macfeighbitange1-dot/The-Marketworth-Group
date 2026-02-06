@@ -1,138 +1,56 @@
-import sys
-import os
-
-# --- 0.1% PATH INJECTION FIX ---
-# This must remain at the very top to resolve Render's ModuleNotFoundError
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-from flask import Flask, render_template, request, redirect, url_for, flash, session, abort
-from datetime import datetime
-import json
-
-# Import custom logic (These will now be found correctly by the interpreter)
-try:
-    from logic.lead_engine import IntelligenceEngine, Lead
-    from logic.proposal_gen import generate_pdf_proposal
-    from logic.sender import send_architecture_brief, get_mistral_insights
-except ImportError as e:
-    print(f"CRITICAL: Architectural modules missing: {e}")
+from flask import Flask, render_template, request, redirect, url_for, flash
 
 app = Flask(__name__)
-app.secret_key = "marketworth_secret_2026_sovereign"
+app.secret_key = "sovereign_intelligence_2026" # Required for flashing messages
 
-# --- MASTER CONFIGURATION ---
-MASTER_KEY = "MARKETWORTH_ALPHA_2026"  # Your private access key
-DATA_FILE = os.path.join(os.path.dirname(__file__), "logic/leads_db.json")
-
+# Global Company Data - Used across templates
 COMPANY_DATA = {
-    "name": "Marketworth AI",
-    "tagline": "The AI Supremacy Era. Own the Intelligence.",
-    "location": "Nairobi, Kenya",
-    "phone": "+254 796 423 133",
-    "whatsapp": "254796423133",
-    "linkedin": "https://linkedin.com/company/marketworth",
-    "youtube": "https://youtube.com/@TheMarketWorthGroup",
-    "year": 2026 
+    'whatsapp': '254700000000', # Replace with your actual number
+    'email': 'intelligence@marketworth.ai'
 }
-
-# --- DATABASE HELPER ---
-def save_lead_to_db(lead_dict):
-    try:
-        # Ensure directory exists
-        db_dir = os.path.dirname(DATA_FILE)
-        if not os.path.exists(db_dir):
-            os.makedirs(db_dir)
-            
-        if not os.path.exists(DATA_FILE):
-            with open(DATA_FILE, 'w') as f: json.dump([], f)
-            
-        with open(DATA_FILE, 'r+') as f:
-            data = json.load(f)
-            data.append(lead_dict)
-            f.seek(0)
-            json.dump(data, f, indent=4)
-    except Exception as e:
-        print(f"DB Error: {e}")
-
-# --- ROUTES ---
 
 @app.route('/')
 def home():
+    """Renders the high-conversion Sovereign homepage."""
     return render_template('index.html', info=COMPANY_DATA)
+
+@app.route('/services')
+def services():
+    """Detailed breakdown of SLMs and Agentic Swarms."""
+    return render_template('services.html', info=COMPANY_DATA)
+
+@app.route('/tools/ai-audit')
+def contact():
+    """The AI Readiness Audit lead-gen page."""
+    return render_template('contact.html', info=COMPANY_DATA)
 
 @app.route('/blog')
 def blog():
+    """AEO & GEO Mastery content hub."""
     return render_template('blog.html', info=COMPANY_DATA)
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html', info=COMPANY_DATA)
-
-@app.route('/initialize-audit', methods=['POST'])
-def handle_audit():
-    # 1. Capture Form Data
-    name = request.form.get('name')
-    email = request.form.get('email', 'no-email@provided.com')
-    company = request.form.get('company')
-    bottleneck = request.form.get('bottleneck')
-    opex_waste = request.form.get('budget')
-
-    # 2. Score Lead
-    engine = IntelligenceEngine()
-    lead_obj = Lead(name=name, company=company, bottleneck=bottleneck, opex_waste=opex_waste)
-    analysis = engine.analyze_intent(lead_obj)
-
-    # 3. Mistral Inference
-    print(f"Sovereign inference started for {company}...")
-    ai_insights = get_mistral_insights(bottleneck, company)
-
-    # 4. PDF Generation
-    pdf_filename = f"Marketworth_{company.replace(' ', '_')}_{datetime.now().strftime('%M%S')}.pdf"
-    # Ensure static path works on Render
-    proposals_dir = os.path.join(app.root_path, 'static/proposals')
-    if not os.path.exists(proposals_dir):
-        os.makedirs(proposals_dir)
+@app.route('/submit-lead', methods=['POST'])
+def submit_lead():
+    """
+    HANDLES THE TRAFFIC BAR AND AUDIT FORMS.
+    This function name MUST be 'submit_lead' to match url_for('submit_lead')
+    """
+    website_url = request.form.get('email') # Using 'email' as the field name from your HTML
+    
+    if website_url:
+        # LOGIC: Here is where you would save to a database or trigger an email
+        print(f"New Lead Captured: {website_url}")
         
-    pdf_path = os.path.join(proposals_dir, pdf_filename)
-    generate_pdf_proposal({"company": company, "bottleneck": bottleneck, "opex_waste": opex_waste}, ai_insights)
-
-    # 5. DB Logging
-    lead_entry = {
-        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "name": name,
-        "company": company,
-        "score": analysis['score'],
-        "pdf_name": pdf_filename,
-        "tier": analysis['tier']
-    }
-    save_lead_to_db(lead_entry)
-
-    flash("Architecture Protocol Initialized. Check your encrypted brief shortly.")
+        # Feedback to user
+        flash("Intelligence report generation started. We will contact you shortly.", "success")
+    
     return redirect(url_for('home'))
 
-# --- PRIVATE COMMAND CENTER ---
-
-@app.route('/admin-portal/<key>')
-def admin_dashboard(key):
-    if key != MASTER_KEY:
-        abort(403)
-    
-    session['is_admin'] = True
-    
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, 'r') as f:
-            leads = json.load(f)
-    else:
-        leads = []
-        
-    return render_template('admin.html', info=COMPANY_DATA, leads=leads[::-1])
-
-@app.route('/logout-admin')
+@app.route('/admin/logout')
 def logout_admin():
-    session.pop('is_admin', None)
+    """Placeholder for admin security."""
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    # Environment Check
-    os.makedirs(os.path.join(app.root_path, 'static/proposals'), exist_ok=True)
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Enabled debug for development; turn off for production
+    app.run(debug=True)
