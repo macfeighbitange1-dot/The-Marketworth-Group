@@ -1,19 +1,25 @@
-/* --- The Marketworth AI 2026: Sovereign-Engine CSS --- */
+/* --- Marketworth AI: Sovereign-Engine Core --- */
 :root {
-    /* High-Conversion Palette: Intelligence meets Urgency */
-    --brand-orange: #ff4500;    /* CTA Prime */
-    --brand-indigo: #6366f1;    /* Deep Intelligence */
-    --brand-dark: #030712;      /* 2026 OLED Black */
-    --brand-accent: #bef264;    /* Cyber Lime */
-    --brand-surface: #0f172a;   /* Glass/Card Background */
+    /* Brand Colors: Intelligence meets Conversion */
+    --brand-orange: #ff4500;    /* The Action Color */
+    --brand-indigo: #6366f1;    /* The Tech Color */
+    --brand-dark: #030712;      /* OLED Deep Black */
+    --brand-accent: #bef264;    /* Cyber Lime Highlights */
+    --brand-surface: #0f172a;   /* Component Background */
+    
+    /* Typography & Depth */
     --text-main: #f8fafc;       
     --text-muted: #94a3b8;      
     --white: #ffffff;
     --glass: rgba(3, 7, 18, 0.9);
-    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy & Responsive */
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
+/* Base Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
@@ -24,7 +30,36 @@ body {
     overflow-x: hidden;
 }
 
-/* --- 1. NEIL PATEL "CONVERSION BAR" (Optimized) --- */
+/* --- 1. GLOBAL UI ELEMENTS --- */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--brand-orange), var(--brand-accent));
+    z-index: 10000;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.container { 
+    width: 92%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/* Reveal Animation States */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 2. TRAFFIC BAR (Lead Generation) --- */
 .traffic-bar {
     background: var(--white);
     border-bottom: 3px solid var(--brand-orange);
@@ -65,7 +100,7 @@ body {
     outline: none;
     transition: 0.3s;
 }
-.bar-input:focus { border-color: var(--brand-orange); }
+.bar-input:focus { border-color: var(--brand-orange); background: var(--white); }
 
 .bar-btn {
     background: var(--brand-orange);
@@ -81,7 +116,7 @@ body {
 }
 .bar-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-/* --- 2. THE NAVIGATION (AGENTIC GLASS) --- */
+/* --- 3. NAVIGATION & MEGA MENU --- */
 header {
     background: var(--glass);
     backdrop-filter: blur(20px);
@@ -105,39 +140,38 @@ header {
     color: var(--white);
     text-decoration: none;
     letter-spacing: -1.5px;
-    display: flex;
-    align-items: center;
 }
-.logo span { color: var(--brand-orange); margin-left: 2px; }
+.logo span { color: var(--brand-orange); }
 
 .nav-links { list-style: none; display: flex; gap: 2.8rem; align-items: center; }
 
+.nav-item { position: relative; }
 .nav-item > a {
     text-decoration: none;
     color: var(--text-muted);
     font-weight: 600;
     font-size: 0.95rem;
+    padding: 10px 0;
     transition: 0.3s;
 }
 .nav-item:hover > a { color: var(--white); }
 
-/* MEGA MENU REVOLUTION */
+/* Mega Menu Logic */
 .mega-menu {
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(15px);
-    width: 600px;
-    background: #0f172a;
+    width: 550px;
+    background: var(--brand-surface);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 24px;
-    box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.8);
+    box-shadow: var(--shadow-lg);
     display: none;
     grid-template-columns: 1fr 1fr;
-    padding: 30px;
-    gap: 20px;
+    padding: 25px;
+    gap: 15px;
     opacity: 0;
-    transition: var(--transition);
 }
 
 .nav-item:hover .mega-menu {
@@ -151,31 +185,13 @@ header {
     padding: 15px;
     border-radius: 16px;
     background: rgba(255,255,255,0.02);
-    border: 1px solid transparent;
     transition: 0.3s;
 }
-.mega-link:hover { 
-    background: rgba(255,255,255,0.05); 
-    border-color: rgba(255,255,255,0.1);
-    transform: translateY(-3px);
-}
-.mega-link span { display: block; color: var(--brand-accent); font-weight: 800; margin-bottom: 5px; }
-.mega-link small { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; display: block; }
+.mega-link:hover { background: rgba(255,255,255,0.05); transform: translateY(-3px); }
+.mega-link span { display: block; color: var(--brand-accent); font-weight: 800; margin-bottom: 4px; }
+.mega-link small { color: var(--text-muted); font-size: 0.8rem; line-height: 1.4; display: block; }
 
-/* --- 3. GLOBAL COMPONENTS --- */
-.container { width: 92%; max-width: 1200px; margin: 0 auto; }
-
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* BUTTONS */
+/* --- 4. BUTTONS & CTAs --- */
 .btn-primary {
     background: var(--brand-orange);
     color: white;
@@ -186,6 +202,7 @@ header {
     display: inline-block;
     transition: var(--transition);
     border: none;
+    text-align: center;
 }
 .btn-primary:hover {
     transform: translateY(-4px);
@@ -211,7 +228,7 @@ header {
 }
 .whatsapp-float:hover { transform: scale(1.1) rotate(-2deg); }
 
-/* --- 4. THE FOOTER (CREDIBILITY) --- */
+/* --- 5. FOOTER ARCHITECTURE --- */
 footer {
     background: #020617;
     padding: 100px 0 50px 0;
@@ -222,21 +239,36 @@ footer {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 60px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
+
+.footer-brand h2 { margin-bottom: 15px; font-size: 2rem; color: var(--white); }
+.footer-brand p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
+
+.footer-col h4 { color: var(--brand-orange); margin-bottom: 25px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; }
+.footer-col a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+.footer-col a:hover { color: var(--white); padding-left: 5px; }
 
 .location-box {
     margin-top: 30px;
     padding: 20px;
     background: rgba(255,255,255,0.02);
     border-left: 4px solid var(--brand-orange);
-    border-radius: 12px;
+    border-radius: 0 12px 12px 0;
 }
 
-/* --- MOBILE SYSTEM --- */
+/* --- 6. MOBILE RESPONSIVITY --- */
 @media (max-width: 900px) {
     .nav-links { display: none; }
-    .bar-container { flex-direction: column; text-align: center; padding: 15px; }
+    .mobile-toggle { display: block !important; }
+    .bar-container { flex-direction: column; text-align: center; gap: 15px; }
     .bar-input { width: 100%; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .logo { font-size: 1.3rem; }
 }
