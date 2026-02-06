@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section style="padding: 140px 0 60px; background: var(--brand-dark);">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+            <div>
+                <span style="color: var(--brand-accent); font-family: 'JetBrains Mono'; font-size: 0.8rem; letter-spacing: 2px;">SECURE ACCESS // LEVEL 01</span>
+                <h1 style="font-size: 2.5rem; color: white;">Intelligence <span style="color: var(--brand-orange);">Command</span></h1>
+            </div>
+            <div style="text-align: right;">
+                <div style="color: var(--text-muted); font-size: 0.8rem;">SYSTEM STATUS</div>
+                <div style="color: #10b981; font-weight: 800;">● NODES OPERATIONAL</div>
+            </div>
+        </div>
+
+        <div style="background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.05); border-radius: 30px; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                    <tr style="background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <th style="padding: 20px; color: var(--brand-orange); font-size: 0.7rem; text-transform: uppercase;">Timestamp</th>
+                        <th style="padding: 20px; color: var(--brand-orange); font-size: 0.7rem; text-transform: uppercase;">Identity / Company</th>
+                        <th style="padding: 20px; color: var(--brand-orange); font-size: 0.7rem; text-transform: uppercase;">Score</th>
+                        <th style="padding: 20px; color: var(--brand-orange); font-size: 0.7rem; text-transform: uppercase;">Brief Status</th>
+                        <th style="padding: 20px; color: var(--brand-orange); font-size: 0.7rem; text-transform: uppercase;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+                    {% for lead in leads %}
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.03); transition: 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.02)'" onmouseout="this.style.background='transparent'">
+                        <td style="padding: 20px; color: var(--text-muted);">{{ lead.timestamp }}</td>
+                        <td style="padding: 20px;">
+                            <div style="color: white; font-weight: 700;">{{ lead.name }}</div>
+                            <div style="color: var(--brand-accent); font-size: 0.75rem;">{{ lead.company }}</div>
+                        </td>
+                        <td style="padding: 20px;">
+                            <span style="padding: 4px 10px; border-radius: 5px; background: {% if lead.score >= 80 %}var(--brand-orange){% else %}#1e293b{% endif %}; color: white;">
+                                {{ lead.score }}%
+                            </span>
+                        </td>
+                        <td style="padding: 20px; color: var(--text-muted);">
+                            Generated & Transmitted
+                        </td>
+                        <td style="padding: 20px;">
+                            <a href="/static/proposals/{{ lead.pdf_name }}" target="_blank" style="color: var(--brand-accent); text-decoration: none;">View Brief →</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
