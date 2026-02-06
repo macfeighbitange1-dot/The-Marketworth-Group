@@ -117,6 +117,70 @@
             transform: translateX(-50%) translateY(0) !important;
         }
 
+        /* BLUEPRINT GRID & CARDS */
+        .blueprint-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+        .blueprint-card {
+            background: var(--brand-surface);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 30px;
+            transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .blueprint-card:hover {
+            border-color: var(--brand-orange);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .blueprint-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--brand-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .blueprint-metric {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+        }
+        .metric-label {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .blueprint-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        .blueprint-btn::after {
+            content: '→';
+            transition: 0.3s;
+        }
+        .blueprint-btn:hover::after {
+            transform: translateX(5px);
+        }
+
         /* PULSE CONVERSION BUTTON */
         .cta-audit-pulse {
             background: var(--brand-orange);
