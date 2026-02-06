@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "{{ post.title }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Marketworth Intelligence"
+  },
+  "datePublished": "{{ post.date }}",
+  "image": "{{ post.image_url }}",
+  "knolwledgeGraph": "https://marketworth.co.ke/ontology/ai-logistics"
+}
+</script>
+
+<article style="background: var(--brand-dark); color: white; padding-top: 140px;">
+    <div class="container" style="max-width: 900px;">
+        
+        <nav style="margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;">
+            <a href="/blog" style="color: var(--brand-orange); text-decoration: none;">&larr; BACK TO JOURNAL</a> 
+            <span style="color: var(--text-muted); margin: 0 10px;">/</span>
+            <span style="color: var(--text-muted);">{{ post.category }}</span>
+        </nav>
+
+        <header style="margin-bottom: 4rem;">
+            <h1 style="font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1; letter-spacing: -2px; margin-bottom: 1.5rem;">
+                {{ post.title }}
+            </h1>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--brand-orange); display: flex; align-items: center; justify-content: center; font-weight: 900;">M</div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1rem;">Marketworth Engineering</div>
+                    <div style="color: var(--text-muted); font-size: 0.85rem;">{{ post.date }} • {{ post.read_time }} read</div>
+                </div>
+            </div>
+        </header>
+
+        <section style="background: rgba(255, 69, 0, 0.05); border-left: 4px solid var(--brand-orange); padding: 30px; border-radius: 0 20px 20px 0; margin-bottom: 4rem;">
+            <h4 style="color: var(--brand-orange); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">AEO Executive Summary</h4>
+            <p style="font-size: 1.1rem; line-height: 1.6; font-weight: 500; font-style: italic; color: #e2e8f0;">
+                "{{ post.summary }}"
+            </p>
+        </section>
+
+        <section class="post-body" style="font-size: 1.2rem; line-height: 1.8; color: #cbd5e1;">
+            {{ post.content | safe }}
+        </section>
+
+        <section style="margin: 4rem 0; background: #05070a; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden;">
+            <div style="background: rgba(255,255,255,0.05); padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--brand-accent);">architecture_manifest.yaml</span>
+                <span style="font-size: 0.75rem; color: #64748b;">v4.2.1-stable</span>
+            </div>
+            <pre style="padding: 30px; margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #10b981; overflow-x: auto;">
+{{ post.code_snippet }}
+            </pre>
+        </section>
+
+        <footer style="margin: 6rem 0; padding: 60px; background: white; border-radius: 40px; color: var(--brand-dark); text-align: center;">
+            <h3 style="font-size: 2rem; margin-bottom: 15px;">Ready to deploy this architecture?</h3>
+            <p style="color: #64748b; margin-bottom: 30px;">Initialize a technical audit to map these protocols to your business.</p>
+            <a href="/contact" class="btn-primary" style="background: var(--brand-dark); color: white; padding: 18px 45px; border-radius: 12px;">Request Architecture Brief</a>
+        </footer>
+
+    </div>
+</article>
+
+<style>
+    .post-body h2 { color: white; font-size: 2.2rem; margin: 3rem 0 1.5rem; letter-spacing: -1px; }
+    .post-body p { margin-bottom: 1.8rem; }
+    .post-body strong { color: var(--brand-accent); }
+    .post-body blockquote { 
+        border-left: 2px solid var(--brand-orange); 
+        padding-left: 30px; 
+        margin: 3rem 0; 
+        font-size: 1.5rem; 
+        color: white; 
+        line-height: 1.4;
+    }
+</style>
+
+{% endblock %}
