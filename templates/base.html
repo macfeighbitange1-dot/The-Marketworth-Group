@@ -17,6 +17,7 @@
             --brand-surface: #0c1221;
             --text-muted: #94a3b8;
             --brand-indigo: #6366f1;
+            --nav-height: 85px;
         }
 
         /* Smooth Scroll & Global Reset */
@@ -36,18 +37,18 @@
             left: 0;
             height: 4px;
             background: linear-gradient(to right, var(--brand-orange), var(--brand-accent));
-            z-index: 10001;
+            z-index: 10006; /* Higher than header */
             width: 0%;
             transition: width 0.1s ease-out;
         }
 
-        /* Navigation Aesthetic */
+        /* Navigation Aesthetic - Layering Fix Applied */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 1000;
-            background: rgba(7, 10, 19, 0.8);
+            z-index: 10005; /* Absolute Top Layer */
+            background: rgba(7, 10, 19, 0.9);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
@@ -55,10 +56,12 @@
         .nav-container {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 20px 40px;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: var(--nav-height);
+            box-sizing: border-box;
         }
 
         .logo { 
@@ -82,11 +85,11 @@
         }
         .nav-item a:hover { opacity: 1; color: var(--brand-orange); }
 
-        /* PULSE CONVERSION BUTTON - EXCELLENCE UPDATE */
+        /* PULSE CONVERSION BUTTON */
         .cta-audit-pulse {
             background: var(--brand-orange);
             color: white !important;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 12px;
             font-weight: 800;
             opacity: 1 !important;
@@ -97,22 +100,30 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            line-height: 1;
+            line-height: 1.1;
+            text-align: center;
         }
 
         @keyframes pulse-orange {
             0% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(255, 69, 0, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(255, 69, 0, 0); }
+            70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(255, 69, 0, 0); }
             100% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(255, 69, 0, 0); }
         }
 
         .social-proof-tag {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.6rem;
-            color: rgba(255,255,255,0.7);
-            margin-top: 4px;
+            font-size: 0.55rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 3px;
             letter-spacing: 0;
             text-transform: none;
+            font-weight: 400;
+        }
+
+        /* Prevent Hero clipping */
+        main { 
+            min-height: 80vh; 
+            padding-top: var(--nav-height); 
         }
 
         /* Modern Reveal Animation */
@@ -142,8 +153,6 @@
             transition: 0.3s;
         }
         .whatsapp-float:hover { transform: scale(1.05); }
-
-        main { min-height: 80vh; }
 
         footer {
             padding: 100px 0 40px;
@@ -176,7 +185,7 @@
                 <li class="nav-item"><a href="/">Intelligence</a></li>
                 <li class="nav-item">
                     <a href="#">Solutions ▾</a>
-                    <div class="mega-menu" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); width: 500px; background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 40px 100px rgba(0,0,0,0.5);">
+                    <div class="mega-menu" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); width: 500px; background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 40px 100px rgba(0,0,0,0.5); z-index: 10007;">
                         <a href="/services" class="mega-link" style="padding: 15px; border-radius: 12px; text-decoration: none; transition: 0.3s; display: block;">
                             <span style="display: block; color: white; font-weight: 700;">Sovereign SLMs</span>
                             <small style="color: var(--text-muted); font-size: 0.75rem;">Private, secure enterprise models.</small>
@@ -193,7 +202,7 @@
                 <li class="nav-item">
                     <a href="/tools/ai-audit" class="cta-audit-pulse">
                         Sovereign Audit
-                        <span id="live-proof" class="social-proof-tag">12 Audits today</span>
+                        <span id="live-proof" class="social-proof-tag">Generating...</span>
                     </a>
                 </li>
             </ul>
@@ -235,7 +244,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Scroll Progress Logic
             const progressBar = document.getElementById("scroll-progress");
             window.addEventListener('scroll', () => {
                 let winScroll = document.documentElement.scrollTop;
@@ -247,13 +255,12 @@
             // FOMO SOCIAL PROOF ENGINE
             const proofTag = document.getElementById("live-proof");
             const updateProof = () => {
-                const hour = new Date().getHours();
                 const count = Math.floor(Math.random() * (22 - 12 + 1)) + 12; 
                 proofTag.innerText = `${count} Audits in last 24h`;
             };
             updateProof();
 
-            // Intersection Observer for Reveals
+            // Reveal Observer
             const revealCallback = (entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) entry.target.classList.add("active");
