@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="traffic-bar" style="background: #05070a; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 12px 0; position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px);">
+<div class="traffic-bar" style="background: #05070a; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 12px 0; position: sticky; top: 70px; z-index: 999; backdrop-filter: blur(10px);">
     <div class="bar-container" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
         <span class="bar-text" style="color: white; font-weight: 700; font-size: 0.9rem;">🚀 Dominating AI Search in 2026?</span>
         <form action="{{ url_for('submit_lead') }}" method="POST" style="display: flex; align-items: center;">
@@ -9,7 +9,7 @@
                    style="border-radius: 8px 0 0 8px; border: 1px solid #1e293b; background: #020617; color: white; padding: 10px 15px; outline: none; width: 250px;">
             <button type="submit" class="bar-btn" 
                     style="background: var(--brand-orange); color: white; border: none; padding: 10px 20px; border-radius: 0 8px 8px 0; font-weight: 800; cursor: pointer; transition: 0.3s;">
-                Analyze Now
+                Run Sovereign Audit
             </button>
         </form>
     </div>
@@ -40,7 +40,7 @@
         </p>
         
         <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-            <a href="{{ url_for('contact') }}" class="btn-primary" style="background: var(--brand-orange); color: white; padding: 20px 40px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: 0.4s; box-shadow: 0 10px 30px rgba(255, 69, 0, 0.2);">Free AI Readiness Audit</a>
+            <a href="{{ url_for('contact') }}" class="btn-primary" style="background: var(--brand-orange); color: white; padding: 20px 40px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: 0.4s; box-shadow: 0 10px 30px rgba(255, 69, 0, 0.2);">Run Sovereign Audit</a>
             <a href="https://wa.me/{{ info.whatsapp }}" class="btn-primary" style="background: transparent; border: 2px solid #334155; color: white; padding: 20px 40px; border-radius: 12px; font-weight: 800; text-decoration: none; transition: 0.4s;">Deploy Your Agent</a>
         </div>
     </div>
@@ -71,34 +71,12 @@
     </div>
 </section>
 
-<section class="container" style="padding: 60px 0 120px;">
-    <div style="text-align: center; margin-bottom: 70px;">
-        <h2 style="font-size: 3rem; color: white; font-weight: 900;">Intelligence <span style="color: var(--brand-accent);">Blueprints</span></h2>
-        <p style="color: #64748b;">Proprietary deployments for market leaders.</p>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;">
-        <div class="service-card" style="padding: 4rem; background: #070a13; border: 1px solid #1e293b; border-radius: 40px; transition: 0.3s;">
-            <span style="color: var(--brand-orange); font-size: 0.75rem; font-weight: 900; letter-spacing: 2px;">LEGAL SECTOR</span>
-            <h3 style="margin: 1.5rem 0; color: white; font-size: 1.8rem;">Legal Mind SLM</h3>
-            <p style="opacity: 0.7; margin-bottom: 2.5rem; line-height: 1.8;">Fine-tuned on regional law for secure, air-gapped document intelligence.</p>
-            <div style="height: 2px; width: 50px; background: var(--brand-orange);"></div>
-        </div>
-        <div class="service-card" style="padding: 4rem; background: #070a13; border: 1px solid #1e293b; border-radius: 40px; transition: 0.3s;">
-            <span style="color: var(--brand-accent); font-size: 0.75rem; font-weight: 900; letter-spacing: 2px;">FINANCE</span>
-            <h3 style="margin: 1.5rem 0; color: white; font-size: 1.8rem;">Sales Swarm Alpha</h3>
-            <p style="opacity: 0.7; margin-bottom: 2.5rem; line-height: 1.8;">Multi-agent transaction verification and automated lead negotiation.</p>
-            <div style="height: 2px; width: 50px; background: var(--brand-accent);"></div>
-        </div>
-    </div>
-</section>
-
 <script>
-    // TERMINAL LOGIC: Typewriter with color support
     const terminalLines = [
         '<span style="color: #bef264;">></span> system.init(sovereign_logic)',
-        '<span style="color: #bef264;">></span> loading local_llm_weights... 100%',
-        '<span style="color: #bef264;">></span> scan.network(marketworth_v4)',
-        '<span style="color: #6366f1;">> STATUS: Intelligence Ready.</span>'
+        '<span style="color: #bef264;">></span> crawling_engine.start(marketworth_v4)',
+        '<span style="color: #bef264;">></span> agent_status: <span style="color: #27c93f;">ACTIVE</span>',
+        '<span style="color: #6366f1;">> AWAITING SITE ANALYSIS...</span>'
     ];
     let lineIdx = 0;
     const terminal = document.getElementById('terminal-content');
@@ -107,11 +85,10 @@
         if (lineIdx < terminalLines.length) {
             terminal.innerHTML += terminalLines[lineIdx] + '<br>';
             lineIdx++;
-            setTimeout(typeTerminal, 1000);
+            setTimeout(typeTerminal, 800);
         }
     }
 
-    // TRIGGER ON LOAD
     window.addEventListener('DOMContentLoaded', () => {
         typeTerminal();
     });
@@ -122,7 +99,6 @@
     .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255, 69, 0, 0.4); opacity: 0.9; }
     .service-card:hover { border-color: #334155; transform: scale(0.98); }
     
-    /* Animation classes */
     .reveal-slow { animation: fadeInUp 1.2s ease forwards; opacity: 0; }
     .reveal-fast { animation: fadeInDown 0.8s ease forwards; }
 
