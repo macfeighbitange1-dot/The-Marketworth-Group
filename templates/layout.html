@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ info.name }} | {{ info.tagline }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #ff4500; /* Neil Patel's signature conversion color */
+            --dark-blue: #0a192f;
+            --light-gray: #f4f7f6;
+            --text-main: #333;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- THE NEIL PATEL TRAFFIC BAR --- */
+        .conversion-bar {
+            background: #fff;
+            border-bottom: 2px solid var(--primary-orange);
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .bar-text {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+        }
+
+        .bar-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .bar-input {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 280px;
+            outline: none;
+        }
+
+        .bar-btn {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .bar-btn:hover {
+            transform: scale(1.05);
+            background: #e63e00;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--dark-blue);
+        }
+
+        .logo span {
+            color: var(--primary-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-orange);
+        }
+
+        .cta-consult {
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange) !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .cta-consult:hover {
+            background: var(--primary-orange);
+            color: white !important;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 60px 20px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand h3 { color: var(--primary-orange); margin-bottom: 15px; }
+        .footer-links ul { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #ccc; text-decoration: none; }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .bar-container { flex-direction: column; text-align: center; }
+            .nav-links { display: none; } /* Add a hamburger menu later if needed */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="conversion-bar">
+        <div class="bar-container">
+            <div class="bar-text">Do you want more traffic?</div>
+            <form class="bar-form" action="/submit-lead" method="POST">
+                <input type="hidden" name="intent" value="Traffic Growth">
+                <input type="text" name="email" class="bar-input" placeholder="Enter your email or domain" required>
+                <button type="submit" class="bar-btn">YES, I WANT MORE TRAFFIC</button>
+            </form>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">MARKETWORTH<span>AI</span></a>
+            <ul class="nav-links">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/results">Results</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/academy">Training</a></li>
+                <li><a href="/resources">Tools</a></li>
+                <li><a href="/services" class="cta-consult">Consulting</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <div style="background: #d4edda; color: #155724; padding: 15px; text-align: center; font-weight: bold;">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>{{ info.name }}</h3>
+                <p>{{ info.tagline }}</p>
+                <p>📍 {{ info.location }}</p>
+            </div>
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#">Sovereign SLM Architecture</a></li>
+                    <li><a href="#">Agentic Swarm Deployment</a></li>
+                    <li><a href="#">AEO/GEO Optimization</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="https://wa.me/{{ info.whatsapp }}">WhatsApp: {{ info.phone }}</a></li>
+                    <li><a href="{{ info.social.facebook }}">Facebook</a></li>
+                    <li><a href="{{ info.social.youtube }}">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; {{ info.year }} {{ info.name }}. Engineered with precision in Nairobi.
+        </div>
+    </footer>
+
+</body>
+</html>
