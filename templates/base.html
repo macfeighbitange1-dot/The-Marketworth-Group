@@ -7,6 +7,8 @@
     
     <meta name="description" content="Sovereign AI systems, Agentic Swarms, and GEO Mastery by Marketworth Intelligence.">
     
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/favicon.svg') }}">
+    
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
     <style>
@@ -37,17 +39,17 @@
             left: 0;
             height: 4px;
             background: linear-gradient(to right, var(--brand-orange), var(--brand-accent));
-            z-index: 10006; /* Higher than header */
+            z-index: 10006; 
             width: 0%;
             transition: width 0.1s ease-out;
         }
 
-        /* Navigation Aesthetic - Layering Fix Applied */
+        /* Navigation Aesthetic */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 10005; /* Absolute Top Layer */
+            z-index: 10005; 
             background: rgba(7, 10, 19, 0.9);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -65,13 +67,10 @@
         }
 
         .logo { 
-            font-size: 1.5rem; 
-            font-weight: 800; 
-            color: white; 
-            text-decoration: none; 
-            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
         }
-        .logo span { color: var(--brand-orange); }
 
         .nav-links { display: flex; list-style: none; gap: 35px; align-items: center; margin: 0; }
         .nav-item { position: relative; }
@@ -120,13 +119,11 @@
             font-weight: 400;
         }
 
-        /* Prevent Hero clipping */
         main { 
             min-height: 80vh; 
             padding-top: var(--nav-height); 
         }
 
-        /* Modern Reveal Animation */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -137,7 +134,6 @@
             transform: translateY(0);
         }
 
-        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 40px;
@@ -178,7 +174,7 @@
     <header>
         <nav class="nav-container">
             <a href="/" class="logo">
-                {{ info.name.split(' ')[0] }}<span>{{ info.name.split(' ')[1:] | join(' ') }}</span>
+                <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Marketworth Intelligence" style="height: 50px; width: auto;">
             </a>
             
             <ul class="nav-links">
@@ -252,7 +248,6 @@
                 progressBar.style.width = scrolled + "%";
             });
 
-            // FOMO SOCIAL PROOF ENGINE
             const proofTag = document.getElementById("live-proof");
             const updateProof = () => {
                 const count = Math.floor(Math.random() * (22 - 12 + 1)) + 12; 
@@ -260,7 +255,6 @@
             };
             updateProof();
 
-            // Reveal Observer
             const revealCallback = (entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) entry.target.classList.add("active");
