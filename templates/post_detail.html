@@ -25,6 +25,23 @@
             <div class="intel-content" style="color: rgba(255,255,255,0.85); line-height: 1.8; font-size: 1.1rem;">
                 {{ post.html|safe }}
             </div>
+
+            <div style="margin-top: 100px; padding: 40px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.01); border-radius: 24px; display: flex; gap: 30px; align-items: center;">
+                <div style="flex-shrink: 0; width: 80px; height: 80px; border: 2px solid var(--brand-orange); border-radius: 15px; display: flex; align-items: center; justify-content: center; background: #000; font-size: 2rem;">
+                    👤
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 8px; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem;">Architect: {{ info.name }}</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                        Specializing in <strong>Sovereign Intelligence</strong> and <strong>Agentic Architectures</strong>. 
+                        I build high-frequency AI systems that allow African enterprises to scale without sacrificing data privacy or operational control.
+                    </p>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <span style="font-size: 0.7rem; color: var(--brand-orange); font-family: 'JetBrains Mono'; background: rgba(255,69,0,0.1); padding: 4px 10px; border-radius: 4px;">LOC: NAIROBI_HQ</span>
+                        <span style="font-size: 0.7rem; color: var(--brand-orange); font-family: 'JetBrains Mono'; background: rgba(255,69,0,0.1); padding: 4px 10px; border-radius: 4px;">SPEC: AEO_LOGIC</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <aside style="padding-top: 100px;">
@@ -94,7 +111,6 @@
         font-size: 0.9rem;
         margin: 30px 0;
     }
-    /* Responsive adjustment */
     @media (max-width: 992px) {
         .container { grid-template-columns: 1fr !important; }
         aside { display: none; }
