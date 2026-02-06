@@ -1,83 +1,102 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="reveal" style="padding: 140px 0 60px 0; text-align: center; background: linear-gradient(to bottom, #0a0f1d, var(--brand-dark));">
+<section class="reveal" style="padding: 160px 0 80px 0; text-align: center; background: radial-gradient(circle at top right, #0a0f1d, var(--brand-dark));">
     <div class="container">
-        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Intelligence Architecture</span>
-        <h1 style="font-size: 3.5rem; color: white; margin-top: 10px;">The <span style="color: var(--brand-accent);">Marketworth</span> Edge</h1>
-        <p style="font-size: 1.2rem; max-width: 700px; margin: 20px auto; color: rgba(255,255,255,0.7);">
-            We don't just build websites; we build digital assets that think, rank, and execute autonomously.
+        <span style="color: var(--brand-orange); font-weight: 800; letter-spacing: 4px; text-transform: uppercase; font-size: 0.85rem;">Autonomous Systems 2026</span>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); color: white; margin-top: 15px; letter-spacing: -2px; line-height: 1.1;">The <span style="color: var(--brand-orange);">Intelligence</span> Stack</h1>
+        <p style="font-size: 1.25rem; max-width: 800px; margin: 25px auto; color: var(--text-muted); line-height: 1.7;">
+            Moving beyond software. We deploy digital assets that reason, rank, and execute at scale within the Kenyan economic frontier.
         </p>
     </div>
 </section>
 
-<section class="container" style="padding-bottom: 80px;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+<section class="container" style="padding-bottom: 100px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
         
-        <div class="reveal" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 50px; border-radius: 30px; position: relative; overflow: hidden;">
-            <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">🐝</div>
-            <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1rem;">Agentic Swarms</h3>
-            <p style="color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 1.5rem;">
-                Replacing static workflows with autonomous agents. Our swarms handle <strong>M-Pesa reconciliation, customer logistics, and real-time inventory</strong> without human intervention.
+        <div class="reveal card" style="background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.05); padding: 50px; border-radius: 35px; transition: 0.4s;">
+            <div style="background: rgba(255, 69, 0, 0.1); width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 2rem;">🐝</div>
+            <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1.2rem;">Agentic Swarms</h3>
+            <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem;">
+                Replacing static workflows with autonomous agents. Our swarms handle <strong>M-Pesa reconciliation, customer logistics, and real-time inventory</strong> with self-correcting logic.
             </p>
-            <ul style="color: var(--brand-accent); list-style: none; padding: 0; font-size: 0.9rem; font-weight: 600;">
-                <li>✓ Multi-Agent Orchestration</li>
-                <li>✓ API-First Integration</li>
-                <li>✓ 24/7 Error Correction</li>
+            <ul style="color: var(--brand-accent); list-style: none; padding: 0; font-size: 0.95rem; font-weight: 700; margin-bottom: 2rem;">
+                <li style="margin-bottom: 10px;">⚡ Multi-Agent Orchestration</li>
+                <li style="margin-bottom: 10px;">⚡ M-Pesa G2B Integration</li>
+                <li style="margin-bottom: 10px;">⚡ 24/7 Error Correction</li>
             </ul>
         </div>
 
-        <div class="reveal" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 50px; border-radius: 30px;">
-            <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">🧠</div>
-            <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1rem;">Sovereign SLMs</h3>
-            <p style="color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 1.5rem;">
-                Keep your data in Kenya. We fine-tune <strong>Small Language Models</strong> (Llama, Mistral) on your internal documents for 100% private, offline intelligence.
+        <div class="reveal card" style="background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.05); padding: 50px; border-radius: 35px; transition: 0.4s;">
+            <div style="background: rgba(190, 242, 100, 0.1); width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 2rem;">🧠</div>
+            <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1.2rem;">Sovereign SLMs</h3>
+            <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem;">
+                Data sovereignty is non-negotiable. We fine-tune <strong>Small Language Models</strong> on your internal datasets for 100% private, offline intelligence that never leaves your server.
             </p>
-            <ul style="color: var(--brand-accent); list-style: none; padding: 0; font-size: 0.9rem; font-weight: 600;">
-                <li>✓ Zero Data Leakage</li>
-                <li>✓ Sub-Second Latency</li>
-                <li>✓ Custom Industry Tuning</li>
+            <ul style="color: var(--brand-accent); list-style: none; padding: 0; font-size: 0.95rem; font-weight: 700; margin-bottom: 2rem;">
+                <li style="margin-bottom: 10px;">🛡️ Zero Data Leakage</li>
+                <li style="margin-bottom: 10px;">🛡️ Sub-Second Latency</li>
+                <li style="margin-bottom: 10px;">🛡️ Custom Industry Training</li>
             </ul>
         </div>
 
-        <div class="reveal" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 50px; border-radius: 30px;">
-            <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">📡</div>
-            <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1rem;">AEO / GEO</h3>
-            <p style="color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 1.5rem;">
-                The successor to SEO. We optimize your brand to be the <strong>primary citation</strong> for ChatGPT, Perplexity, and Meta AI. If the AI doesn't know you, you don't exist.
+        <div class="reveal card" style="background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.05); padding: 50px; border-radius: 35px; transition: 0.4s;">
+            <div style="background: rgba(99, 102, 241, 0.1); width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 2rem;">📡</div>
+            <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1.2rem;">AEO Dominance</h3>
+            <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem;">
+                The successor to SEO. We engineer your brand to be the <strong>primary citation</strong> for ChatGPT, Perplexity, and Meta AI. If the AI doesn't cite you, you don't exist.
             </p>
-            <ul style="color: var(--brand-accent); list-style: none; padding: 0; font-size: 0.9rem; font-weight: 600;">
-                <li>✓ Citation Dominance</li>
-                <li>✓ Semantic Schema Markup</li>
-                <li>✓ LLM Trust Engineering</li>
+            <ul style="color: var(--brand-accent); list-style: none; padding: 0; font-size: 0.95rem; font-weight: 700; margin-bottom: 2rem;">
+                <li style="margin-bottom: 10px;">🌐 LLM Citation Engineering</li>
+                <li style="margin-bottom: 10px;">🌐 Semantic Schema Design</li>
+                <li style="margin-bottom: 10px;">🌐 AI Search Trust Signals</li>
             </ul>
         </div>
     </div>
 
-    <div class="reveal" style="margin-top: 100px; padding: 60px; background: #0c1221; border-radius: 40px; border-left: 5px solid var(--brand-accent);">
-        <h2 style="color: white; margin-bottom: 20px;">The Autonomous Infrastructure Pipeline</h2>
-        <p style="color: rgba(255,255,255,0.6); max-width: 800px; margin-bottom: 40px;">
-            In 2026, business logic is a graph. We map your operations into a <strong>State Machine</strong> where AI Agents execute tasks based on real-world triggers.
+    <div class="reveal" style="margin-top: 80px; padding: 60px; background: #0c1221; border-radius: 40px; border-left: 6px solid var(--brand-orange); position: relative; overflow: hidden;">
+        <div style="position: absolute; right: -20px; bottom: -20px; font-size: 10rem; opacity: 0.03; color: white; font-weight: 900;">2026</div>
+        <h2 style="color: white; margin-bottom: 20px; font-size: 2rem;">The Autonomous Infrastructure Pipeline</h2>
+        <p style="color: var(--text-muted); max-width: 850px; margin-bottom: 40px; font-size: 1.1rem; line-height: 1.8;">
+            In 2026, business logic is a graph. We map your operations into a <strong>State Machine</strong> where AI Agents execute tasks based on real-world triggers. No more manual hand-offs.
         </p>
-        
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <span style="background: rgba(255,255,255,0.05); padding: 10px 20px; border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--brand-accent);">Trigger[Event]</span>
+            <span style="color: var(--text-muted);">→</span>
+            <span style="background: rgba(255,255,255,0.05); padding: 10px 20px; border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--brand-accent);">Agent[Reasoning]</span>
+            <span style="color: var(--text-muted);">→</span>
+            <span style="background: rgba(255,255,255,0.05); padding: 10px 20px; border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--brand-accent);">System[Execution]</span>
+        </div>
     </div>
 
-    <div class="reveal" style="margin-top: 80px; background: white; padding: 80px 40px; border-radius: 40px; text-align: center;">
-        <h2 style="color: var(--brand-dark); font-size: 2.5rem;">Request Architecture Brief</h2>
-        <p style="color: #64748b; margin-top: 10px;">Enter your details to receive a custom AI deployment roadmap.</p>
+    <div class="reveal" style="margin-top: 100px; background: white; padding: 100px 40px; border-radius: 50px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.4);">
+        <h2 style="color: var(--brand-dark); font-size: 2.8rem; letter-spacing: -1px; line-height: 1.1;">Initialize Intelligence <span style="color: var(--brand-orange);">Audit.</span></h2>
+        <p style="color: #64748b; margin: 20px auto 50px; max-width: 600px; font-size: 1.1rem;">Submit your architecture for evaluation. We will provide a custom AI deployment roadmap within 48 hours.</p>
         
-        <form action="/submit-lead" method="POST" style="max-width: 600px; margin: 40px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <input type="text" name="name" placeholder="Full Name" style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem;" required>
-            <input type="email" name="email" placeholder="Work Email" style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem;" required>
-            <select name="intent" style="grid-column: span 2; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; background: white;">
-                <option>Sovereign SLM Deployment</option>
-                <option>Agentic Swarm Automation</option>
-                <option>AEO / AI Search Visibility</option>
-            </select>
-            <button type="submit" class="btn-primary" style="grid-column: span 2; border: none; cursor: pointer; padding: 25px; background: var(--brand-dark); color: white; font-weight: 800; font-size: 1.1rem; border-radius: 12px;">
-                Initialize Intelligence Audit
+        <form action="/submit-lead" method="POST" style="max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
+            <div>
+                <label style="display: block; font-weight: 700; color: var(--brand-dark); margin-bottom: 8px; font-size: 0.8rem; text-transform: uppercase;">Full Name</label>
+                <input type="text" name="name" placeholder="John Doe" style="width: 100%; padding: 18px; border: 2px solid #f1f5f9; border-radius: 14px; background: #f8fafc; outline: none;" required>
+            </div>
+            <div>
+                <label style="display: block; font-weight: 700; color: var(--brand-dark); margin-bottom: 8px; font-size: 0.8rem; text-transform: uppercase;">Work Email</label>
+                <input type="email" name="email" placeholder="john@enterprise.co.ke" style="width: 100%; padding: 18px; border: 2px solid #f1f5f9; border-radius: 14px; background: #f8fafc; outline: none;" required>
+            </div>
+            <div style="grid-column: 1 / -1;">
+                <label style="display: block; font-weight: 700; color: var(--brand-dark); margin-bottom: 8px; font-size: 0.8rem; text-transform: uppercase;">Primary Requirement</label>
+                <select name="intent" style="width: 100%; padding: 18px; border: 2px solid #f1f5f9; border-radius: 14px; background: #f8fafc; font-weight: 600; cursor: pointer;">
+                    <option>Sovereign SLM Deployment (Private AI)</option>
+                    <option>Agentic Swarm (Workflow Automation)</option>
+                    <option>AEO Mastery (Search Dominance)</option>
+                    <option>Full Intelligence Architecture (All-in-One)</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-primary" style="grid-column: 1 / -1; border: none; cursor: pointer; padding: 22px; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(255, 69, 0, 0.2);">
+                Begin Technical Deployment →
             </button>
         </form>
+        <p style="margin-top: 30px; font-size: 0.85rem; color: #94a3b8; font-weight: 600;">ENCRYPTED DATA • NO VENDOR LOCK-IN • NAIROBI DEPLOYMENT</p>
     </div>
 </section>
+
 {% endblock %}
