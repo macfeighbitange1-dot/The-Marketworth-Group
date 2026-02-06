@@ -35,7 +35,7 @@ def blog():
 
 @app.route('/resources')
 def resources():
-    """Mapping for resource-related links."""
+    """Resource center mapping."""
     return render_template('resources.html', info=COMPANY_DATA)
 
 # --- OPERATIONAL ANALYSIS LOGIC ---
@@ -46,11 +46,11 @@ def submit_lead():
     Captures the website URL from the traffic bar and 
     redirects to the live analysis results page.
     """
-    target_url = request.form.get('email') # Matches 'name="email"' in your index.html
+    target_url = request.form.get('email') # Matches 'name="email"' in your HTML
     
     if target_url:
         print(f"CORE_SCAN: Initializing AEO Audit for {target_url}")
-        # We pass the URL as a query parameter 'site' to the results page
+        # Passing URL as query parameter to results
         return redirect(url_for('results', site=target_url))
     
     flash("Please enter a valid website URL to begin analysis.", "error")
@@ -59,11 +59,11 @@ def submit_lead():
 @app.route('/tools/results')
 def results():
     """
-    Simulates a deep-scan analysis for a specific website.
+    Displays the analysis results for the submitted website.
     """
     site_url = request.args.get('site', 'your website')
     
-    # 0.1% Genius Logic: Simulated metrics for the AEO Report
+    # Genius-tier simulated metrics
     analysis_results = {
         'url': site_url,
         'aeo_score': 74,
@@ -83,10 +83,11 @@ def logout_admin():
 
 @app.errorhandler(404)
 def page_not_found(e):
+    """Graceful redirect for broken links."""
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    # Production settings for Render
+    # host='0.0.0.0' and port=os.environ.get('PORT') are mandatory for Render
     app.run(
         host='0.0.0.0', 
         port=int(os.environ.get('PORT', 5000)), 
