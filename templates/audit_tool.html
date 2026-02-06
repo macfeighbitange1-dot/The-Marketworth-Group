@@ -1,47 +1,72 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="hero" style="padding: 120px 0 60px;">
-    <div class="container" style="max-width: 800px; text-align: left;">
-        <h1 style="font-size: 3rem;">Is Your Business <span style="color: var(--brand-orange);">AI-Ready?</span></h1>
-        <p style="font-size: 1.2rem; opacity: 0.8;">Get a comprehensive score and custom roadmap based on your tech stack and data maturity.</p>
+<section class="hero" style="padding: 160px 0 80px; background: radial-gradient(circle at bottom left, #0a0f1d, var(--brand-dark));">
+    <div class="container" style="max-width: 900px; text-align: left;">
+        <span style="color: var(--brand-orange); font-weight: 800; letter-spacing: 3px; text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 15px;">Marketworth Intelligence // Diagnostic Unit</span>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); color: white; line-height: 1.1; letter-spacing: -2px;">
+            Is Your Business <span style="color: var(--brand-orange);">AI-Ready?</span>
+        </h1>
+        <p style="font-size: 1.25rem; opacity: 0.8; color: var(--text-muted); margin-top: 20px; max-width: 700px; line-height: 1.6;">
+            Run your infrastructure through our **Mistral-7B Inference Engine**. We will calculate your automation readiness score and generate a custom technical roadmap.
+        </p>
     </div>
 </section>
 
-<section class="container" style="padding-bottom: 100px;">
-    <div style="background: var(--brand-surface); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);">
-        <form action="/tools/ai-audit" method="POST">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+<section class="container" style="padding-bottom: 100px; margin-top: -40px;">
+    <div style="background: var(--brand-surface); padding: 50px; border-radius: 35px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 40px 100px rgba(0,0,0,0.5);">
+        
+        <form action="{{ url_for('handle_audit') }}" method="POST">
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px;">
                 <div>
-                    <label style="display: block; margin-bottom: 10px; font-weight: 700;">Work Email Address</label>
-                    <input type="email" name="email" class="bar-input" style="width: 100%; background: #070a13; border-color: #334155; color: white;" placeholder="name@company.com" required>
+                    <label style="display: block; margin-bottom: 12px; font-weight: 700; color: white; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Full Name</label>
+                    <input type="text" name="name" class="bar-input" style="width: 100%; background: #070a13; border: 1px solid #334155; color: white; padding: 18px; border-radius: 14px;" placeholder="Full Name" required>
                 </div>
+                
                 <div>
-                    <label style="display: block; margin-bottom: 10px; font-weight: 700;">Business Industry</label>
-                    <select name="biz_type" class="bar-input" style="width: 100%; background: #070a13; border-color: #334155; color: white;">
-                        <option>Real Estate / Construction</option>
-                        <option>Fintech / Banking</option>
-                        <option>Legal / Compliance</option>
-                        <option>Retail / E-commerce</option>
+                    <label style="display: block; margin-bottom: 12px; font-weight: 700; color: white; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Corporate Email</label>
+                    <input type="email" name="email" class="bar-input" style="width: 100%; background: #070a13; border: 1px solid #334155; color: white; padding: 18px; border-radius: 14px;" placeholder="name@company.co.ke" required>
+                </div>
+
+                <div>
+                    <label style="display: block; margin-bottom: 12px; font-weight: 700; color: white; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Organization Sector</label>
+                    <select name="company" class="bar-input" style="width: 100%; background: #070a13; border: 1px solid #334155; color: white; padding: 18px; border-radius: 14px; cursor: pointer;">
+                        <option value="Real Estate">Real Estate / Construction</option>
+                        <option value="Fintech">Fintech / Banking</option>
+                        <option value="Legal">Legal / Compliance</option>
+                        <option value="Logistics">Logistics / Supply Chain</option>
+                        <option value="E-commerce">Retail / E-commerce</option>
                     </select>
+                </div>
+
+                <div>
+                    <label style="display: block; margin-bottom: 12px; font-weight: 700; color: white; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Annual OpEx Budget</label>
+                    <input type="text" name="budget" class="bar-input" style="width: 100%; background: #070a13; border: 1px solid #334155; color: white; padding: 18px; border-radius: 14px;" placeholder="KES 1M+" required>
                 </div>
             </div>
 
-            <div style="margin-bottom: 30px;">
-                <label style="display: block; margin-bottom: 10px; font-weight: 700;">Data Volume (How much unstructured data do you have?)</label>
-                <div style="display: flex; gap: 20px;">
-                    <label><input type="radio" name="data_volume" value="Low"> Low (Spreadsheets)</label>
-                    <label><input type="radio" name="data_volume" value="Medium"> Medium (CRM/Docs)</label>
-                    <label><input type="radio" name="data_volume" value="High" checked> High (Legacy Archives)</label>
+            <div style="margin-bottom: 40px; background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px;">
+                <label style="display: block; margin-bottom: 20px; font-weight: 700; color: var(--brand-orange); font-size: 0.9rem; text-transform: uppercase;">Data Maturity Level</label>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; color: var(--text-muted);">
+                    <label style="cursor: pointer;"><input type="radio" name="data_volume" value="Low"> 📁 Low (Spreadsheets/Flat files)</label>
+                    <label style="cursor: pointer;"><input type="radio" name="data_volume" value="Medium"> ☁️ Medium (Cloud CRM/SaaS Docs)</label>
+                    <label style="cursor: pointer;"><input type="radio" name="data_volume" value="High" checked> 🧬 High (Legacy SQL/Big Data)</label>
                 </div>
             </div>
 
             <div style="margin-bottom: 40px;">
-                <label style="display: block; margin-bottom: 10px; font-weight: 700;">Current Infrastructure</label>
-                <textarea name="current_stack" class="bar-input" style="width: 100%; height: 100px; background: #070a13; border-color: #334155; color: white;" placeholder="e.g., We use Microsoft 365, M-Pesa, and a custom SQL database..."></textarea>
+                <label style="display: block; margin-bottom: 12px; font-weight: 700; color: white; font-size: 0.9rem; text-transform: uppercase;">Current Operational Bottleneck</label>
+                <textarea name="bottleneck" class="bar-input" style="width: 100%; height: 120px; background: #070a13; border: 1px solid #334155; color: white; padding: 20px; border-radius: 18px; line-height: 1.6; outline: none;" placeholder="Describe the process currently requiring the most manual intervention (e.g., 'We spend 20 hours a week reconciling M-Pesa receipts against our ERP')..."></textarea>
             </div>
 
-            <button type="submit" class="btn-primary" style="width: 100%; background: var(--brand-orange); color: white;">Run AI Diagnostic Engine</button>
+            <button type="submit" class="btn-primary" style="width: 100%; background: var(--brand-orange); color: white; padding: 25px; border: none; border-radius: 18px; font-size: 1.2rem; font-weight: 800; cursor: pointer; box-shadow: 0 15px 30px rgba(255, 69, 0, 0.3); transition: 0.3s;">
+                Initialize Diagnostic Protocol →
+            </button>
+            
+            <p style="text-align: center; margin-top: 25px; font-size: 0.8rem; color: #475569; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                System Ready: Secure SSL Connection • Mistral Inference active • PDF Generator online
+            </p>
         </form>
     </div>
 </section>
