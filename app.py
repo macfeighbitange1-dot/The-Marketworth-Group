@@ -8,7 +8,7 @@ from mistralai import Mistral
 app = Flask(__name__)
 # Securely fetch keys from Environment Variables
 app.secret_key = os.environ.get("SECRET_KEY", "sovereign_intelligence_2026")
-MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY")
+MISTRAL_API_KEY = os.environ.get("QiJh8V2kZ3IQL1eYCAnKqJSOJxSHbTyC")
 
 # Initialize Mistral Client
 mistral_client = Mistral(api_key=MISTRAL_API_KEY) if MISTRAL_API_KEY else None
