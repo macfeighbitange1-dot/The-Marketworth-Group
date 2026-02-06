@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero" style="padding: 120px 0 60px;">
+    <div class="container" style="max-width: 800px; text-align: left;">
+        <h1 style="font-size: 3rem;">Is Your Business <span style="color: var(--brand-orange);">AI-Ready?</span></h1>
+        <p style="font-size: 1.2rem; opacity: 0.8;">Get a comprehensive score and custom roadmap based on your tech stack and data maturity.</p>
+    </div>
+</section>
+
+<section class="container" style="padding-bottom: 100px;">
+    <div style="background: var(--brand-surface); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);">
+        <form action="/tools/ai-audit" method="POST">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                <div>
+                    <label style="display: block; margin-bottom: 10px; font-weight: 700;">Work Email Address</label>
+                    <input type="email" name="email" class="bar-input" style="width: 100%; background: #070a13; border-color: #334155; color: white;" placeholder="name@company.com" required>
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 10px; font-weight: 700;">Business Industry</label>
+                    <select name="biz_type" class="bar-input" style="width: 100%; background: #070a13; border-color: #334155; color: white;">
+                        <option>Real Estate / Construction</option>
+                        <option>Fintech / Banking</option>
+                        <option>Legal / Compliance</option>
+                        <option>Retail / E-commerce</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <label style="display: block; margin-bottom: 10px; font-weight: 700;">Data Volume (How much unstructured data do you have?)</label>
+                <div style="display: flex; gap: 20px;">
+                    <label><input type="radio" name="data_volume" value="Low"> Low (Spreadsheets)</label>
+                    <label><input type="radio" name="data_volume" value="Medium"> Medium (CRM/Docs)</label>
+                    <label><input type="radio" name="data_volume" value="High" checked> High (Legacy Archives)</label>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 40px;">
+                <label style="display: block; margin-bottom: 10px; font-weight: 700;">Current Infrastructure</label>
+                <textarea name="current_stack" class="bar-input" style="width: 100%; height: 100px; background: #070a13; border-color: #334155; color: white;" placeholder="e.g., We use Microsoft 365, M-Pesa, and a custom SQL database..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; background: var(--brand-orange); color: white;">Run AI Diagnostic Engine</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
