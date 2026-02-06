@@ -7,13 +7,14 @@ from mistralai import Mistral
 from flask_flatpages import FlatPages
 
 app = Flask(__name__)
-# Securely fetch keys from Environment Variables
-app.secret_key = os.environ.get("SECRET_KEY", "sovereign_intelligence_2026")
 
-# --- FLAT-FILE BLOG CONFIGURATION ---
+# --- CONFIGURATION ---
+app.secret_key = os.environ.get("SECRET_KEY", "sovereign_intelligence_2026")
 app.config['FLATPAGES_AUTO_RELOAD'] = True
 app.config['FLATPAGES_EXTENSION'] = '.md'
-app.config['FLATPAGES_ROOT'] = 'pages' 
+app.config['FLATPAGES_ROOT'] = 'pages'
+
+# Initialize FlatPages AFTER config is set
 pages = FlatPages(app)
 
 # Mistral Configuration
@@ -82,10 +83,13 @@ def services():
 
 @app.route('/blog')
 def blog(): 
-    return render_template('blog.html', info=COMPANY_DATA, posts=pages)
+    # Sorting posts by date (newest first)
+    posts = sorted(pages, key=lambda p: p.meta.get('date', ''), reverse=True)
+    return render_template('blog.html', info=COMPANY_DATA, posts=posts)
 
 @app.route('/blog/<path:path>/')
 def post(path):
+    # Renders the individual blog post detail
     post = pages.get_or_404(path)
     return render_template('post_detail.html', info=COMPANY_DATA, post=post)
 
@@ -115,7 +119,6 @@ def subscribe():
     email = request.form.get('lead_email')
     if email:
         log_lead(email, "MAGNET_DOWNLOAD_REQ")
-        # Ensure you place your PDF in the /static/ folder
         return redirect(url_for('static', filename='AI_Readiness_2026.pdf'))
     
     return redirect(url_for('blog'))
@@ -123,15 +126,20 @@ def subscribe():
 @app.route('/tools/results')
 def results():
     site_url = request.args.get('site', 'your website')
-    score = request.args.get('score', 74)
+    score_val = request.args.get('score', '74')
     advice = request.args.get('advice', 'Analysis pending technical verification.')
     
+    try:
+        numeric_score = int(score_val)
+    except ValueError:
+        numeric_score = 74
+
     analysis_results = {
         'url': site_url,
-        'aeo_score': score,
-        'perplexity_visibility': 'High' if int(score) > 80 else 'Low',
+        'aeo_score': numeric_score,
+        'perplexity_visibility': 'High' if numeric_score > 80 else 'Low',
         'chatgpt_index': 'Verified',
-        'optimization_priority': 'CRITICAL' if int(score) < 80 else 'MODERATE',
+        'optimization_priority': 'CRITICAL' if numeric_score < 80 else 'MODERATE',
         'ai_advice': advice,
         'timestamp': time.strftime("%Y-%m-%d %H:%M")
     }
@@ -142,4 +150,5 @@ def page_not_found(e):
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
