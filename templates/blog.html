@@ -3,21 +3,21 @@
 
 <section style="padding: 140px 0 60px; background: var(--brand-dark); text-align: center;">
     <div class="container">
-        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Intelligence & AEO Insights</span>
-        <h1 style="font-size: 3.5rem; color: white; margin-top: 15px;">The <span style="color: var(--brand-orange);">Marketworth</span> Journal</h1>
-        <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto;">Engineering the future of Kenyan enterprise, one breakthrough at a time.</p>
+        <span style="color: var(--brand-accent); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 10px;">Marketworth Intelligence // Knowledge Base</span>
+        <h1 style="font-size: 3.5rem; color: white; margin-top: 15px; letter-spacing: -2px;">The <span style="color: var(--brand-orange);">Marketworth</span> Journal</h1>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto; font-size: 1.1rem;">Engineering the future of Kenyan enterprise through Sovereign AI and Agentic Workflows.</p>
     </div>
 </section>
 
 <section class="container" style="margin-top: -40px;">
-    <div class="reveal" style="background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden;">
+    <div class="reveal" style="background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
         <div style="padding: 60px;">
-            <span style="color: var(--brand-orange); font-weight: 800; font-size: 0.75rem;">TRENDING 2026</span>
-            <h2 style="font-size: 2.5rem; color: white; margin: 1rem 0;">Why SEO is Dead and AEO is the New Frontier</h2>
-            <p style="color: var(--text-muted); margin-bottom: 2rem;">As users shift from Google search to ChatGPT and Perplexity, businesses must learn "Semantic Trust Engineering" to stay relevant.</p>
-            <a href="#" class="btn-primary" style="background: var(--brand-accent); color: var(--brand-dark);">Read Analysis</a>
+            <span style="color: var(--brand-orange); font-weight: 800; font-size: 0.75rem; letter-spacing: 1px;">TRENDING // 2026 STRATEGY</span>
+            <h2 style="font-size: 2.5rem; color: white; margin: 1rem 0; line-height: 1.1;">Why SEO is Dead and AEO is the New Frontier</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6;">As users shift from Google search to ChatGPT and Perplexity, Kenyan businesses must master "Semantic Trust Engineering" to remain discoverable.</p>
+            <a href="{{ url_for('home') }}#audit" class="btn-primary" style="background: var(--brand-accent); color: var(--brand-dark); text-decoration: none; padding: 15px 30px; border-radius: 12px; font-weight: 800; display: inline-block;">Get the AEO Roadmap</a>
         </div>
-        <div style="background: linear-gradient(45deg, var(--brand-indigo), var(--brand-dark)); display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+        <div style="background: linear-gradient(45deg, var(--brand-indigo), var(--brand-dark)); display: flex; align-items: center; justify-content: center; font-size: 5rem; min-height: 300px;">
             🛰️
         </div>
     </div>
@@ -26,38 +26,46 @@
 <section class="container" style="padding: 80px 0;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
         
-        <article class="reveal" style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
+        <article class="reveal" style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;" onmouseover="this.style.borderColor='var(--brand-orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
             <div style="height: 200px; background: #0c1221; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🇰🇪</div>
-            <span style="color: var(--brand-accent); font-size: 0.7rem; font-weight: 800;">LOCAL TECH</span>
-            <h3 style="margin: 10px 0; color: white;">Implementing M-Pesa STK Push in Agentic Workflows</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">How to coordinate autonomous agents to handle payment verification and fulfillment.</p>
+            <span style="color: var(--brand-accent); font-size: 0.7rem; font-weight: 800;">LOCAL TECH // M-PESA</span>
+            <h3 style="margin: 10px 0; color: white; font-size: 1.4rem;">Implementing M-Pesa STK Push in Agentic Workflows</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Coordinating autonomous agents to handle payment verification and fulfillment via Safaricom Daraja API.</p>
+            <a href="#" style="color: var(--brand-orange); text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Technical Brief →</a>
         </article>
 
-        <article class="reveal" style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
+        <article class="reveal" style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;" onmouseover="this.style.borderColor='var(--brand-orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
             <div style="height: 200px; background: #0c1221; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🔒</div>
             <span style="color: var(--brand-accent); font-size: 0.7rem; font-weight: 800;">DATA SOVEREIGNTY</span>
-            <h3 style="margin: 10px 0; color: white;">The Case for Sovereign SLMs in Kenyan Law Firms</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Why sending your client data to OpenAI is a liability, and how local LLMs solve it.</p>
+            <h3 style="margin: 10px 0; color: white; font-size: 1.4rem;">The Case for Sovereign SLMs in Kenyan Law Firms</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Why sending client data to OpenAI is a regulatory liability, and how local Mistral clusters solve it.</p>
+            <a href="#" style="color: var(--brand-orange); text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Case Study →</a>
         </article>
 
-        <article class="reveal" style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
+        <article class="reveal" style="background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;" onmouseover="this.style.borderColor='var(--brand-orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'">
             <div style="height: 200px; background: #0c1221; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🐝</div>
-            <span style="color: var(--brand-accent); font-size: 0.7rem; font-weight: 800;">AGENTS</span>
-            <h3 style="margin: 10px 0; color: white;">Scaling Your Workforce with Autonomous Swarms</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Moving beyond chatbots to agents that can actually 'do' work.</p>
+            <span style="color: var(--brand-accent); font-size: 0.7rem; font-weight: 800;">AGENTIC SWARMS</span>
+            <h3 style="margin: 10px 0; color: white; font-size: 1.4rem;">Scaling Your Workforce with Autonomous Swarms</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Moving beyond chatbots to specialized agents that execute operations without human intervention.</p>
+            <a href="#" style="color: var(--brand-orange); text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Deployment Guide →</a>
         </article>
 
     </div>
 </section>
 
 <section class="container reveal" style="padding-bottom: 100px;">
-    <div style="background: var(--brand-orange); padding: 60px; border-radius: 40px; text-align: center; color: white;">
+    <div style="background: var(--brand-orange); padding: 60px; border-radius: 40px; text-align: center; color: white; position: relative; overflow: hidden;">
+        <div style="position: absolute; left: -10px; top: -10px; font-size: 8rem; opacity: 0.1;">📡</div>
         <h2 style="font-size: 2.2rem; margin-bottom: 10px;">Stay Ahead of the Algorithm</h2>
-        <p style="margin-bottom: 30px; opacity: 0.9;">Join 1,000+ Kenyan founders receiving our weekly "Intelligence Brief."</p>
-        <form action="/submit-lead" method="POST" style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px;">
-            <input type="email" name="email" placeholder="Your Work Email" style="flex: 1; padding: 18px; border-radius: 12px; border: none;" required>
-            <button type="submit" style="padding: 18px 30px; background: var(--brand-dark); color: white; border: none; border-radius: 12px; font-weight: 800; cursor: pointer;">Subscribe</button>
+        <p style="margin-bottom: 30px; opacity: 0.9; font-weight: 500;">Join 1,000+ Kenyan founders receiving our weekly "Intelligence Brief."</p>
+        
+        <form action="{{ url_for('submit_lead') }}" method="POST" style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px; position: relative; z-index: 2;">
+            <input type="email" name="email" placeholder="Your Work Email" style="flex: 1; padding: 18px; border-radius: 12px; border: none; outline: none;" required>
+            <button type="submit" style="padding: 18px 30px; background: var(--brand-dark); color: white; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; transition: 0.3s;">
+                Subscribe
+            </button>
         </form>
+        <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">No Spam. Only Intelligence.</p>
     </div>
 </section>
 
