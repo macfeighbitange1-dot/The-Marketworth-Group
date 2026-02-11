@@ -22,7 +22,6 @@
             --nav-height: 85px;
         }
 
-        /* Smooth Scroll & Global Reset */
         html { scroll-behavior: smooth; }
         body { 
             margin: 0; 
@@ -32,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* Scroll Progress Bar */
         #scroll-progress {
             position: fixed;
             top: 0;
@@ -44,7 +42,6 @@
             transition: width 0.1s ease-out;
         }
 
-        /* Navigation Aesthetic */
         header {
             position: fixed;
             top: 0;
@@ -70,7 +67,7 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 12px; /* Space between logo and text */
+            gap: 12px;
         }
 
         .nav-links { display: flex; list-style: none; gap: 35px; align-items: center; margin: 0; }
@@ -85,7 +82,6 @@
         }
         .nav-item a:hover { opacity: 1; color: var(--brand-orange); }
 
-        /* MEGA MENU PREMIUM STYLES */
         .mega-link-premium {
             display: flex;
             gap: 15px;
@@ -182,7 +178,6 @@
             transform: translateX(5px);
         }
 
-        /* PULSE CONVERSION BUTTON */
         .cta-audit-pulse {
             background: var(--brand-orange);
             color: white !important;
@@ -217,20 +212,14 @@
             font-weight: 400;
         }
 
-        main { 
-            min-height: 80vh; 
-            padding-top: var(--nav-height); 
-        }
+        main { min-height: 80vh; padding-top: var(--nav-height); }
 
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         .whatsapp-float {
             position: fixed;
@@ -280,45 +269,43 @@
                 <li class="nav-item"><a href="/">Intelligence</a></li>
                 <li class="nav-item">
                     <a href="#">Solutions ▾</a>
-                    <div class="mega-menu" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); width: 600px; background: #0c1221; border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; opacity: 0; visibility: hidden; transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1); box-shadow: 0 40px 100px rgba(0,0,0,0.8); z-index: 10007;">
-                        
+                    <div class="mega-menu" style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px); width: 650px; background: #0c1221; border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; opacity: 0; visibility: hidden; transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1); box-shadow: 0 40px 100px rgba(0,0,0,0.8); z-index: 10007;">
                         <div class="mega-col">
                             <h4 style="color: var(--brand-orange); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase;">Intelligence Models</h4>
                             <a href="/services/slm" class="mega-link-premium">
                                 <div class="mega-icon">🛡️</div>
                                 <div>
                                     <span class="mega-title">Sovereign SLMs</span>
-                                    <p class="mega-desc">Local-first models that keep your data air-gapped.</p>
+                                    <p class="mega-desc">Local-first models trained on your business DNA.</p>
                                 </div>
                             </a>
                             <a href="/services/aeo" class="mega-link-premium">
-                                <div class="mega-icon">📡</div>
+                                <div class="mega-icon">🚀</div>
                                 <div>
-                                    <span class="mega-title">AEO Optimization</span>
-                                    <p class="mega-desc">Rank #1 in Answer Engines (Perplexity, GPT).</p>
+                                    <span class="mega-title">AEO Mastery</span>
+                                    <p class="mega-desc">Get recommended by Perplexity and ChatGPT.</p>
                                 </div>
                             </a>
                         </div>
-
                         <div class="mega-col">
-                            <h4 style="color: var(--brand-accent); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase;">Autonomous Systems</h4>
+                            <h4 style="color: var(--brand-accent); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase;">Autonomous Infrastructure</h4>
                             <a href="/services/agents" class="mega-link-premium">
                                 <div class="mega-icon">🐝</div>
                                 <div>
                                     <span class="mega-title">Agentic Swarms</span>
-                                    <p class="mega-desc">Multi-agent workforces for 24/7 ops.</p>
+                                    <p class="mega-desc">Autonomous workforces for 24/7 execution.</p>
                                 </div>
                             </a>
-                            <a href="/services/audit" class="mega-link-premium">
-                                <div class="mega-icon">🔍</div>
+                            <a href="/services/interfaces" class="mega-link-premium">
+                                <div class="mega-icon">🖥️</div>
                                 <div>
-                                    <span class="mega-title">Enterprise Audit</span>
-                                    <p class="mega-desc">Review your full AI-readiness stack.</p>
+                                    <span class="mega-title">Intelligence Interfaces</span>
+                                    <p class="mega-desc">High-performance websites built for the AI era.</p>
                                 </div>
                             </a>
                         </div>
                     </div>
-                </li>
+                    </li>
                 <li class="nav-item"><a href="/results">Blueprints</a></li>
                 <li class="nav-item"><a href="/blog">AEO Blog</a></li>
                 
@@ -361,9 +348,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/{{ info.whatsapp }}" class="whatsapp-float">
-        Talk to an Architect
-    </a>
+    <a href="https://wa.me/{{ info.whatsapp }}" class="whatsapp-float">Talk to an Architect</a>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -372,15 +357,18 @@
                 let winScroll = document.documentElement.scrollTop;
                 let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 let scrolled = (winScroll / height) * 100;
-                progressBar.style.width = scrolled + "%";
+                if(progressBar) progressBar.style.width = scrolled + "%";
             });
 
             const proofTag = document.getElementById("live-proof");
             const updateProof = () => {
-                const count = Math.floor(Math.random() * (22 - 12 + 1)) + 12; 
-                proofTag.innerText = `${count} Audits in last 24h`;
+                if(proofTag) {
+                    const count = Math.floor(Math.random() * (22 - 12 + 1)) + 12; 
+                    proofTag.innerText = `${count} Audits in last 24h`;
+                }
             };
             updateProof();
+            setInterval(updateProof, 30000);
 
             const revealCallback = (entries) => {
                 entries.forEach(entry => {
