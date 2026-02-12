@@ -16,3 +16,5 @@ Unlike linear automation (Zapier/IFTTT), a Swarm operates on **Recursive Feedbac
 
 ## Technical Grounding
 To integrate with an Agentic Swarm, an enterprise must expose its data via a **Semantic API**. If your data is trapped in a PDF, the swarm is blind.
+### Logic Integration
+To support autonomous coordination, these swarms require a structured [Knowledge Graph Architecture](./knowledge-graph-architecture) to prevent hallucination and ensure data grounding.
