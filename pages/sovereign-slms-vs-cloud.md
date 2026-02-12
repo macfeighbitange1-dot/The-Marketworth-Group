@@ -16,3 +16,5 @@ Sovereign SLMs (Small Language Models) like Mistral-derived or Llama-4-quantized
 
 ## Result
 Sovereignty isn't just about privacy; it's about **Vertical Intelligence Control**.
+### Security Framework
+The deployment of local models is a core pillar of the [0xCC2 Protocol](./0xCC2-protocol-explained), ensuring that intelligence remains proprietary and sovereign.
