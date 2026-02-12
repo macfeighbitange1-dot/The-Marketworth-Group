@@ -1,6 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "AEO Mastery & Agentic Deployment",
+  "provider": {
+    "@type": "Organization",
+    "name": "Marketworth Group",
+    "url": "{{ request.url_root }}",
+    "knowsAbout": [
+      "Sovereign SLMs", 
+      "Agentic Swarms", 
+      "AEO Strategy 0xCC2", 
+      "Knowledge Graph Injection",
+      "Semantic Density Optimization"
+    ],
+    "areaServed": "Global"
+  },
+  "description": "Architecting enterprise autonomy through private local-first language models and autonomous agentic workforces using the 0xCC2 Protocol."
+}
+</script>
+
 <div class="traffic-bar" style="background: #05070a; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 12px 0; position: sticky; top: 70px; z-index: 999; backdrop-filter: blur(10px);">
     <div class="bar-container" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
         <span class="bar-text" style="color: white; font-weight: 700; font-size: 0.9rem;">🚀 Dominating AI Search in 2026?</span>
@@ -120,7 +142,6 @@
         }
     }
 
-    // --- NEW: Intersection Observer for Scroll Animations ---
     function initScrollReveal() {
         const revealElements = document.querySelectorAll('.reveal');
         const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
@@ -147,6 +168,10 @@
     .card-sovereign:hover { transform: translateY(-15px) scale(1.02); border-color: var(--brand-orange) !important; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
     .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255, 69, 0, 0.4); opacity: 0.9; }
     
+    /* Ensuring reveal class has the starting state for the observer */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
     .reveal-slow { animation: fadeInUp 1.2s ease forwards; opacity: 0; }
     .reveal-fast { animation: fadeInDown 0.8s ease forwards; }
 
