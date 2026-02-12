@@ -21,7 +21,7 @@
 
 html { 
     scroll-behavior: smooth; 
-    font-size: 16px; /* Base for rem units */
+    font-size: 16px; 
 }
 
 body {
@@ -51,10 +51,10 @@ body {
     margin: 0 auto; 
 }
 
-/* Reveal Animation Logic */
+/* Reveal Animation Logic - Optimized for GPU */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
     transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: transform, opacity;
 }
@@ -280,14 +280,29 @@ footer {
     font-size: 0.85rem;
 }
 
-/* --- 6. MOBILE RESPONSIVITY --- */
+/* --- 6. AI INTERFACE (Intelligence Interfaces) --- */
+.ai-interface-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 30px;
+    transition: var(--transition);
+}
+
+.ai-interface-card:hover {
+    border-color: var(--brand-accent);
+    box-shadow: 0 0 40px rgba(190, 242, 100, 0.1);
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
+}
+
+/* --- 7. MOBILE RESPONSIVITY --- */
 @media (max-width: 1024px) {
     .nav-links { gap: 1.5rem; }
     .mega-menu { width: 450px; }
 }
 
 @media (max-width: 900px) {
-    .nav-links { display: none; } /* Mobile burger menu should be triggered here */
+    .nav-links { display: none; } 
     .bar-container { flex-direction: column; text-align: center; }
     .bar-input { width: 100%; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
