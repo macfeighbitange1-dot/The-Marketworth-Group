@@ -15,3 +15,5 @@ We track how often an LLM mentions your brand when prompted with "top-of-funnel"
 
 ## Evolution
 We don't optimize for humans who browse; we optimize for the models that summarize.
+### Future Metrics
+As clicks vanish, the focus shifts to [Agentic Swarms](./agentic-swarms-2026) that act on behalf of users, making brand citation the only valid KPI.
