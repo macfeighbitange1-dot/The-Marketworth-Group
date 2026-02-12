@@ -14,3 +14,5 @@ Relational databases are for humans; Knowledge Graphs are for Intelligence. By c
 3.  **JSON-LD Injection:** Hardcoding these relationships into the DOM for AI Answer Engines.
 
 "A model cannot hallucinate about a brand that provides its own grounding data." — Marketworth Intelligence
+### Authority Engineering
+A robust graph is the engine behind [AEO Mastery](./aeo-mastery-2026), providing the structured evidence AI Answer Engines need to cite your brand definitively.
