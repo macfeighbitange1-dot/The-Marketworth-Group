@@ -15,3 +15,5 @@ The 0xCC2 Protocol is a multi-layered optimization framework designed to maximiz
 
 ## Deployment
 Implementing 0xCC2 requires a total decoupling from legacy SEO "keyword stuffing" and a pivot to **Technical Entity Architecture**.
+### Implementation
+The first step in protocol deployment is shifting from legacy SEO to [Answer Engine Optimization](./aeo-mastery-2026) to capture the synthesized search market.
