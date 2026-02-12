@@ -46,7 +46,7 @@
     </div>
 </section>
 
-<section class="container" style="margin-top: -60px; padding-bottom: 100px;">
+<section class="container" style="margin-top: -60px; padding-bottom: 60px;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
         <div class="reveal-slow card-sovereign" style="background: rgba(10, 15, 29, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); padding: 50px 40px; border-radius: 35px; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
             <div style="background: rgba(190, 242, 100, 0.1); width: 65px; height: 65px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin-bottom: 2rem; border: 1px solid rgba(190, 242, 100, 0.2);">🧠</div>
@@ -67,6 +67,37 @@
             <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1.2rem;">AEO <span style="color: var(--brand-accent);">Mastery</span></h3>
             <p style="color: #94a3b8; line-height: 1.7; margin-bottom: 2.5rem;">Get recommended by Perplexity, ChatGPT, and Meta AI. The evolution of search.</p>
             <a href="{{ url_for('blog') }}" style="color: var(--brand-accent); text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px;">Get Ranked <span>→</span></a>
+        </div>
+    </div>
+</section>
+
+<section class="reveal" style="padding: 100px 0; background: rgba(7, 10, 19, 0.5); border-top: 1px solid rgba(255,255,255,0.03);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; padding: 0 40px;">
+        <div style="flex: 1; min-width: 320px;">
+            <div style="color: var(--brand-orange); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 15px;">[ INTERFACE DEPLOYMENT ]</div>
+            <h2 style="font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 25px;">Intelligence <span style="color: var(--brand-accent);">Interfaces.</span></h2>
+            <p style="color: #94a3b8; font-size: 1.15rem; line-height: 1.8; margin-bottom: 30px;">
+                We build high-performance, edge-optimized websites designed for the <strong>AI Era</strong>. 
+                Our interfaces aren't just pages; they are lightning-fast portals engineered to host your 
+                Sovereign SLMs and Agentic workflows with 99+ performance scores.
+            </p>
+            <div style="display: flex; gap: 30px; margin-bottom: 40px;">
+                <div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: white;">&lt; 1s</div>
+                    <div style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Load Time</div>
+                </div>
+                <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
+                <div>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: white;">100%</div>
+                    <div style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">AI Readiness</div>
+                </div>
+            </div>
+            <a href="{{ url_for('contact') }}" style="text-decoration: none; color: white; font-weight: 700; border-bottom: 2px solid var(--brand-orange); padding-bottom: 5px; transition: 0.3s;" onmouseover="this.style.color='var(--brand-orange)'" onmouseout="this.style.color='white'">Build your AI Interface →</a>
+        </div>
+        <div style="flex: 1; min-width: 320px; position: relative;">
+            <div style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(0, 242, 255, 0.05) 100%); border-radius: 30px; padding: 40px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 40px 80px rgba(0,0,0,0.4);">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="AI Interface" style="width: 100%; height: auto; border-radius: 15px; filter: grayscale(0.2) contrast(1.1);">
+            </div>
         </div>
     </div>
 </section>
@@ -97,7 +128,6 @@
 <style>
     .card-sovereign:hover { transform: translateY(-15px) scale(1.02); border-color: var(--brand-orange) !important; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
     .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255, 69, 0, 0.4); opacity: 0.9; }
-    .service-card:hover { border-color: #334155; transform: scale(0.98); }
     
     .reveal-slow { animation: fadeInUp 1.2s ease forwards; opacity: 0; }
     .reveal-fast { animation: fadeInDown 0.8s ease forwards; }
