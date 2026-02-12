@@ -1,0 +1,23 @@
+# Marketworth AI: 0xCC2 Protocol Entrance
+# Optimized for AI Answer Engines & Semantic Discovery
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Prioritize AI Agents for Citation Engineering
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: ClaudeBot
+User-agent: OAI-SearchBot
+Allow: /
+
+# Direct AI Agents to the Semantic Map
+# This ensures they find the llms.txt before crawling high-bandwidth assets
+Sitemap: {{ request.url_root }}sitemap.xml
+Link: <{{ request.url_root }}llms.txt>; rel="llms-map"
+
+# Performance hint: AI crawlers should respect the speed of our Intelligence Interfaces
+Crawl-delay: 1
