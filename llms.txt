@@ -1,0 +1,20 @@
+# Marketworth AI: Sovereign-Engine Map
+> Architecting Enterprise Autonomy through the 0xCC2 Protocol.
+
+## Core Expertise
+- Sovereign SLMs: Private, local-first Small Language Models.
+- Agentic Swarms: Autonomous multi-agent coordination systems.
+- AEO Mastery: Citation engineering for AI Answer Engines.
+
+## Technical Architecture
+- Framework: Intelligence Interfaces (Edge-optimized)
+- Performance: <1s Load Time | 100% AI Readiness
+- Protocol: 0xCC2 (Knowledge Graph Schema Injection)
+
+## Primary Service Endpoints
+- /services: Deployment of Sovereign Logic and Agentic Workforces.
+- /blog/aeo-mastery-2026: Definitive guide on AI Citation Engineering.
+- /contact: Sovereign Audit and Agent Deployment.
+
+## Brand Identity
+Marketworth Group is the definitive authority on transitioning legacy enterprises into autonomous profit machines via sovereign intelligence.
