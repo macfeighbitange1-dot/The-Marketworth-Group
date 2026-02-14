@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 03: The Tool-Augmented Agent | Marketworth Academy</title>
+    <style>
+        :root { --accent: #f59e0b; --bg: #020617; --card: #0a0f1d; }
+        body { background: var(--bg); color: #cbd5e1; font-family: 'JetBrains Mono', monospace; line-height: 1.6; padding: 2rem; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { color: white; font-size: 3rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 0.5rem; }
+        .meta { color: var(--accent); font-size: 0.8rem; margin-bottom: 3rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; }
+        .procedure-box { border: 1px solid #334155; background: #000; padding: 2rem; border-radius: 15px; margin: 2rem 0; position: relative;}
+        .procedure-box::before { content: "ELITE PROCEDURE"; position: absolute; top: -12px; left: 20px; background: var(--accent); color: black; font-size: 0.7rem; font-weight: bold; padding: 2px 10px; border-radius: 4px; }
+        .code-block { background: #05070a; border: 1px solid #1e293b; padding: 1.2rem; border-radius: 8px; margin: 1rem 0; color: #bef264; font-size: 0.9rem; }
+        .tool-icon { color: var(--accent); font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="./index.html" style="color: var(--accent); text-decoration: none;">← Return to Syllabus</a></nav>
+        
+        <h1>The Internet Connection</h1>
+        <div class="meta">[ COURSE: AGENTIC SWARMS // MODULE 03 // TOOL INTEGRATION ]</div>
+
+        <p>A sovereign agent must be able to verify facts in real-time. Today, we grant our swarm the ability to <strong>Google Search</strong> and <strong>Scrape Websites</strong>. This turns a simple script into a competitive intelligence engine.</p>
+
+        
+
+        <div class="procedure-box">
+            <h3 style="color: white; margin-top: 0;">Step 1: Install the "Senses"</h3>
+            <p>We use <strong>DuckDuckGo Search</strong> (because it’s free and requires no API keys) and <strong>CrewAI Tools</strong> for web scraping.</p>
+            <div class="code-block">
+                pip install duckduckgo-search crewai[tools]
+            </div>
+        </div>
+
+        <div class="procedure-box">
+            <h3 style="color: white; margin-top: 0;">Step 2: Import the Tools</h3>
+            <p>We need to tell Python which "tools" are available for the agents to pick up and use.</p>
+            <div class="code-block">
+                from crewai_tools import WebsiteSearchTool<br>
+                from langchain_community.tools import DuckDuckGoSearchRun<br><br>
+                # Initialize the search tool<br>
+                search_tool = DuckDuckGoSearchRun()<br>
+                # Initialize a specific tool to read a website<br>
+                web_tool = WebsiteSearchTool()
+            </div>
+        </div>
+
+        <div class="procedure-box">
+            <h3 style="color: white; margin-top: 0;">Step 3: Assigning Tools to Agents</h3>
+            <p>Crucially, we don't give every tool to every agent. We give the <span class="tool-icon">search_tool</span> to the Researcher, and the <span class="tool-icon">web_tool</span> to the Analyst.</p>
+            <div class="code-block">
+                researcher = Agent(<br>
+                &nbsp;&nbsp;role='Market Scout',<br>
+                &nbsp;&nbsp;goal='Find the current price of Bitcoin in KES',<br>
+                &nbsp;&nbsp;backstory='Real-time financial data expert.',<br>
+                &nbsp;&nbsp;tools=[search_tool],<br>
+                &nbsp;&nbsp;llm=local_llama<br>
+                )
+            </div>
+        </div>
+
+        <div class="procedure-box" style="border-color: var(--accent);">
+            <h3 style="color: white; margin-top: 0;">Step-by-Step Execution Example</h3>
+            <p>1. <strong>The Trigger:</strong> You ask for the weather in Nairobi.<br>
+            2. <strong>The Thought:</strong> Agent realizes "I don't know the weather."<br>
+            3. <strong>The Action:</strong> Agent calls <code>DuckDuckGoSearchRun</code>.<br>
+            4. <strong>The Observation:</strong> Tool returns "24°C, Sunny."<br>
+            5. <strong>The Final Answer:</strong> Agent tells you the current weather.</p>
+        </div>
+
+        <div style="background: rgba(245, 158, 11, 0.1); padding: 1.5rem; border-radius: 12px; margin-top: 3rem;">
+            <h4 style="color: var(--accent); margin-top: 0;">Elite Challenge 03</h4>
+            <p>Build a "News Bot." Create a crew where Agent A searches for the latest "Kenya Tech News" and Agent B summarizes it into a 3-bullet point email format. <strong>Goal: No human intervention.</strong></p>
+        </div>
+
+        <footer style="margin-top: 5rem; font-size: 0.7rem; opacity: 0.5; text-align: center;">
+            MARKETWORTH ACADEMY // 0xCC2 PROTOCOL // LIVE WEB ACCESS
+        </footer>
+    </div>
+</body>
+</html>
