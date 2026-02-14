@@ -23,6 +23,19 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOccupationalProgram",
+  "name": "Marketworth Sovereign Academy",
+  "description": "High-intensity technical sprints for the AI Economy.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Marketworth Group"
+  }
+}
+</script>
+
 <div class="traffic-bar" style="background: #05070a; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 12px 0; position: sticky; top: 70px; z-index: 999; backdrop-filter: blur(10px);">
     <div class="bar-container" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
         <span class="bar-text" style="color: white; font-weight: 700; font-size: 0.9rem;">🚀 Dominating AI Search in 2026?</span>
@@ -90,6 +103,26 @@
             <p style="color: #94a3b8; line-height: 1.7; margin-bottom: 2.5rem;">Get recommended by Perplexity, ChatGPT, and Meta AI. The evolution of search.</p>
             <a href="{{ url_for('blog') }}" style="color: var(--brand-accent); text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px;">Get Ranked <span>→</span></a>
         </div>
+    </div>
+</section>
+
+<section id="academy" class="reveal" style="padding: 100px 0; background: #020617;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px;">
+        <div style="border-left: 4px solid var(--brand-accent); padding-left: 30px; margin-bottom: 60px;">
+            <h2 style="font-size: 3.5rem; font-weight: 900; line-height: 1; color: white; margin-bottom: 15px; text-transform: uppercase;">Sovereign Academy</h2>
+            <p style="color: var(--brand-accent); font-family: 'JetBrains Mono', monospace; font-size: 1.1rem;">> Transferring Intelligence to the 0.1%</p>
+        </div>
+
+        <div style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); display: grid; gap: 40px;">
+            <div class="academy-card" style="background: #0a0f1d; border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 40px; position: relative; overflow: hidden; transition: 0.4s;">
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 10rem; font-weight: 900; color: rgba(255,255,255,0.02); pointer-events: none;">01</div>
+                <h3 style="font-size: 1.8rem; font-weight: 800; color: white; margin-bottom: 15px;">Building Agentic Swarms</h3>
+                <p style="color: #94a3b8; line-height: 1.6; margin-bottom: 30px;">Master the 0xCC2 Protocol. Build autonomous AI teams that execute enterprise tasks without human intervention.</p>
+                <a href="/academy/agentic-swarms/" style="display: inline-flex; align-items: center; gap: 12px; color: var(--brand-accent); font-weight: 800; text-decoration: none; border: 1px solid var(--brand-accent); padding: 12px 25px; border-radius: 12px; transition: 0.3s;" class="academy-btn">
+                    Access Logic Loop <span>→</span>
+                </a>
+            </div>
+            </div>
     </div>
 </section>
 
@@ -168,6 +201,10 @@
     .card-sovereign:hover { transform: translateY(-15px) scale(1.02); border-color: var(--brand-orange) !important; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
     .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255, 69, 0, 0.4); opacity: 0.9; }
     
+    /* Academy Card Styles */
+    .academy-card:hover { border-color: var(--brand-accent) !important; transform: translateY(-10px); background: #0e1526 !important; }
+    .academy-btn:hover { background: var(--brand-accent); color: white !important; }
+
     /* Ensuring reveal class has the starting state for the observer */
     .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
