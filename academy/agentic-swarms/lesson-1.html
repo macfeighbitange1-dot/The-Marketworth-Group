@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 01: The Sovereign Stack | Marketworth Academy</title>
+    <style>
+        :root { --accent: #bef264; --bg: #020617; --card: #0a0f1d; }
+        body { background: var(--bg); color: #cbd5e1; font-family: 'JetBrains Mono', monospace; line-height: 1.6; padding: 2rem; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { color: white; font-size: 3rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 0.5rem; }
+        .meta { color: var(--accent); font-size: 0.8rem; margin-bottom: 3rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; }
+        .code-block { background: black; border: 1px solid #334155; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; overflow-x: auto; }
+        .highlight { color: var(--accent); }
+        .logic-card { background: var(--card); border: 1px solid #1e293b; padding: 2rem; border-radius: 12px; margin: 2rem 0; }
+        .nav-link { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="./index.html" class="nav-link">← Return to Syllabus</a></nav>
+        
+        <h1 class="reveal-fast">Deploying Local LLMs</h1>
+        <div class="meta">[ COURSE: AGENTIC SWARMS // MODULE 01 // PROTOCOL 0xCC2 ]</div>
 
+        <section>
+            <p>In the 0xCC2 framework, <strong>Dependency is a Vulnerability.</strong> If your agentic swarm relies on external APIs (OpenAI/Anthropic), your business logic is at the mercy of their pricing, downtime, and censorship. To be sovereign, we run the brain locally.</p>
+            
+            <div class="logic-card">
+                <h3 style="color: white; margin-top: 0;">The Objective</h3>
+                <p>By the end of this lesson, you will have a <strong>quantized Llama 3.1</strong> model running on your local machine, serving as the "Reasoning Engine" for your future agents.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="color: white;">Step 1: The Ollama Environment</h2>
+            <p>Ollama is the industry standard for running local inference. It manages the complex C++ backend while giving us a clean REST API.</p>
+            
+            <div class="code-block">
+                # Install Ollama (Linux/WSL2)
+                curl -fsSL https://ollama.com/install.sh | sh
+            </div>
+
+            <h2 style="color: white;">Step 2: Pulling the Reasoning Model</h2>
+            <p>For agents, we need models with high <strong>Function Calling</strong> capabilities. We will use Llama 3.1 8B, quantized to 4-bit (Q4_K_M) to balance speed and intelligence.</p>
+            
+            <div class="code-block">
+                ollama pull llama3.1
+            </div>
+        </section>
+
+        
+
+        <section>
+            <h2 style="color: white;">Step 3: The Logic Handshake (Python)</h2>
+            <p>Now, we verify that our code can speak to our local brain. Install the dependencies first:</p>
+            <div class="code-block">
+                pip install ollama
+            </div>
+
+            <p>Create a file named <code class="highlight">brain_test.py</code>:</p>
+            <div class="code-block">
+                import ollama<br><br>
+                response = ollama.chat(model='llama3.1', messages=[<br>
+                &nbsp;&nbsp;{'role': 'user', 'content': 'Explain the concept of Sovereign AI in one sentence.'}<br>
+                ])<br><br>
+                print(response['message']['content'])
+            </div>
+        </section>
+
+        <section class="logic-card" style="border-left: 4px solid var(--accent);">
+            <h3 style="color: white; margin-top: 0;">Elite Challenge 01</h3>
+            <p>Modify the code to return a JSON object containing three potential names for your first Agentic Swarm. This forces the model to follow a schema—a requirement for the 0xCC2 Protocol.</p>
+        </section>
+
+        <footer style="margin-top: 5rem; font-size: 0.7rem; opacity: 0.5; text-align: center;">
+            PROPRIETARY DATA // MARKETWORTH GROUP 2026
+        </footer>
+    </div>
+</body>
+</html>
