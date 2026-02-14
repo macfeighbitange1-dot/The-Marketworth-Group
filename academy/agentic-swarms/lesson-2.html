@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 02: Orchestrating the Swarm | Marketworth Academy</title>
+    <style>
+        :root { --accent: #6366f1; --bg: #020617; --card: #0a0f1d; }
+        body { background: var(--bg); color: #cbd5e1; font-family: 'JetBrains Mono', monospace; line-height: 1.6; padding: 2rem; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { color: white; font-size: 3rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 0.5rem; }
+        .meta { color: var(--accent); font-size: 0.8rem; margin-bottom: 3rem; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; }
+        .step { border-left: 2px solid var(--accent); padding-left: 1.5rem; margin: 2.5rem 0; }
+        .step-number { color: var(--accent); font-weight: bold; font-size: 1.2rem; }
+        .code-block { background: black; border: 1px solid #334155; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; overflow-x: auto; color: #bef264; }
+        .logic-note { background: rgba(99, 102, 241, 0.05); border: 1px solid var(--accent); padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="./index.html" style="color: var(--accent); text-decoration: none;">← Return to Syllabus</a></nav>
+        
+        <h1>Orchestrating the Swarm</h1>
+        <div class="meta">[ COURSE: AGENTIC SWARMS // MODULE 02 // AGENT ROLE-PLAY ]</div>
+
+        <p>In Lesson 1, we gave the AI a brain. In Lesson 2, we give the AI <strong>Identity and Purpose</strong>. An agent is simply an LLM wrapped in a "Persona" with specific goals and tools.</p>
+
+        
+
+        <div class="step">
+            <span class="step-number">01.</span> <strong style="color: white;">The Environment Setup</strong>
+            <p>We need to install the orchestration layer. We use CrewAI because it handles "Process Flow"—ensuring Agent A finishes before Agent B starts.</p>
+            <div class="code-block">
+                pip install crewai langchain_community
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">02.</span> <strong style="color: white;">Connecting the Local Brain</strong>
+            <p>By default, these frameworks look for OpenAI. We must force them to look at your <strong>Local Ollama Instance</strong> (running on port 11434).</p>
+            <div class="code-block">
+                from langchain_community.llms import Ollama<br><br>
+                # Initialize your local brain<br>
+                local_llama = Ollama(model="llama3.1")
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">03.</span> <strong style="color: white;">Defining the Personas</strong>
+            <p>We will create two agents: a <strong>Researcher</strong> (to find data) and a <strong>Writer</strong> (to format it). This is a "Sequential Flow."</p>
+            <div class="code-block">
+                from crewai import Agent, Task, Crew<br><br>
+                # Agent 1: The Market Analyst<br>
+                analyst = Agent(<br>
+                &nbsp;&nbsp;role='Market Researcher',<br>
+                &nbsp;&nbsp;goal='Find the top 3 AI trends in Kenya for 2026',<br>
+                &nbsp;&nbsp;backstory='Expert in East African tech emerging markets.',<br>
+                &nbsp;&nbsp;llm=local_llama<br>
+                )<br><br>
+                # Agent 2: The Content Architect<br>
+                writer = Agent(<br>
+                &nbsp;&nbsp;role='Senior Tech Editor',<br>
+                &nbsp;&nbsp;goal='Write a viral LinkedIn post about the research',<br>
+                &nbsp;&nbsp;backstory='Specialist in high-conversion tech copywriting.',<br>
+                &nbsp;&nbsp;llm=local_llama<br>
+                )
+            </div>
+        </div>
+
+        <div class="step">
+            <span class="step-number">04.</span> <strong style="color: white;">Executing the Mission</strong>
+            <p>We combine them into a "Crew." This is where the 0xCC2 magic happens: the agents collaborate without your help.</p>
+            <div class="code-block">
+                crew = Crew(<br>
+                &nbsp;&nbsp;agents=[analyst, writer],<br>
+                &nbsp;&nbsp;tasks=[task1, task2], # (Tasks defined in full code sample)<br>
+                &nbsp;&nbsp;verbose=True<br>
+                )<br><br>
+                result = crew.kickoff()<br>
+                print(result)
+            </div>
+        </div>
+
+        <div class="logic-note">
+            <h3 style="color: white; margin-top: 0;">Step-by-Step Procedure Summary:</h3>
+            <ol>
+                <li>Start Ollama in your terminal: <code>ollama serve</code></li>
+                <li>Write your Python script defining <strong>Agents</strong> (Who they are) and <strong>Tasks</strong> (What they do).</li>
+                <li>Connect them via the <strong>Crew</strong> object.</li>
+                <li>Run <code>python swarm_01.py</code> and watch the terminal logs as they "talk" to each other.</li>
+            </ol>
+        </div>
+
+        <section class="logic-card" style="border-left: 4px solid #bef264;">
+            <h3 style="color: white; margin-top: 0;">0.1% Strategy Example:</h3>
+            <p>Imagine using this to automate a Real Estate business in Nairobi. 
+               <strong>Agent A</strong> scrapes property listings. 
+               <strong>Agent B</strong> compares them to market averages. 
+               <strong>Agent C</strong> drafts the M-Pesa payment request for the client. 
+               You just built a business that sleeps only when the power goes out.</p>
+        </section>
+
+        <footer style="margin-top: 5rem; font-size: 0.7rem; opacity: 0.5; text-align: center;">
+            MARKETWORTH ACADEMY // ENCRYPTED CURRICULUM
+        </footer>
+    </div>
+</body>
+</html>
