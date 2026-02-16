@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
 import os
 import time
 import csv
@@ -87,27 +87,47 @@ def blog():
     valid_posts = []
     for page in pages:
         try:
-            # Explicitly access meta to trigger the YAML parser and catch errors
             _ = page.meta.get('title')
             valid_posts.append(page)
         except Exception as e:
-            # This logs the specific broken file to your Render/Terminal logs
             print(f"ARCHITECT_LOG: Skipping corrupted file '{page.path}' | Error: {e}")
             continue
 
-    # Sorting valid posts by date (newest first)
     posts = sorted(valid_posts, key=lambda p: str(p.meta.get('date', '0000-00-00')), reverse=True)
     return render_template('blog.html', info=COMPANY_DATA, posts=posts)
 
 @app.route('/blog/<path:path>/')
 def post(path):
-    # Renders the individual blog post detail
     post = pages.get_or_404(path)
     return render_template('post_detail.html', info=COMPANY_DATA, post=post)
 
 @app.route('/resources')
 def resources():
     return render_template('resources.html', info=COMPANY_DATA)
+
+# --- ACADEMY ROUTING ENGINE (The Update) ---
+
+@app.route('/academy/')
+@app.route('/academy/<path:path>')
+def academy(path=None):
+    """
+    Handles internal navigation for the Sovereign Academy.
+    Supports folder-based index files and direct lesson paths.
+    """
+    # Base directory for academy files
+    academy_dir = os.path.join(app.root_path, 'academy')
+    
+    # 1. Handle root /academy/ request
+    if path is None or path == "":
+        return send_from_directory(academy_dir, 'index.html')
+    
+    # 2. Check if the path is a directory (e.g., /academy/agentic-swarms/)
+    full_path = os.path.join(academy_dir, path)
+    if os.path.isdir(full_path):
+        return send_from_directory(full_path, 'index.html')
+    
+    # 3. Serve specific files (e.g., lesson-1.html)
+    return send_from_directory(academy_dir, path)
 
 # --- OPERATIONAL ANALYSIS & LEAD CAPTURE ---
 
@@ -127,7 +147,6 @@ def submit_lead():
 
 @app.route('/subscribe', methods=['POST'])
 def subscribe():
-    """Handles Lead Magnet downloads from the blog."""
     email = request.form.get('lead_email')
     if email:
         log_lead(email, "MAGNET_DOWNLOAD_REQ")
@@ -159,8 +178,9 @@ def results():
 
 @app.errorhandler(404)
 def page_not_found(e): 
+    # Try academy fallback before redirecting to home
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port)
