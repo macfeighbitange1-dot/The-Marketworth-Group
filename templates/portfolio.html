@@ -1,0 +1,57 @@
+{% extends "base.html" %} 
+{% block content %}
+<section class="hero" style="padding: 120px 0 60px; background: radial-gradient(circle at top, #0f172a 0%, #020617 100%);">
+    <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 20px; text-align: center;">
+        <span style="color: var(--brand-accent); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Engineered Implementations</span>
+        <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin: 20px 0; letter-spacing: -1px;">
+            Websites Built for <span style="color: var(--brand-orange);">AI Search Dominance</span>
+        </h1>
+        <p style="color: #94a3b8; max-width: 700px; margin: 0 auto 50px; font-size: 1.2rem; line-height: 1.6;">
+            Traditional SEO is dying. We build high-performance intelligence interfaces optimized systematically for LLM crawlers, semantic density, and standard search engines.
+        </p>
+    </div>
+</section>
+
+<section class="showcase-brief" style="padding: 40px 0 60px; background: #020617;">
+    <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
+        
+        <!-- Case Brief Container -->
+        <div class="blueprint-card" style="background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 40px; position: relative; border-left: 4px solid var(--brand-accent);">
+            <span class="blueprint-tag">Core Capabilities</span>
+            <h2 style="font-size: 1.8rem; margin: 15px 0; color: white;">Semantic Density & Crawler Optimization</h2>
+            
+            <p style="color: #cbd5e1; line-height: 1.7; font-size: 1.05rem; margin-bottom: 25px;">
+                Our production web deployments don't just render pages—they inject high-signal data vectors directly into the knowledge graphs of AI agents. By engineering schema layers using the 0xCC2 protocol, your enterprise platform becomes top-recommended text when engines like ChatGPT, Perplexity, and Claude crawl for context.
+            </p>
+
+            <div class="blueprint-metric" style="margin-bottom: 30px;">
+                <span class="metric-value" style="color: var(--brand-orange);">10x</span>
+                <span class="metric-label">Higher Recommendation Probability in LLM Citations</span>
+            </div>
+
+            <!-- Deep linking anchor redirection -->
+            <a href="/services#intelligence-interfaces" class="blueprint-btn" style="color: var(--brand-accent); text-decoration: none; font-weight: 700; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;">
+                See More Technical Specifications
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="portfolio-section" style="padding: 40px 0 100px;">
+    <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        <h2 style="color: white; font-size: 2.2rem; font-weight: 900; margin-bottom: 10px; letter-spacing: -1px;">Our Proven Intelligence Nodes</h2>
+        <p style="color: #94a3b8; margin-bottom: 40px; font-size: 1.1rem;">Architecting the future of sovereign systems.</p>
+        
+        <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
+            {% for project in projects %}
+            <div class="project-card" style="background: var(--brand-surface); border: 1px solid rgba(255,255,255,0.05); padding: 40px; border-radius: 24px;">
+                <h3 style="color: white; font-size: 1.5rem; margin-bottom: 15px;">{{ project.name }}</h3>
+                <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">{{ project.desc }}</p>
+                <span class="tech-stack" style="color: var(--brand-accent); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700;">Stack: {{ project.tech }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
