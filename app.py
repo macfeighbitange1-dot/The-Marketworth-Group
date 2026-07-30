@@ -3,7 +3,7 @@ import os
 import time
 import csv
 import requests
-from mistralai.client import Mistral
+from mistralai import Mistral
 from flask_flatpages import FlatPages
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ app.config['FLATPAGES_ROOT'] = 'pages'
 # Initialize FlatPages AFTER config is set
 pages = FlatPages(app)
 
-# Mistral Configuration
+# Mistral Configuration (Updated for mistralai v2.x)
 MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "QiJh8V2kZ3IQL1eYCAnKqJSOJxSHbTyC")
 mistral_client = Mistral(api_key=MISTRAL_API_KEY) if MISTRAL_API_KEY else None
 
@@ -56,7 +56,7 @@ def analyze_site_intelligence(target_url):
         if mistral_client:
             prompt = f"Website: {target_url}. JSON-LD Schema Found: {has_schema}. Provide a 1-sentence expert AEO recommendation."
             chat_response = mistral_client.chat.complete(
-                model="mistral-tiny",
+                model="mistral-small-latest",
                 messages=[{"role": "user", "content": prompt}]
             )
             advice = chat_response.choices[0].message.content
@@ -105,7 +105,7 @@ def post(path):
 def resources():
     return render_template('resources.html', info=COMPANY_DATA)
 
-# --- ACADEMY ROUTING ENGINE (The Update) ---
+# --- ACADEMY ROUTING ENGINE ---
 
 @app.route('/academy/')
 @app.route('/academy/<path:path>')
@@ -114,19 +114,15 @@ def academy(path=None):
     Handles internal navigation for the Sovereign Academy.
     Supports folder-based index files and direct lesson paths.
     """
-    # Base directory for academy files
     academy_dir = os.path.join(app.root_path, 'academy')
     
-    # 1. Handle root /academy/ request
     if path is None or path == "":
         return send_from_directory(academy_dir, 'index.html')
     
-    # 2. Check if the path is a directory (e.g., /academy/agentic-swarms/)
     full_path = os.path.join(academy_dir, path)
     if os.path.isdir(full_path):
         return send_from_directory(full_path, 'index.html')
     
-    # 3. Serve specific files (e.g., lesson-1.html)
     return send_from_directory(academy_dir, path)
 
 # --- OPERATIONAL ANALYSIS & LEAD CAPTURE ---
@@ -178,7 +174,6 @@ def results():
 
 @app.errorhandler(404)
 def page_not_found(e): 
-    # Try academy fallback before redirecting to home
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
