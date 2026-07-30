@@ -3,7 +3,7 @@ import os
 import time
 import csv
 import requests
-from mistralai import Mistral
+from mistralai.client import Mistral
 from flask_flatpages import FlatPages
 
 app = Flask(__name__)
