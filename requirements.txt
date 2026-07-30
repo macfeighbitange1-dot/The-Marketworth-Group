@@ -1,6 +1,6 @@
 flask
 gunicorn
 requests
-mistralai
+mistralai<2.0.0
 Flask-FlatPages
 Markdown
